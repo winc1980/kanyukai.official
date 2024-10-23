@@ -1,5 +1,7 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro";
+import Headline from "../components/Headline.astro";
+import Label from "../components/Label.astro";
 const title = "";
 const description = "";
 const og_image = "";
@@ -7,6 +9,23 @@ const og_image = "";
 
 <Layout title={title} , description={description} og_image={og_image}>
 	<main>
-
+		
+		<div class="top_content">
+			
+			<div class="left">
+				<h1>Enjoy with us!</h1>
+				<a>Join us!</a>
+			</div>
+			<div>
+				<img
+					src="/assets/image 1.png"
+					alt="img1"
+				/>
+			</div>
+		</div>
+		<Headline title="Activity"/>
+		<div>
+			<Label jp="普段の活動" en="News"/>
+		</div>
 	</main>
 </Layout>
