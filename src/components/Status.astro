@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import Label from "./Label.astro";
+import StatusElem from "./StatusElem.astro";
+
+import img4 from '../assets/image 4.png';
+import SlipCard from "./SlipCard.astro";
+const imgAlt = "..."
+---
+
+<div class="status">
+    <div class="left">
+        <Label jp="基本情報" en="Status"/>
+        <div class="content">
+            <StatusElem title="正式名称" content="学習院大学　輔仁会竿友会同好会"/>
+            <StatusElem title="活動場所" content="そこらへんの河原"/>
+            <StatusElem title="活動日" content="毎週土日・祝日"/>
+            <StatusElem title="所属人数" content="500人(男女比5:5)"/>
+        </div>
+    </div>
+    <div class="right">
+        <div class="content">
+            <Image src={img4} alt={imgAlt}/>
+        </div>
+        <div class="bg one">
+            <SlipCard width="300px" height="220px"/>
+        </div>
+        <div class="bg two">
+            <SlipCard width="300px" height="220px"/>
+        </div>
+        <div class="bg three">
+            <SlipCard width="300px" height="220px"/>
+        </div>
+    </div>
+</div>

@@ -2,11 +2,18 @@
 let {jp, en} = Astro.props;
 ---
 
-<div>
-    <div>
+<div class="label">
+    <div class="label_top">
         {jp}
     </div>
-    <div>
-        {en}
+    <div class="label_bottom">
+        <div class="en">
+            {en}
+        </div>
+        <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
     </div>
 </div>

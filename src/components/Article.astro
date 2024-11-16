@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+
+let {title, date, content, imgSrc} = Astro.props;
+---
+
+<div class="article">
+    <div class="content">
+        <div class="left">
+            <div class="top">
+                <div class="title">
+                    {title}
+                </div>
+                <div class="date">
+                    {date}
+                </div>
+            </div>
+            
+    
+            <div>
+                {content}
+            </div>
+        </div>
+        
+        <div class="right">
+            <Image src={imgSrc} alt="img2" style={{height: '100%', width: 'auto'}}/>
+        </div>
+    </div>
+    <div class="bg"></div>
+</div>

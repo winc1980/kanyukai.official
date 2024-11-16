@@ -1,12 +1,12 @@
 ---
-
+import { Image } from 'astro:assets';
+import headerLogo from '../assets/logo.png';
 ---
 
 <header>
-    <img
-        src="/assets/logo.png"
-        alt="header_logo"
-    />
+    <div>
+        <Image src={headerLogo} alt="header_logo">
+    </div>
     <ul class="header_link">
         <li>
             <a>大会実績</a>

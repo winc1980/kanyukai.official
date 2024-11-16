@@ -2,30 +2,83 @@
 import Layout from "../layouts/Layout.astro";
 import Headline from "../components/Headline.astro";
 import Label from "../components/Label.astro";
+import Article from "../components/Article.astro";
+import ViewButton from "../components/ViewButton.astro";
 const title = "";
 const description = "";
 const og_image = "";
+import image1 from '../assets/image 1.png';
+import { Image } from "astro:assets";
+import img2 from '../assets/image 2.png';
+import img3 from '../assets/image 3.png';
+import Award from "../components/Award.astro";
+import Invitation from "../components/Invitation.astro";
+import Status from "../components/Status.astro";
+import Activity from "../components/Activity.astro";
 ---
 
 <Layout title={title} , description={description} og_image={og_image}>
 	<main>
-		
 		<div class="top_content">
-			
-			<div class="left">
+			<div class="left_content">
 				<h1>Enjoy with us!</h1>
-				<a>Join us!</a>
+				<div class="join_link">
+					<div class="link_content">
+						<a>Join us!</a>
+						<svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<line x1="4.37114e-08" y1="8.5" x2="36" y2="8.5" stroke="black"/>
+							<line x1="35.738" y1="8.42583" x2="22.738" y2="0.425829" stroke="black"/>
+						</svg>	
+					</div>
+					
+					<div class="bg_link"></div>
+				</div>
 			</div>
-			<div>
-				<img
-					src="/assets/image 1.png"
-					alt="img1"
-				/>
+			<div class="right_content">
+				<div class="img_wrapper">
+					<Image src={image1} alt="image1" style="width: 100%; height: auto;">
+				</div>
 			</div>
 		</div>
 		<Headline title="Activity"/>
-		<div>
+		<div class="activity">
 			<Label jp="普段の活動" en="News"/>
+			<Article title="タイトル" date="YYYY/MM/DD" imgSrc={img2} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/>
+			<Article title="タイトル" date="YYYY/MM/DD" imgSrc={img3} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/>
+			<div class="button_margin">
+				<ViewButton/>
+			</div>
+			
 		</div>
+		<div class="awards">
+			<Label jp="大会実績" en="Awards"/>
+			<div class="award_container">
+				<Award title="全国大会 ＜ 総合１位 ＞" date="YYYY/DD/MM" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" color="#EEEC9B"/>
+				<Award title="全国大会 ＜ 総合２位 ＞" date="YYYY/DD/MM" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" color="#B4CFD1"/>
+				<Award title="全国大会 ＜ 総合３位 ＞" date="YYYY/DD/MM" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" color="#D1CAB4"/>
+			</div>
+			<div class="button_margin">
+				<ViewButton/>
+			</div>
+		</div>
+		<Headline title="Invitation"/>
+		<div class="invitations">
+			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
+			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
+			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
+			<div class="button_margin">
+				<ViewButton/>
+			</div>
+		</div>
+		<Headline title="Information"/>
+		<div class="informations">
+			<Status/>
+			<Activity/>
+			<div class="button_margin">
+				<ViewButton/>
+			</div>
+		</div>
+		<Headline title="History"/>
+
 	</main>
 </Layout>

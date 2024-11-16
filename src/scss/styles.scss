@@ -2,6 +2,10 @@
 
 @use "./variables" as *;
 
+body * {
+    font-size: 16px;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -10,14 +14,11 @@ header {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
     .header_link {
         display: flex;
+        align-items: center;
         li {
             margin: 0 20px;
             font-style: "Zen Kaku Gothic New";
-            font-size: 20px;
-        }
-    
-        a {
-    
+            font-size: 1.25rem;
         }
     
         a:hover {
@@ -29,29 +30,109 @@ header {
         .invitation {
             border: 1px solid #000;
             position: relative;
-            // a {
-            //     margin: 10px;
-            // }
+            width: 140px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0;
         }
     
         .bg_invitation {
             position: absolute;
             background-color: #7AEBFF;
-            top: 2px;
-            left: 2px;
-            width: 68px;
-            height: 32px;
+            top: 3px;
+            left: 3px;
+            width: 140px;
+            height: 50px;
             z-index: -1;
+        }
+
+        .invitation:hover {
+            
+            .bg_invitation {
+                top: 0px;
+                left: 0px;
+                opacity: 0.8;
+                transition: all 0.4s ease;
+            }
         }
     }
 }
 
 .top_content {
     display: flex;
-    .left {
+    justify-content: space-between;
+    margin-bottom: 7%;
+    .left_content {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        margin: 40px 0 40px 8%;
+        width: 30%;
+        h1 {
+            font-size: 6rem;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        .join_link {
+            border: 1px solid #000;
+            position: relative;
+            width: 211px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            .link_content{
+                display: flex;
+
+                a{
+                    font-size: 1.5rem;
+                }
+
+                svg {
+                    margin-left: 6px;
+                    align-self: flex-end;
+                }
+            }
+
+            .bg_link {
+                position: absolute;
+                background-color: #7AEBFF;
+                top: 3px;
+                left: 3px;
+                width: 211px;
+                height: 70px;
+                z-index: -1;
+            }
+        }
+
+        .join_link:hover {
+            .bg_link {
+                top: 0px;
+                left: 0px;
+                opacity: 0.8;
+                transition: all 0.4s ease;
+            }
+        }
+    }
+    .right_content {
+        position: relative;
+        border: 1px solid #000;
+        margin: 2%;
+        width: 818px;
+        height: 614px;
+    
+        .img_wrapper {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 817px;
+            height: 616px;
+            z-index: -1;
+        }
     }
 }
 
@@ -59,15 +140,484 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 64px;
     .title {
         margin: 0 5%;
+        font-family: "Zen Kaku Gothic New", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 4rem;
     }
 
     .line {
         width: 50%;
         height: 1px;
         background-color: black;
-
     }
+}
+
+.label {
+    .label_top {
+        font-size: 1.25rem;
+    }
+
+    .label_bottom {
+        display: flex;
+        
+        .en {
+            font-size: 3rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 300;
+            letter-spacing: 8px;
+            border-bottom: 1px solid #000;
+        }
+
+        .dots {
+            display: flex;
+            align-self: flex-end;
+            margin-left: 10px;
+            .dot {
+                width: 3px;
+                height: 3px;
+                background-color: #000;
+                margin-right: 6px;
+            }
+        }
+    }
+}
+
+.activity {
+    padding: 0 8%;
+    display: flex;
+    flex-direction: column;
+}
+
+.button_margin {
+    margin-top: 3.5%;
+    display: flex;
+    align-self: center;
+}
+
+.article {
+    position: relative;
+    width: 1200px;
+    height: 310px;
+    margin-top: 2%;
+
+    .content {
+        display: flex;
+        border: 1px solid #000;
+        position: relative;
+        width: inherit;
+        height: inherit;
+        padding: 3%;
+        
+        .left {
+            width: 70%;
+            margin-right: 5%;
+            .top {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid #000;
+                align-self: flex-end;
+                .title {
+                    font-size: 2rem;
+                    font-family: "Noto Sans JP", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 400;
+                    font-style: normal;
+                    align-self: flex-end;
+                }
+
+                .date {
+                    font-family: "Noto Sans JP", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 200;
+                    font-style: normal;
+                    align-self: flex-end;
+                }
+            }
+        }
+
+        .right {
+            width: 30%;
+            height: max-content;
+            border: 1px solid #000;
+        }
+    }
+
+    .bg {
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        top: 12px;
+        left: 12px;
+        z-index: -1;
+        background-color: #E6FBFF;
+    }
+}
+
+.button_container {
+    width: 141px;
+    height: 54px;
+    border: 1px solid #000;
+    position: relative;
+    cursor: pointer;
+    .button_content {
+        display: flex;
+        flex-direction: column;
+        padding: 2%;
+        height: 100%;
+
+        a{
+            height: 75%;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            font-weight:lighter;
+            font-size: 1.25rem;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        svg {
+            height: 25%;
+            display: flex;
+            justify-content: end;
+            align-self: flex-end;
+            align-items: end;
+            margin-right: 0;
+        }
+    }
+
+    .button_bg {
+        position: absolute;
+        background-color: #7AEBFF;
+        top: 1.5px;
+        left: 1.5px;
+        width: inherit;
+        height: inherit;
+        z-index: -1;
+    }
+}
+
+.button_container:hover {
+    .button_bg {
+        top: 0px;
+        left: 0px;
+        opacity: 0.8;
+        transition: all 0.4s ease;
+    }
+}
+
+.awards {
+    padding: 0 8%;
+    display: flex;
+    flex-direction: column;
+    .award_container{
+        margin-top: 20px;
+    }
+}
+
+.award {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 117px;
+    border: 1px solid #000;
+    margin-bottom: 7px;
+
+    .award_content {
+        padding: 20px 3%;
+        display: flex;
+        width: 100%;
+
+        .award_right {
+            width: 100%;
+            .award_top {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid #000;
+                width: 100%;
+                .title {
+                    font-size: 1.5rem;
+                    font-family: "Zen Kaku Gothic New", serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    align-self: flex-end;
+                }
+    
+                .date {
+                    font-family: "Zen Kaku Gothic New", serif;
+                    font-weight: 300;
+                    font-style: normal;
+                    align-self: flex-end;
+                }
+            }
+        }
+        
+
+        p {
+            font-size: 1.25rem;
+            font-family: "Zen Kaku Gothic New", serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+    }
+
+    .award_left_rectangle {
+        width: 9px;
+        height: 100%;
+        margin-right: 3%;
+    }
+
+    .award_bg {
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        top: 7px;
+        left: 7px;
+        z-index: -1;
+        background-color: #E6FBFF;
+    }
+}
+
+.invitations {
+    padding: 0 8%;
+    display: flex;
+    flex-direction: column;
+}
+
+.invitation {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    .bg {
+        position: absolute;
+        width: inherit;
+        height: 134px;
+        background-color: #E6FBFF;
+        filter: blur(1.5rem);
+        z-index: -1;
+    }
+    
+    .invitation_content {
+        display: flex;
+        padding: 2%;
+        width: inherit;
+        .left_content {
+            .date {
+                font-size: 1.25rem;
+                font-family: "Zen Kaku Gothic New", serif;
+                font-weight: 300;
+                font-style: normal;
+            }
+        }
+
+        .right_content {
+            width: 100%;
+            padding: 0 5%;
+            .top_content {
+                .title {
+                    font-size: 1.5rem;
+                    font-family: "Noto Sans JP", sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                }
+            }
+    
+            .middle_content {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 12px;
+                p {
+                    font-size: 1.25rem;
+                    font-family: "Zen Kaku Gothic New", serif;
+                    font-weight: 300;
+                    font-style: normal;
+                }
+
+                svg {
+                    align-self: flex-end;
+                }
+            }
+        }
+    }
+}
+
+.status_elem {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .top {
+        display: flex;
+        .tag_bg {
+            background-color: #C5C5C5;
+            width: 4px;
+            height: 40px;
+        }
+        .title {
+            font-size: 1.5rem;
+            font-family: "Zen Kaku Gothic New", serif;
+            font-weight: 300;
+            font-style: normal;
+            display: flex;
+            align-items: center;
+            margin-left: 4px;
+        }
+    }
+
+    .bottom {
+        align-self: center;
+        font-size: 1.5rem;
+        font-family: "Zen Kaku Gothic New", serif;
+        font-weight: 300;
+        font-style: normal;
+        margin: 0 4px;
+    }
+}
+
+.informations{
+    padding: 0 8%;
+    display: flex;
+    flex-direction: column;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5%;
+    .left {
+        width: 50%;
+        .content {
+            margin-top: 20px;
+            margin-left: 5%;
+        }
+    }
+
+    .right {
+        display: flex;
+        justify-content: end;
+        width: 560px;
+        height: 420px;
+        position: relative;
+        border: 1px solid rgba(#000, 0.3);
+        .content {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 560px;
+            height: 420px;
+            z-index: -1;
+        }
+
+        .bg {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+
+        .one {
+            top: -5%;
+            left: 20%;
+        }
+
+        .two{
+            bottom: 30%;
+            left: -8%;
+        }
+
+        .three {
+            top: 20%;
+            right: 30%;
+        }
+    }
+}
+
+.activity_mini {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10%;
+
+    .left {
+        width: 50%;
+        .content {
+            width: 100%;
+            font-family: "Zen Kaku Gothic New", serif;
+            font-weight: 300;
+            font-style: normal;
+            padding-top: 14%;
+            padding-left: 14%;
+        }
+
+        p {
+            font-size: 1.25rem;
+        }
+
+        .link {
+            margin-top: 4%;
+            display: flex;
+            a {
+                font-size: 1.25rem;
+                margin: 0 12px;
+            }
+        }
+    }
+
+    .right {
+        margin-top: 12%;
+        width: 560px;
+        height: 420px;
+        position: relative;
+        outline: 1px solid rgba(0, 0, 0, 0.3);
+        .img_container {
+            z-index: -1;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 560px;
+            height: 420px;
+        }
+        .bg {
+            position: absolute;
+        }
+        .one {
+            top: -20%;
+            left: -20%;
+        }
+        .two {
+            bottom: -7%;
+            left: 10%;
+        }
+
+        .three {
+            top: -5%;
+            right: -10%;
+        }
+    }
+}
+
+footer {
+    background-color: #F1FCFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.25rem;
+    padding: 27px 0;
+    box-shadow: 0 -10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.absolute{
+    z-index: -3;
+    position: absolute;
+    background-color: #E6FBFF;
+}
+
+.slip {
+    z-index: -2;
+    border: 0.5px solid rgba($color: #000000, $alpha: 0.3);
+    position: relative;
+    
 }
