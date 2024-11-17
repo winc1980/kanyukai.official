@@ -1,0 +1,64 @@
+---
+import CarouselScript from "./CarouselScript.jsx"; // JavaScript機能を導入
+const carousel = document.querySelector('.carousel');
+const leftButton = document.querySelector('.carousel-button.left');
+const rightButton = document.querySelector('.carousel-button.right');
+
+// スクロール幅（アイテム1つ分）
+const scrollAmount = 200;
+
+// 左にスクロール
+leftButton!.addEventListener('click', () => {
+  carousel!.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+
+// 右にスクロール
+rightButton!.addEventListener('click', () => {
+  carousel!.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});
+
+---
+
+<div class="carousel-container">
+  <button class="carousel-button left">‹</button>
+  <div class="carousel">
+    <div class="carousel-item">Item 1</div>
+    <div class="carousel-item">Item 2</div>
+    <div class="carousel-item">Item 3</div>
+    <div class="carousel-item">Item 4</div>
+    <div class="carousel-item">Item 5</div>
+  </div>
+  <button class="carousel-button right">›</button>
+</div>
+
+
+
+<style>
+.carousel-container {
+  position: relative; /* ボタンをカルーセルに重ねるため */
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10; /* ボタンをカルーセルの上に表示 */
+}
+
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+</style>
+
+<!-- JavaScriptの導入 -->
+<!-- <CarouselScript client:load /> -->

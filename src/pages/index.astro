@@ -15,6 +15,10 @@ import Award from "../components/Award.astro";
 import Invitation from "../components/Invitation.astro";
 import Status from "../components/Status.astro";
 import Activity from "../components/Activity.astro";
+import Carousel from "../components/Carousel/Carousel.astro";
+import Counter from "../components/Test";
+import { signal } from '@preact/signals';
+const count = signal(0);
 ---
 
 <Layout title={title} , description={description} og_image={og_image}>
@@ -79,6 +83,15 @@ import Activity from "../components/Activity.astro";
 			</div>
 		</div>
 		<Headline title="History"/>
-
+		<div class="history">
+			<Counter count={count} client:visible>
+				<>
+			</Counter>
+			<div class="button_margin">
+				<ViewButton/>
+			</div>
+		</div>
+		 
+		 
 	</main>
 </Layout>
