@@ -523,15 +523,16 @@ header {
         height: $photoCardHeight;
         margin: 0 1%;
         border: 1px solid #000;
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     }
 
     .odd {
         margin-top: 5%;
+        box-shadow: 0 50px 5px rgba(0, 0, 0, 0.3);
     }
 
     .even {
         margin-bottom: 5%;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     }
 }
 

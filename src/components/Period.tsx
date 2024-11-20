@@ -14,27 +14,27 @@ export default function Period({
   periodClick,
 }: periodProps) {
   return isDetail ? (
-    <div className="detail_container">
-      <div className="year">{year}</div>
-      <div className="title">{title}</div>
+    <div class="detail_container">
+      <div class="year">{year}</div>
+      <div class="title">{title}</div>
       <p>{paragraph}</p>
-      <div className="bg"></div>
+      <div class="bg"></div>
     </div>
   ) : Number(year) ? (
     <>
       <div class="period_wrapper" onClick={periodClick}>
         <span class="left_circle"></span>
-        <p className="date">{year}</p>
+        <p class="date">{year}</p>
         <span class="right_circle"></span>
-        <p className="title">{title}</p>
+        <p class="title">{title}</p>
       </div>
     </>
   ) : (
     <>
       <div class="mini_period_wrapper" onClick={periodClick}>
         <span></span>
-        <p className="date">{year}</p>
-        <p className="title">{title}</p>
+        <p class="date">{year}</p>
+        <p class="title">{title}</p>
       </div>
     </>
   );
