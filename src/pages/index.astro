@@ -7,7 +7,7 @@ import ViewButton from "../components/ViewButton.astro";
 const title = "";
 const description = "";
 const og_image = "";
-import image1 from '../assets/image 1.png';
+
 import { Image } from "astro:assets";
 import img2 from '../assets/image 2.png';
 import img3 from '../assets/image 3.png';
@@ -15,38 +15,34 @@ import Award from "../components/Award.astro";
 import Invitation from "../components/Invitation.astro";
 import Status from "../components/Status.astro";
 import Activity from "../components/Activity.astro";
-import Carousel from "../components/Carousel/Carousel.astro";
 import Counter from "../components/Test";
 import { signal } from '@preact/signals';
+import TopContent from "../components/TopContent";
+import Top from "../components/Top.astro";
+import Logo from "../components/Logo.astro";
+import Photo from "../components/Photo.astro";
 const count = signal(0);
 ---
 
 <Layout title={title} , description={description} og_image={og_image}>
 	<main>
-		<div class="top_content">
-			<div class="left_content">
-				<h1>Enjoy with us!</h1>
-				<div class="join_link">
-					<div class="link_content">
-						<a>Join us!</a>
-						<svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<line x1="4.37114e-08" y1="8.5" x2="36" y2="8.5" stroke="black"/>
-							<line x1="35.738" y1="8.42583" x2="22.738" y2="0.425829" stroke="black"/>
-						</svg>	
-					</div>
-					
-					<div class="bg_link"></div>
-				</div>
-			</div>
-			<div class="right_content">
-				<div class="img_wrapper">
-					<Image src={image1} alt="image1" style="width: 100%; height: auto;">
-				</div>
-			</div>
-		</div>
+		<a class="to_top" href="#top">
+			<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<rect opacity="0.5" x="3" y="3" width="54" height="54" fill="#74C1F5"/>
+				<path opacity="0.5" d="M7.54606 39.0757C6.48176 40.3903 7.42842 42.3504 9.11976 42.3341L13.5063 42.2918C14.1031 42.2861 14.6662 42.0141 15.0417 41.5501L28.8017 24.5471C29.6021 23.5581 31.1104 23.558 31.9109 24.5469L45.6749 41.5503C46.0504 42.0141 46.6134 42.2861 47.2102 42.2918L51.6309 42.3342C53.3221 42.3505 54.2687 40.3906 53.2046 39.076L31.9315 12.7953C31.1311 11.8065 29.623 11.8064 28.8225 12.7952L7.54606 39.0757Z" fill="#F0F5FD"/>
+				<rect x="0.5" y="0.5" width="59" height="59" stroke="#51B7F2"/>
+			</svg> 
+		</a>
+		<Top client:load/>
 		<Headline title="Activity"/>
 		<div class="activity">
-			<Label jp="普段の活動" en="News"/>
+			<div class="logo right">
+				<Logo/>
+			</div>
+			<div class="logo left">
+				<Logo/>
+			</div>
+			<Label jp="普段の活動" en="Activity"/>
 			<Article title="タイトル" date="YYYY/MM/DD" imgSrc={img2} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/>
 			<Article title="タイトル" date="YYYY/MM/DD" imgSrc={img3} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/>
 			<div class="button_margin">
@@ -55,6 +51,12 @@ const count = signal(0);
 			
 		</div>
 		<div class="awards">
+			<div class="logo right">
+				<Logo/>
+			</div>
+			<div class="logo left">
+				<Logo/>
+			</div>
 			<Label jp="大会実績" en="Awards"/>
 			<div class="award_container">
 				<Award title="全国大会 ＜ 総合１位 ＞" date="YYYY/DD/MM" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" color="#EEEC9B"/>
@@ -67,13 +69,17 @@ const count = signal(0);
 		</div>
 		<Headline title="Invitation"/>
 		<div class="invitations">
-			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
-			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
-			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
-			<div class="button_margin">
-				<ViewButton/>
+			<div class="logo right">
+				<Logo/>
 			</div>
+			<div class="logo left">
+				<Logo/>
+			</div>
+			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
+			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
+			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
 		</div>
+		<Photo/>
 		<Headline title="Information"/>
 		<div class="informations">
 			<Status/>
@@ -95,3 +101,23 @@ const count = signal(0);
 		 
 	</main>
 </Layout>
+
+<script>
+	const toTop = document.querySelectorAll('a.to_top')[0];
+	let pos = document.documentElement.scrollHeight - window.scrollY;
+
+	if(pos > 1653) {
+		toTop.classList.remove("locked");
+	} else {
+		toTop.classList.add("locked");
+	}
+	document.addEventListener("scroll", () => {
+    	pos = document.documentElement.scrollHeight - window.scrollY;
+    	console.log(`Current scroll position: ${pos}`);
+		if(pos > 1653) {
+			toTop.classList.remove("locked");
+		} else {
+			toTop.classList.add("locked");
+		}
+	});
+</script>
