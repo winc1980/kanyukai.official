@@ -100,21 +100,34 @@ const count = signal(0);
 </Layout>
 
 <script>
-	const toTop = document.querySelectorAll('a.to_top')[0];
+	const toTop = document.querySelectorAll('a.to_top')[0] as HTMLElement;
 	let pos = document.documentElement.scrollHeight - window.scrollY;
 
-	if(pos > 1653) {
+	if(pos > window.innerHeight+102) {
+		toTop.style.bottom = "0px";
 		toTop.classList.remove("locked");
 	} else {
-		toTop.classList.add("locked");
+		if(pos > window.innerHeight){
+			toTop.style.bottom = `${pos-window.innerHeight}px`;
+		}else {
+			toTop.style.bottom = '102px';
+			toTop.classList.add("locked");
+		}
+		
 	}
 	document.addEventListener("scroll", () => {
     	pos = document.documentElement.scrollHeight - window.scrollY;
     	console.log(`Current scroll position: ${pos}`);
-		if(pos > 1653) {
+		if(pos > window.innerHeight+102) {
+			toTop.style.bottom = "0px";
 			toTop.classList.remove("locked");
 		} else {
-			toTop.classList.add("locked");
+			if(pos > window.innerHeight) {
+				toTop.style.bottom = `${102 - (pos-window.innerHeight)}px`;
+			}else{
+				toTop.style.bottom = '102px';
+				toTop.classList.add("locked");
+			}
 		}
 	});
 </script>
