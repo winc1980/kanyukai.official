@@ -7,20 +7,28 @@ html {
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 body * {
   font-size: 16px;
 }
 
+.flex {
+  display: flex;
+}
+
+.fixed {
+  display: fixed;
+}
+
 .logo_top {
-    display: flex;
+  display: flex;
 }
 
 .logo {
-    z-index: 100;
-    position: absolute;
+  z-index: 100;
+  position: absolute;
 }
 
 header {
@@ -159,7 +167,7 @@ header {
       left: 8px;
       width: $slideWidth;
       height: $slideHeight;
-    //   z-index: -1;
+      //   z-index: -1;
     }
   }
 }
@@ -504,7 +512,7 @@ header {
 }
 
 .photo_container {
-    align-items: center;
+  align-items: center;
   position: relative;
   margin: 3% 0;
   overflow-x: auto;
@@ -517,23 +525,23 @@ header {
   align-items: center;
   scrollbar-width: none;
   margin: 5% 0;
-    .img_box {
-        flex-shrink: 0;
-        width: $photoCardWidth;
-        height: $photoCardHeight;
-        margin: 0 1%;
-        border: 1px solid #000;
-    }
+  .img_box {
+    flex-shrink: 0;
+    width: $photoCardWidth;
+    height: $photoCardHeight;
+    margin: 0 1%;
+    border: 1px solid #000;
+  }
 
-    .odd {
-        margin-top: 5%;
-        box-shadow: 0 50px 5px rgba(0, 0, 0, 0.3);
-    }
+  .odd {
+    margin-top: 5%;
+    box-shadow: 0 50px 5px rgba(0, 0, 0, 0.3);
+  }
 
-    .even {
-        margin-bottom: 5%;
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-    }
+  .even {
+    margin-bottom: 5%;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .status_elem {
@@ -586,23 +594,22 @@ header {
       margin-left: 5%;
     }
     p {
-        font-size: 1.25rem;
-        
-      }
+      font-size: 1.25rem;
+    }
     .link {
-        margin-top: 4%;
-        display: flex;
-        p {
-            font-size: 1.25rem;
-            font-family: "Zen Kaku Gothic New", serif;
-            font-weight: 300;
-            font-style: normal;
-        }
-        a {
-          font-size: 1.25rem;
-          margin: 0 12px;
-        }
+      margin-top: 4%;
+      display: flex;
+      p {
+        font-size: 1.25rem;
+        font-family: "Zen Kaku Gothic New", serif;
+        font-weight: 300;
+        font-style: normal;
       }
+      a {
+        font-size: 1.25rem;
+        margin: 0 12px;
+      }
+    }
   }
 
   .right {
@@ -672,8 +679,6 @@ header {
     p {
       font-size: 1rem;
     }
-
-    
   }
 
   .right {
@@ -921,92 +926,117 @@ footer {
 }
 
 .slide-wrapper {
-    width: 100%;
-    height: $slideHeight;
-    position: relative;
-    overflow: hidden; /* はみ出したスライドを隠す */
+  width: 100%;
+  height: $slideHeight;
+  position: relative;
+  overflow: hidden; /* はみ出したスライドを隠す */
+}
+/*  ↓ スライド（コンテンツ） */
+.slide {
+  /*スライド全体 */
+  width: 300%;
+  height: 100%;
+  display: flex;
+  transition: all 0.3s;
+}
+.slide div {
+  /* スライド */
+  width: 33.33%;
+  height: 100%;
+  font-size: 16px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  z-index: -2;
+}
+.slide1 {
+  /* スライドさせるために必要なクラス */
+  transform: translateX(0);
+}
+.slide2 {
+  transform: translateX(-33.33%);
+}
+.slide3 {
+  transform: translateX(-66.66%);
+}
+.slide div:nth-of-type(1) {
+  background-color: #e1f3fc;
+}
+.slide div:nth-of-type(2) {
+  background-color: #fce8f0;
+}
+.slide div:nth-of-type(3) {
+  background-color: #e3f1e4;
+}
+
+.slide_indicators {
+  position: absolute;
+  flex-shrink: 0;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.selected {
+  position: static;
+}
+
+.navigations {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: fit-content;
+  top: 0px;
+  left: 0px;
+  box-sizing: border-box;
+  z-index: 100;
+  margin-left: 1%;
+  span{
+    margin: 0 4%;
   }
-  /*  ↓ スライド（コンテンツ） */
-  .slide { /*スライド全体 */
-    width: 300%;
-    height: 100%;
-    display: flex;
-    transition: all 0.3s;
-  }
-  .slide div { /* スライド */
-    width: 33.33%;
-    height: 100%;
-    font-size: 16px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-  .slide1 { /* スライドさせるために必要なクラス */
-    transform: translateX(0);
-  }
-  .slide2 { /* スライドさせるために必要なクラス */
-    transform: translateX(-33.33%);
-  }
-  .slide3 { /* スライドさせるために必要なクラス */
-    transform: translateX(-66.66%);
-  }
-  .slide div:nth-of-type(1){ /* 背景色 */
-    background-color: #E1F3FC;
-  }
-  .slide div:nth-of-type(2){ /* 背景色 */
-    background-color: #FCE8F0;
-  }
-  .slide div:nth-of-type(3){ /* 背景色 */
-    background-color: #E3F1E4;
-  }
-  /* ↓ 左右のボタン */
-  .next {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    right: 10px;
-    bottom: 50%;
-    z-index: 10;
-    cursor: pointer;
-    border-top: solid 3px #000;
-    border-right: solid 3px #000;
-    -webkit-transform: rotate(45deg) translateY(50%);
-    transform: rotate(45deg) translateY(50%);
-  }
-  .prev {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    left: 25px;
-    bottom: 50%;
-    z-index: 10;
-    cursor: pointer;
-    border-top: solid 3px #000;
-    border-right: solid 3px #000;
-    -webkit-transform: rotate(-135deg) translateY(-50%);
-    transform: rotate(-135deg) translateY(-50%);
-  }
-  /* ↓ インジケーター */
-  .indicator {
-    width: 100%;
-    position: absolute;
-    bottom: 20px;
-    display: flex;
-    column-gap: 18px;
-    z-index: 10;
-    justify-content: center;
-    align-items: center;
-  }
-  .indicator li {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    list-style: none;
-    background-color: #fff;
-    border: 2px #000 solid;
-    cursor: pointer;
-  }
-  .indicator li:first-of-type {
-    background-color: #000;
-  }
+}
+
+.next {
+  margin-left: 40px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+.prev {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+/* ↓ インジケーター */
+.indicator {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  column-gap: 18px;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.indicator li {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  list-style: none;
+  background-color: #fff;
+  border: 2px #000 solid;
+  cursor: pointer;
+}
+.indicator li:first-of-type {
+  background-color: #000;
+}
+
+
+#progress {
+  transition: width 0.03s linear;
+}

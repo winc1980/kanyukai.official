@@ -20,7 +20,6 @@ import Logo from "../components/Logo.astro";
 import Photo from "../components/Photo.astro";
 const count = signal(0);
 ---
-
 <Layout title={title} , description={description} og_image={og_image}>
 	<main>
 		<a class="to_top" href="#top">
@@ -31,7 +30,7 @@ const count = signal(0);
 			</svg> 
 		</a>
 		<Top client:load/>
-		<Headline title="Activity"/>
+		
 		<div class="activity">
 			<div class="logo right">
 				<Logo/>
