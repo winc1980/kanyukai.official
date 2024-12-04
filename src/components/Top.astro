@@ -4,6 +4,7 @@ import image1 from "../assets/image 1.png";
 import image2 from "../assets/sample.jpg";
 import LogoBig from "./LogoBig.astro";
 import LogoShort from "./LogoShort.astro";
+import {BigUnderline, PrevIcon, NextIcon} from "../utils/svgs.tsx";
 
 const slides = [
   image1,
@@ -12,41 +13,27 @@ const slides = [
   image2,
   image1,
 ];
+
 ---
-<div class="top_content">
-    <span class="logo">
+<div class="top_content flex w-full">
+    <span class="fish">
         <LogoShort />
     </span>
-    <span class="logo_big">
+    <span class="fish_big">
         <LogoBig/>
     </span>
     
-    <div class="left_content">
-      <h1>Enjoy with us!</h1>
-      <div class="join_link">
+    <div class="left_content w-[35%]">
+      <h1 class="zenkaku_normal tracking-widest">Enjoy with us!</h1>
+      <div class="join_link flex_all_center">
         <div class="link_content">
-          <a>Join us!</a>
-          <svg
-            width="36"
-            height="9"
-            viewBox="0 0 36 9"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line x1="0" y1="8.5" x2="36" y2="8.5" stroke="black" />
-            <line
-              x1="35.738"
-              y1="8.42583"
-              x2="22.738"
-              y2="0.425829"
-              stroke="black"
-            />
-          </svg>
+          <a class="text-[1.5rem]">Join us!</a>
+          <BigUnderline/>
         </div>
         <div class="bg_link"></div>
       </div>
     </div>
-    <div class="right_content">
+    <div class="right_content w-[60%]">
       <div class="img_wrapper">
         <div class="slide-wrapper">
           <div class="navigations" id="navigations">
@@ -56,14 +43,10 @@ const slides = [
             </div>
             <span>{slides.length}</span>
             <span id="prev" class="prev">
-              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 1L1 6L9 11" stroke="black"/>
-              </svg>
+              <PrevIcon/>
             </span>
             <span id="next" class="next">
-              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L9 6L1 11" stroke="black"/>
-              </svg>
+              <NextIcon/>
             </span>
           </div>
           <div class="slide" id="slide">

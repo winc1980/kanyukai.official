@@ -14,8 +14,14 @@ body * {
   font-size: 16px;
 }
 
-.portrait {
-  transform: rotate(-90deg);
+h1 {
+  font-size: 6rem;
+}
+
+.flex_all_center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 a {
@@ -38,14 +44,6 @@ a {
 
 .bgBlue {
   background-color: $bgBlue;
-}
-
-.flex {
-  display: flex;
-}
-
-.fixed {
-  display: fixed;
 }
 
 .logo_top {
@@ -91,11 +89,11 @@ header {
 
     .bg_invitation {
       position: absolute;
-      background-color: #7aebff;
+      background-color: $strongBlue;
       top: 3px;
       left: 3px;
-      width: 140px;
-      height: 50px;
+      width: 100%;
+      height: 100%;
       z-index: -1;
     }
 
@@ -110,20 +108,22 @@ header {
   }
 }
 
+//top
 .top_content {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 7%;
+  padding: 2% 0 12% 8%;
   position: relative;
+  justify-content: space-between;
 
-  .logo {
+  .fish {
+    position: absolute;
     right: 0;
     top: 10px;
+    z-index: 100;
   }
 
-  .logo_big {
+  .fish_big {
     position: absolute;
-    bottom: -15%;
+    bottom: 7%;
     right: 0;
     z-index: 100;
   }
@@ -131,29 +131,17 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 40px 0 40px 8%;
-    width: 30%;
-    h1 {
-      font-size: 6rem;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+    padding: 5% 0;
 
     .join_link {
       border: 1px solid #000;
       position: relative;
-      width: 211px;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: fit-content;
       cursor: pointer;
+      padding: 2% 5%;
+      margin-top: 5%;
       .link_content {
         display: flex;
-
-        a {
-          font-size: 1.5rem;
-        }
-
         svg {
           margin-left: 6px;
           align-self: flex-end;
@@ -162,11 +150,11 @@ header {
 
       .bg_link {
         position: absolute;
-        background-color: #7aebff;
+        background-color: $strongBlue;
         top: 3px;
         left: 3px;
-        width: 211px;
-        height: 70px;
+        width: 100%;
+        height: 100%;
         z-index: -1;
       }
     }
@@ -175,24 +163,29 @@ header {
       .bg_link {
         top: 0px;
         left: 0px;
+        width: 100%;
+        height: 100%;
         opacity: 0.8;
         transition: all 0.4s ease;
       }
     }
   }
+
   .right_content {
+    display: inline-block;
     position: relative;
     border: 1px solid #000;
-    margin: 2%;
-    width: $slideWidth;
     height: $slideHeight;
+    margin-left: 0;
+    width: $slideWidth;
+    margin-right: 6px;
 
     .img_wrapper {
       position: absolute;
-      top: 8px;
-      left: 8px;
-      width: $slideWidth;
-      height: $slideHeight;
+      top: 6px;
+      left: 6px;
+      width: 100%;
+      height: 100%;
       z-index: -1;
     }
   }
@@ -227,8 +220,6 @@ header {
 
     .en {
       font-size: 3rem;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 300;
       letter-spacing: 8px;
       border-bottom: 1px solid #000;
     }
@@ -1047,4 +1038,18 @@ footer {
 }
 .awards_main {
   margin: 0 8%;
+}
+
+
+@media (max-width: 768px) {
+  a {
+    font-size: 1rem;
+  }
+
+  .top_content{
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
 }

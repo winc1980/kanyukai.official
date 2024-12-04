@@ -1,7 +1,6 @@
 import { useState } from "preact/hooks";
 import type { Award } from "../pages/awards.astro";
 import YearAward from "./YearAward";
-import React from "preact/compat";
 
 interface Props {
   awards: Award[];

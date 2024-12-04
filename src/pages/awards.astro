@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import demo from "../assets/demo.png";
 import ChAward from "../components/ChAward";
 import YearAward from "../components/YearAward";
-import Awards from "../components/Awards"
+import Awards from "../components/Awards";
 import { getImage } from "astro:assets";
 
 const optimized_demo = await getImage({src: demo, format: 'webp'})
@@ -19,6 +19,14 @@ export interface Award {
 
 
 const awards: Award[] = [
+{
+    date: "2025/MM/DD",
+    tags: ["2024", "男子", "1年"],
+    title: "第一回　全国大会　＜総合１位＞",
+    content:
+      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+    images: [optimized_demo, optimized_demo, optimized_demo, optimized_demo, optimized_demo],
+  },
   {
     date: "2024/MM/DD",
     tags: ["2024", "男子", "1年"],
