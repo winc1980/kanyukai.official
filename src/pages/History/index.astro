@@ -1,0 +1,65 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Image } from "astro:assets";
+import '@/scss/history.scss';
+import '@fontsource/zen-kaku-gothic-new';
+
+
+const title = "";
+const description = "";
+const og_image = "";
+
+import Fishbg from "@/assets/images/fish_bg.webp";
+import dummy1 from "@/assets/images/dummy1.webp";
+---
+
+<Layout title={title} , description={description} og_image={og_image}>
+    <main>
+        <section id="History-top" class="p-History-top">
+          <div>
+            <h1 class="p-History-top__ttl">History</h1>
+            <Image
+              src={Fishbg}
+                    alt={""}
+              class="p-activities__fish-bg"
+            />
+            <div class="slidewrapper">
+            <Image 
+                src={dummy1} 
+                alt=""
+                class="slide"
+            />
+            </div>
+            <p>
+                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>
+                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>
+                内容内容内容内容内容内容内容内容内容内容内容内容<br>
+            </p>
+        </div>
+        </section>
+
+        <section id="History-contents" class="p-History-contents">
+
+            <div class="cp_timeline03">
+                <div class="timeline_group">
+                  <span class="time_year">2018</span>
+                  <div class="timeline_item">
+                    <div class="time">
+                      <span class="time_day">22</span>
+                      <span class="time_month">Feb</span>
+                    </div>
+                    <div class="desc">
+                      <p class="flag">タイトル</p>
+                      内容
+                    </div>
+                  </div>
+                </div>
+
+
+
+        </section>
+
+
+
+    </main>
+</Layout>
