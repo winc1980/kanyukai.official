@@ -1,0 +1,204 @@
+/* ------------------- 共通要素ここから ------------------- */
+.l-container {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #000000d1;
+  font-style: normal;
+
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Zen Kaku Gothic New";
+}
+
+body {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* ------------------- 共通要素ここまで ------------------- */
+/* ------------------- Historyrmationここから ------------------- */
+
+.p-History-top {
+  overflow: hidden;
+  margin-bottom: 10%;
+  h1 {
+    font-size: 64px;
+    text-align: center;
+    font-weight: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  p {
+    margin-top: 9%;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+.p-History-top__ttl::before {
+  content: "";
+  height: 1px;
+  flex-grow: 1;
+  background-color: black;
+  margin-right: 2%;
+}
+
+.p-History-top__ttl::after {
+  content: "";
+  height: 1px;
+  flex-grow: 1;
+  background-color: black;
+  margin-left: 2%;
+}
+
+.slidewrapper {
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+}
+
+.slide {
+  width: 55%;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+}
+
+.p-activities__fish-bg {
+  margin: 0 0 0 auto;
+  width: 20vw;
+  height: auto;
+  margin-top: 2%;
+}
+/* ------------------- Historyここまで ------------------- */
+/* ------------------- History-contentsここから ------------------- */
+.cp_timeline03 {
+  position: relative;
+  margin: 3em auto;
+}
+.cp_timeline03:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 30px;
+  width: 4px;
+  height: 100%;
+  background-color: #006064;
+}
+.timeline_group {
+  position: relative;
+  padding-top: 55px;
+}
+.timeline_group:not(:first-of-type) {
+  margin-top: 4rem;
+}
+.time_year {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem 1.5rem;
+  color: black;
+  width: 100%;
+  box-sizing: border-box;
+}
+.timeline_item {
+  margin-bottom: 1em;
+  position: relative;
+  padding-left: 80px;
+  display: flex;
+  align-items: center;
+}
+.timeline_item:not(:last-of-type) {
+  margin-bottom: 2em;
+}
+.timeline_item:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: -1;
+  background-color: #006064;
+}
+.time {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  min-width: 45px;
+  min-height: 45px;
+  padding: 0.5em 0.5em;
+  margin-top: -33px;
+  text-align: center;
+  color: black;
+  border-radius: 50%;
+}
+.time_day {
+  font-size: 1em;
+  font-weight: 700;
+  display: block;
+}
+.time_month {
+  font-size: 0.8em;
+  display: block;
+  text-transform: uppercase;
+}
+.desc {
+  padding: 0.5em 1em;
+  width: 100%;
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  font-size: 0.9em;
+}
+.desc .flag {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0.3em;
+}
+
+@media only screen and (max-width: 767px) {
+  .cp_timeline03:before {
+    left: 0;
+  }
+  .timeline_group {
+    padding-top: 40px;
+  }
+  .timeline_item {
+    padding-top: 60px;
+    padding-left: 20px;
+  }
+  .timeline_item:before {
+    top: 90px;
+  }
+  .time {
+    top: 40px;
+    border-radius: 0 20px 20px 0;
+    min-height: 1em;
+  }
+  .time_day,
+  .time_month {
+    display: inline-block;
+  }
+  .desc {
+    font-size: 0.8em;
+  }
+}
+/* ------------------- History-contentsここまで ------------------- */
