@@ -1,7 +1,25 @@
 ---
-
+import { Image } from 'astro:assets';
+import headerLogo from '../assets/logo.png';
 ---
 
-<header>
-
+<header id="#top">
+    <div>
+        <Image src={headerLogo} alt="header_logo">
+    </div>
+    <ul class="header_link">
+        <li>
+            <a class="cursor-pointer">大会実績</a>
+        </li>
+        <li>
+            <a class="cursor-pointer">サークル情報</a>
+        </li>
+        <li>
+            <a class="cursor-pointer">歴史</a>
+        </li>
+        <li class="invitation">
+            <a class="cursor-pointer helvetica_light">Join us!</a>
+            <div class="bg_invitation"></div>
+        </li>
+    </ul>
 </header>

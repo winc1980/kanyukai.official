@@ -1,0 +1,33 @@
+---
+let {title, date, content} = Astro.props;
+---
+
+<div class="invitation">
+    <div class="bg"></div>
+    <div class="invitation_content">
+        <div class="left_content">
+            <div class="date">
+                {date}
+            </div>
+        </div>
+        <div class="right_content">
+            <div class="top_content">
+                <div class="title">
+                    {title}
+                </div>
+            </div>
+            <div class="middle_content">
+                <p>
+                    {content}
+                </p>
+                <svg width="61" height="14" viewBox="0 0 61 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="4.37114e-08" y1="12.9995" x2="60.9997" y2="12.9995" stroke="black"/>
+                    <line x1="60.539" y1="12.8873" x2="36.7681" y2="0.44297" stroke="black"/>
+                </svg>    
+            </div>
+        </div>       
+    </div>
+    <svg width="1200" height="36" viewBox="0 0 1200 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1200 1H1127M0 1H1072.5L1164.5 35" stroke="black"/>
+    </svg> 
+</div>
