@@ -16,7 +16,7 @@ const imageSrcs = [
 console.log(imageSrcs);
 ---
 
-<div class="article w-full">
+<div class="article">
     <div class="content">
         <div class="left">
             <div class="top">
@@ -34,11 +34,11 @@ console.log(imageSrcs);
         </div>
         
         <div class="right">
-            <div class="slide_wrapper h-full">
-                <div class="article_slide h-full" id="article_slide">
+            <div class="slide_wrapper2 h-full">
+                <div class="article_slide2 h-full" id="article_slide2">
                     {imageSrcs.map((image) => {
                         return (
-                            <div class="article_img_container" id="img_container">
+                            <div class="article_img_container2" id="img_container2">
                                 <Image src={image} alt={image} style={{height: '100%', width: 'auto'}}/>
                             </div>
                         )
@@ -51,8 +51,8 @@ console.log(imageSrcs);
 </div>
 
 <script>
-const slide = document.getElementById('article_slide') as HTMLElement;
-const lists = document.getElementsByClassName('article_img_container') as unknown as NodeListOf<HTMLElement>;
+const slide = document.getElementById('article_slide2') as HTMLElement;
+const lists = document.getElementsByClassName('article_img_container2') as unknown as NodeListOf<HTMLElement>;
 const totalSlides = lists.length;
 let count = 0;
 let autoPlayInterval: number | undefined;

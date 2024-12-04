@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'preact/hooks';
+import { useState, useEffect, useRef } from "preact/hooks";
 
 const ProgressBar = () => {
   const pos1Ref = useRef(null);
@@ -26,16 +26,16 @@ const ProgressBar = () => {
   }, []);
 
   return (
-    <div class="progress" style={{ display: 'flex', width: '100%' }}>
+    <div class="progress" style={{ display: "flex", width: "100%" }}>
       <div
         class="progress_pos1"
         ref={pos1Ref}
-        style={{ background: 'blue', height: '20px', width: '0%' }}
+        style={{ background: "blue", height: "20px", width: "0%" }}
       ></div>
       <div
         class="progress_pos2"
         ref={pos2Ref}
-        style={{ background: 'red', height: '20px', width: '100%' }}
+        style={{ background: "red", height: "20px", width: "100%" }}
       ></div>
     </div>
   );

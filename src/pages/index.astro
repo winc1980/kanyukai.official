@@ -18,7 +18,9 @@ import { signal } from '@preact/signals';
 import Top from "../components/Top.astro";
 import Logo from "../components/Logo.astro";
 import Photo from "../components/Photo.astro";
+import Article2 from "../components/Article2.astro";
 const count = signal(0);
+
 ---
 <Layout title={title} , description={description} og_image={og_image}>
 	<main>
@@ -39,8 +41,8 @@ const count = signal(0);
 				<Logo/>
 			</div>
 			<Label jp="普段の活動" en="Activity"/>
-			<Article title="タイトル" date="YYYY/MM/DD" imgSrc={img2} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/>
-			<Article title="タイトル" date="YYYY/MM/DD" imgSrc={img3} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/>
+			<Article title="タイトル" date="YYYY/MM/DD" imgSrc={img2} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" />
+			<Article2 title="タイトル" date="YYYY/MM/DD" imgSrc={img3} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/>
 			<div class="button_margin">
 				<ViewButton/>
 			</div>
@@ -99,32 +101,33 @@ const count = signal(0);
 </Layout>
 
 <script>
+	const footerHeight = document.getElementById('footer').offsetHeight;
 	const toTop = document.querySelectorAll('a.to_top')[0] as HTMLElement;
 	let pos = document.documentElement.scrollHeight - window.scrollY;
 
-	if(pos > window.innerHeight+102) {
+	if(pos > window.innerHeight+footerHeight) {
 		toTop.style.bottom = "0px";
 		toTop.classList.remove("locked");
 	} else {
 		if(pos > window.innerHeight){
 			toTop.style.bottom = `${pos-window.innerHeight}px`;
 		}else {
-			toTop.style.bottom = '102px';
+			toTop.style.bottom = `${footerHeight}px`;
 			toTop.classList.add("locked");
 		}
 		
 	}
+
 	document.addEventListener("scroll", () => {
     	pos = document.documentElement.scrollHeight - window.scrollY;
-    	console.log(`Current scroll position: ${pos}`);
-		if(pos > window.innerHeight+102) {
+		if(pos > window.innerHeight+footerHeight) {
 			toTop.style.bottom = "0px";
 			toTop.classList.remove("locked");
 		} else {
 			if(pos > window.innerHeight) {
-				toTop.style.bottom = `${102 - (pos-window.innerHeight)}px`;
+				toTop.style.bottom = `${footerHeight - (pos-window.innerHeight)}px`;
 			}else{
-				toTop.style.bottom = '102px';
+				toTop.style.bottom = `${footerHeight}px`;
 				toTop.classList.add("locked");
 			}
 		}

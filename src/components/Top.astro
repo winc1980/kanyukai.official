@@ -4,7 +4,6 @@ import image1 from "../assets/image 1.png";
 import image2 from "../assets/sample.jpg";
 import LogoBig from "./LogoBig.astro";
 import LogoShort from "./LogoShort.astro";
-import ProgressBar from "./Progress";
 
 const slides = [
   image1,
@@ -12,9 +11,7 @@ const slides = [
   image1,
   image2,
   image1,
-  image2,
 ];
-
 ---
 <div class="top_content">
     <span class="logo">
@@ -53,12 +50,11 @@ const slides = [
       <div class="img_wrapper">
         <div class="slide-wrapper">
           <div class="navigations" id="navigations">
-            <!-- <ProgressBar client:only="prect"/> -->
              <span>1</span>
             <div class="w-[50px]  bg-gray-200 rounded-full h-[2px] dark:bg-gray-700">
               <div class="bg-black h-[2px] rounded-full" id="progress"></div>
             </div>
-            <span>5</span>
+            <span>{slides.length}</span>
             <span id="prev" class="prev">
               <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9 1L1 6L9 11" stroke="black"/>
@@ -71,20 +67,13 @@ const slides = [
             </span>
           </div>
           <div class="slide" id="slide">
-            <div >
-              <Image src={image1} alt={image1.src}>
-            </div>
-            <div>
-              <Image src={image2} alt={image2.src}>
-            </div>
-            <div>
-              <p>スライド３</p>
-            </div>
-            <ul class="indicator" id="indicator">
-              <li class="list"></li>
-              <li class="list"></li>
-              <li class="list"></li>
-            </ul>
+            {slides.map((slide, index) => {
+              return (
+                <div class={`list ${index}`}>
+                  <Image src={slide} alt={slide.src}/>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
@@ -92,13 +81,24 @@ const slides = [
   </div>
 
 <script>
+import image1 from "../assets/image 1.png";
+import image2 from "../assets/sample.jpg";
+
+const slides = [
+  image1,
+  image2,
+  image1,
+  image2,
+  image1,
+];
 const slide = document.getElementById('slide') as HTMLElement;
 const prev = document.getElementById('prev') as HTMLElement;
 const next = document.getElementById('next') as HTMLElement;
-const indicator = document.getElementById('indicator') as HTMLElement;
 const lists = document.querySelectorAll('.list') as NodeListOf<HTMLElement>;
-const totalSlides = lists.length;
+const totalSlides = slides.length;
 const progress = document.getElementById('progress') as HTMLElement;
+slide.style.width = `${totalSlides*100}%`;
+lists.forEach(list => list.style.width = `${100/totalSlides}%`);
 
 let count = 0;
 let autoPlayInterval: number | undefined;
@@ -164,17 +164,7 @@ prev.addEventListener('click', () => {
   resetAutoPlayInterval();
   resetProgressBar();
 });
-indicator.addEventListener('click', (event) => {
-    const target = event.target as HTMLElement;
-  if (target.classList.contains('list')) {
-    const index = Array.from(lists).indexOf(target);
-    slide.classList.remove(`slide${count % totalSlides + 1}`);
-    count = index;
-    slide.classList.add(`slide${count % totalSlides + 1}`);
-    updateListBackground();
-    resetAutoPlayInterval();
-  }
-});
+
 startAutoPlay();
 startProgressBar();
 </script>
