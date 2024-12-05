@@ -2,20 +2,25 @@
 import { Image } from "astro:assets";
 import image1 from "../assets/image 1.png";
 import image2 from "../assets/sample.jpg";
+import image3 from "../assets/image 3.png";
+import image4 from "../assets/image 4.png"
+import image5 from "../assets/image 5.png";
 import LogoBig from "./LogoBig.astro";
 import LogoShort from "./LogoShort.astro";
 import {BigUnderline, PrevIcon, NextIcon} from "../utils/svgs.tsx";
+import "../scss/top.scss";
+import SlideComponent from "./SlideShow.tsx";
 
 const slides = [
   image1,
   image2,
-  image1,
-  image2,
-  image1,
+  image3,
+  image4,
+  image5
 ];
 
 ---
-<div class="top_content flex w-full">
+<section id="top" class="p-top flex w-full">
     <span class="fish">
         <LogoShort />
     </span>
@@ -23,45 +28,21 @@ const slides = [
         <LogoBig/>
     </span>
     
-    <div class="left_content w-[35%]">
+    <div class="p-top__left__content w-[35%]">
       <h1 class="zenkaku_normal tracking-widest">Enjoy with us!</h1>
-      <div class="join_link flex_all_center">
-        <div class="link_content">
+      <div class="p-top__left__content__join__link flex_all_center">
+        <div class="p-top__left__content__join__link__content">
           <a class="text-[1.5rem]">Join us!</a>
           <BigUnderline/>
         </div>
-        <div class="bg_link"></div>
       </div>
     </div>
-    <div class="right_content w-[60%]">
-      <div class="img_wrapper">
-        <div class="slide-wrapper">
-          <div class="navigations" id="navigations">
-             <span>1</span>
-            <div class="w-[50px]  bg-gray-200 rounded-full h-[2px] dark:bg-gray-700">
-              <div class="bg-black h-[2px] rounded-full" id="progress"></div>
-            </div>
-            <span>{slides.length}</span>
-            <span id="prev" class="prev">
-              <PrevIcon/>
-            </span>
-            <span id="next" class="next">
-              <NextIcon/>
-            </span>
-          </div>
-          <div class="slide" id="slide">
-            {slides.map((slide, index) => {
-              return (
-                <div class={`list ${index}`}>
-                  <Image src={slide} alt={slide.src}/>
-                </div>
-              )
-            })}
-          </div>
-        </div>
+    <div class="p-top__right__content w-[60%]">
+      <div class="p-top__right__content__img__wrapper">
+        <SlideComponent imgProps={slides} client:only="preact"/>
       </div>
-    </div>
   </div>
+</section>
 
 <script>
 import image1 from "../assets/image 1.png";

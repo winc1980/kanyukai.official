@@ -5,6 +5,7 @@ let {title, date, content, imgSrc} = Astro.props;
 
 import sample from "../assets/sample.jpg";
 import './article.scss';
+import SlideComponent from "./SlideShow";
 
 const imageSrcs = [
     imgSrc,
@@ -34,7 +35,8 @@ console.log(imageSrcs);
         </div>
         
         <div class="right">
-            <div class="slide_wrapper h-full">
+            <SlideComponent imgProps={imageSrcs} client:only="preact"/>
+            <!-- <div class="slide_wrapper h-full">
                 <div class="article_slide h-full" id="article_slide">
                     {imageSrcs.map((image) => {
                         return (
@@ -44,7 +46,7 @@ console.log(imageSrcs);
                         )
                     })}
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="bg"></div>

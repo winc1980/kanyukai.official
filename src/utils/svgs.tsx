@@ -19,7 +19,7 @@ export const BigUnderline = () => {
     );
 }
 
-export const PrevIcon = () => {
+export function PrevIcon() {
     return (
         <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 1L1 6L9 11" stroke="black"/>
@@ -27,7 +27,7 @@ export const PrevIcon = () => {
     );
 }
 
-export const NextIcon = () => {
+export function NextIcon() {
     return (
         <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L9 6L1 11" stroke="black"/>
