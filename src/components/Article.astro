@@ -1,30 +1,17 @@
 ---
-import { Image } from "astro:assets";
+let {title, date, content, imgSrcs} = Astro.props;
 
-let {title, date, content, imgSrc} = Astro.props;
-
-import sample from "../assets/sample.jpg";
-import './article.scss';
 import SlideComponent from "./SlideShow";
-
-const imageSrcs = [
-    imgSrc,
-    sample,
-    sample,
-    sample
-];
-
-console.log(imageSrcs);
 ---
 
-<div class="article w-full">
-    <div class="content">
-        <div class="left">
-            <div class="top">
-                <div class="title">
+<section id="article" class="p-article w-full">
+    <div class="p-article__content">
+        <div class="p-article__content__left">
+            <div class="p-article__content__left__top">
+                <div class="p-article__content__left__top__title">
                     {title}
                 </div>
-                <div class="date">
+                <div class="p-article__content__left__top__date">
                     {date}
                 </div>
             </div>
@@ -34,42 +21,9 @@ console.log(imageSrcs);
             </div>
         </div>
         
-        <div class="right">
-            <SlideComponent imgProps={imageSrcs} client:only="preact"/>
-            <!-- <div class="slide_wrapper h-full">
-                <div class="article_slide h-full" id="article_slide">
-                    {imageSrcs.map((image) => {
-                        return (
-                            <div class="article_img_container" id="img_container">
-                                <Image src={image} alt={image} style={{height: '100%', width: 'auto'}}/>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div> -->
+        <div class="p-article__content__right">
+            <SlideComponent imgProps={imgSrcs} client:only="preact"/>
         </div>
     </div>
     <div class="bg"></div>
-</div>
-
-<script>
-const slide = document.getElementById('article_slide') as HTMLElement;
-const lists = document.getElementsByClassName('article_img_container') as unknown as NodeListOf<HTMLElement>;
-const totalSlides = lists.length;
-let count = 0;
-let autoPlayInterval: number | undefined;
-console.log(totalSlides);
-console.log(slide);
-
-function nextClick() {
-    slide.classList.remove(`slide${count % totalSlides + 1}`);
-    count == 4 ? count = 0: count++;
-    slide.classList.add(`slide${count % totalSlides + 1}`);
-}
-
-function startAutoPlay() {
-    autoPlayInterval = setInterval(nextClick, 3000);
-}
-
-startAutoPlay();
-</script>
+</section>

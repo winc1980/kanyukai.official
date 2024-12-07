@@ -9,6 +9,8 @@ const description = "";
 const og_image = "";
 import img2 from '../assets/image 2.png';
 import img3 from '../assets/image 3.png';
+import img4 from '../assets/image 4.png';
+import img5 from '../assets/image 5.png';
 import Award from "../components/Award.astro";
 import Invitation from "../components/Invitation.astro";
 import Status from "../components/Status.astro";
@@ -18,7 +20,6 @@ import { signal } from '@preact/signals';
 import Top from "../components/Top.astro";
 import Logo from "../components/Logo.astro";
 import Photo from "../components/Photo.astro";
-import Article2 from "../components/Article2.astro";
 const count = signal(0);
 
 ---
@@ -41,13 +42,13 @@ const count = signal(0);
 				<Logo/>
 			</div>
 			<Label jp="普段の活動" en="Activity"/>
-			<Article title="タイトル" date="YYYY/MM/DD" imgSrc={img2} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" />
-			<Article2 title="タイトル" date="YYYY/MM/DD" imgSrc={img3} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/>
+			<Article title="タイトル" date="YYYY/MM/DD" imgSrcs={[img2, img3, img4, img5]} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" />
+			<Article title="タイトル" date="YYYY/MM/DD" imgSrcs={[img2, img3, img4]} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/>
 			<div class="button_margin">
 				<ViewButton/>
 			</div>
-			
 		</div>
+
 		<div class="awards">
 			<div class="logo right">
 				<Logo/>
@@ -101,7 +102,7 @@ const count = signal(0);
 </Layout>
 
 <script>
-	const footerHeight = document.getElementById('footer').offsetHeight;
+	const footerHeight = document.getElementById('footer')!.offsetHeight;
 	const toTop = document.querySelectorAll('a.to_top')[0] as HTMLElement;
 	let pos = document.documentElement.scrollHeight - window.scrollY;
 
