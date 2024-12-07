@@ -55,20 +55,19 @@ export default function SlideComponent({
   }
 
   return (
-    <div class="slide_wrapper">
-      <div>
-        <div
-          style={{ display: `${showNextPrevButton ? "flex" : "none"}` }}
-          class="flex absolute top-3 left-3 z-50"
-        >
-          <div id="prev" class="prev w-10" onClick={prevClick}>
-            <PrevIcon />
-          </div>
-          <div id="next" class="next ml-5 w-10" onClick={nextClick}>
-            <NextIcon />
-          </div>
+    <div class="slide_component">
+      <div
+        style={{ display: `${showNextPrevButton ? "flex" : "none"}` }}
+        class="slide__wrapper__skip z-50"
+      >
+        <div id="prev" class="prev" onClick={prevClick}>
+          <PrevIcon />
         </div>
-
+        <div id="next" class="next" onClick={nextClick}>
+          <NextIcon />
+        </div>
+      </div>
+      <div class="slide_wrapper">
         <ul
           class="indicator"
           id="indicator"
@@ -84,24 +83,25 @@ export default function SlideComponent({
             ></li>
           ))}
         </ul>
-      </div>
-      <div
-        id="slide"
-        style={{
-          width: `${100 * slideLength}%`,
-          transform: `translateX(-${(100 / slideLength) * (slidePos % slideLength)}%)`,
-        }}
-      >
-        {imgProps.map((img, index) => (
-          <div>
-            <img
-              src={img.src}
-              width={img.width}
-              height={img.height}
-              alt="img"
-            />
-          </div>
-        ))}
+
+        <div
+          id="slide"
+          style={{
+            width: `${100 * slideLength}%`,
+            transform: `translateX(-${(100 / slideLength) * (slidePos % slideLength)}%)`,
+          }}
+        >
+          {imgProps.map((img, index) => (
+            <div>
+              <img
+                src={img.src}
+                width={img.width}
+                height={img.height}
+                alt="img"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

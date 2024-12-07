@@ -22,6 +22,17 @@ body * {
 
 h1 {
   font-size: 6rem;
+  @media (max-width: $breakpoint-xl) {
+    font-size: 4.5rem;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 1.5rem;
+  }
 }
 
 .flex_all_center {
@@ -59,7 +70,12 @@ a {
 .logo {
   z-index: 50;
   position: absolute;
+  @media (max-width: $breakpoint-md){
+    display: none;
+  }
 }
+
+/* headerここから*/
 
 header {
   display: flex;
@@ -69,12 +85,14 @@ header {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
   .header__link {
     overflow: hidden;
+    display: flex;
     &__hamburger {
       display: none;
+      
     }
 
-    display: flex;
-    align-items: center;
+    
+    
     li {
       margin: 0 20px;
       font-style: "Zen Kaku Gothic New";
@@ -162,6 +180,8 @@ header {
   }
 }
 
+/* headerここまで */
+
 .headline {
   display: flex;
   align-items: center;
@@ -182,8 +202,15 @@ header {
 }
 
 .label {
+
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 5%;
+  }
   .label_top {
     font-size: 1.25rem;
+    @media (max-width: $breakpoint-md){
+      font-size: 1rem;
+    }
   }
 
   .label_bottom {
@@ -193,6 +220,10 @@ header {
       font-size: 3rem;
       letter-spacing: 8px;
       border-bottom: 1px solid #000;
+      @media (max-width: $breakpoint-md) {
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+      }
     }
 
     .dots {
@@ -246,6 +277,9 @@ header {
     &__left {
       width: 70%;
       margin-right: 5%;
+      @media (max-width: $breakpoint-md){
+        width: 50%;
+      }
       &__top {
         display: flex;
         justify-content: space-between;
@@ -258,6 +292,9 @@ header {
           font-weight: 400;
           font-style: normal;
           align-self: flex-end;
+          @media (max-width: $breakpoint-md){
+            font-size: 1rem;
+          }
         }
 
         &__date {
@@ -268,12 +305,44 @@ header {
           align-self: flex-end;
         }
       }
+
+      &__content {
+        @media (max-width: $breakpoint-md){
+          height: 7.5em;
+          line-height: 1.5em;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 5; /* 表示する行数を指定 */
+          -webkit-box-orient: vertical;
+
+        }
+      }
     }
 
     &__right {
       width: 30%;
       height: max-content;
       border: 1px solid #000;
+      position: relative;
+      @media (max-width: $breakpoint-md){
+        width: 50%;
+        .indicator li {
+          width: 10px;
+          height: 10px;
+        }
+  
+      }
+
+      .prev {
+        top: 50% !important;
+        left: -2%;
+      }
+
+      .next {
+        top: 50%;
+        left:initial;
+        right: -2%;
+      }
     }
   }
 }
@@ -286,13 +355,22 @@ header {
   z-index: 2;
 }
 
-.button_container {
+.p-button {
   width: 141px;
   height: 54px;
   border: 1px solid #000;
   position: relative;
   cursor: pointer;
-  .button_content {
+  @media (max-width:$breakpoint-md){
+    width: 120px;
+    &__content {
+      padding: 0;
+    }
+    a {
+      font-size: 1rem;
+    }
+  }
+  &__content {
     display: flex;
     flex-direction: column;
     padding: 2%;
@@ -315,25 +393,20 @@ header {
       margin-right: 0;
     }
   }
-
-  .button_bg {
-    position: absolute;
-    background-color: #7aebff;
-    top: 1.5px;
-    left: 1.5px;
-    width: inherit;
-    height: inherit;
-    z-index: -1;
-  }
 }
 
-.button_container:hover {
-  .button_bg {
-    top: 0px;
-    left: 0px;
-    opacity: 0.8;
-    transition: all 0.4s ease;
-  }
+.p-button::before {
+  position: absolute;
+  background-color: $strongBlue;
+  inset: 2px -2px -2px 2px;
+  content: "";
+  z-index: -1;
+}
+
+.p-button:hover::before {
+  inset: 0;
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
 
 .awards {
@@ -360,7 +433,7 @@ header {
   display: flex;
   position: relative;
   width: 100%;
-  height: 117px;
+  height: auto;
   border: 1px solid #000;
   margin-bottom: 7px;
 
@@ -369,8 +442,24 @@ header {
     display: flex;
     width: 100%;
 
+    &__left__rectangle {
+      width: 9px;
+      height: 100%;
+      margin-right: 3%;
+      @media (max-width: $breakpoint-md){
+        width: 7px;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        margin: 0 4%;
+      }
+    }
+
     &__right {
       width: 100%;
+     
       &__top {
         display: flex;
         justify-content: space-between;
@@ -382,6 +471,9 @@ header {
           font-weight: 400;
           font-style: normal;
           align-self: flex-end;
+          @media (max-width: $breakpoint-md){
+            font-size: 1.125rem;
+          }
         }
 
         &__date {
@@ -398,23 +490,18 @@ header {
       font-family: "Zen Kaku Gothic New", serif;
       font-weight: 300;
       font-style: normal;
+      @media (max-width: $breakpoint-md){
+        font-size: 1rem;
+      }
     }
   }
 
-  &__left__rectangle {
-    width: 9px;
-    height: 100%;
-    margin-right: 3%;
-  }
-
-  &__bg {
-    width: inherit;
-    height: inherit;
+  &__content::before {
+    content: "";
     position: absolute;
-    top: 7px;
-    left: 7px;
+    inset: 7px -7px -7px 7px;
+    background-color: $bgBlue;
     z-index: -1;
-    background-color: #e6fbff;
   }
 }
 
