@@ -97,7 +97,8 @@ export default function SlideComponent({
                 src={img.src}
                 width={img.width}
                 height={img.height}
-                alt="img"
+                loading="eager"
+                alt={img.src}
               />
             </div>
           ))}

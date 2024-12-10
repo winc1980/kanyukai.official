@@ -20,6 +20,11 @@ body * {
   font-size: 16px;
 }
 
+.l-container {
+  padding: 0 8%;
+  margin: 0 auto;
+}
+
 h1 {
   font-size: 6rem;
   @media (max-width: $breakpoint-xl) {
@@ -90,8 +95,6 @@ header {
       display: none;
       
     }
-
-    
     
     li {
       margin: 0 20px;
@@ -186,12 +189,15 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  .title {
+  &__title {
     margin: 0 5%;
     font-family: "Zen Kaku Gothic New", sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 4rem;
+    @media (max-width: $breakpoint-md){
+      font-size: 1.5rem;
+    }
   }
 
   .line {
@@ -409,27 +415,27 @@ header {
   transition: all 0.3s ease;
 }
 
-.awards {
+.p-award {
   padding: 0 8%;
   display: flex;
   flex-direction: column;
   position: relative;
-  .award_container {
+  &__container {
     margin-top: 20px;
   }
 
-  .right {
+  &__right {
     top: 9%;
     right: 0;
   }
 
-  .left {
+  &__left {
     bottom: 4%;
     left: 0;
   }
 }
 
-.award {
+.award__element {
   display: flex;
   position: relative;
   width: 100%;
@@ -505,82 +511,100 @@ header {
   }
 }
 
-.invitations {
+.p-invitation {
   padding: 5% 8% 0 8%;
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 
-  .right {
+  &__right {
     top: 2%;
     right: 0;
   }
 
-  .left {
+  &__left {
     bottom: -2%;
     left: 0;
   }
-}
 
-.invitation {
-  width: 100%;
-  height: fit-content;
-  position: relative;
-  .bg {
+  &__element {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    &__content {
+      display: flex;
+      padding: 2%;
+      width: inherit;
+      @media (max-width: $breakpoint-md){
+        display: block;
+      }
+      &__left {
+        &__date {
+          font-size: 1.25rem;
+          @media (max-width: $breakpoint-md){
+            font-size: 1rem;
+          }
+        }
+      }
+  
+      &__right {
+        width: 100%;
+        padding: 0 5%;
+        @media (max-width: $breakpoint-md){
+          padding: 0;
+        }
+        &__top {
+          &__title {
+            font-size: 1.5rem;
+            font-family: "Noto Sans JP", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            @media (max-width:$breakpoint-md){
+              font-size: 1.125rem;
+              padding: 8px 0;
+            }
+          }
+        }
+  
+        &__middle {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          margin-top: 12px;
+          p {
+            @media (max-width: $breakpoint-md){
+              padding: 0;
+            }
+            font-size: 1.25rem;
+            font-family: "Zen Kaku Gothic New", serif;
+            font-weight: 300;
+            font-style: normal;
+            @media (max-width:$breakpoint-md){
+              font-size: 1rem;
+            }
+          }
+  
+          svg {
+            align-self: flex-end;
+  
+          }
+        }
+      }
+    }
+  }
+
+  &__element::before {
     position: absolute;
-    width: inherit;
-    height: 134px;
-    background-color: #e6fbff;
+    inset: 5% 0 20% 0%;
+    content: "";
+    background-color: $bgBlue;
     filter: blur(1.5rem);
     z-index: -1;
   }
-
-  .invitation_content {
-    display: flex;
-    padding: 2%;
-    width: inherit;
-    .left_content {
-      .date {
-        font-size: 1.25rem;
-        font-family: "Zen Kaku Gothic New", serif;
-        font-weight: 300;
-        font-style: normal;
-      }
-    }
-
-    .right_content {
-      width: 100%;
-      padding: 0 5%;
-      .top_content {
-        .title {
-          font-size: 1.5rem;
-          font-family: "Noto Sans JP", sans-serif;
-          font-weight: 400;
-          font-style: normal;
-        }
-      }
-
-      .middle_content {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 12px;
-        p {
-          font-size: 1.25rem;
-          font-family: "Zen Kaku Gothic New", serif;
-          font-weight: 300;
-          font-style: normal;
-        }
-
-        svg {
-          align-self: flex-end;
-        }
-      }
-    }
-  }
 }
 
-.photo_container {
+.p-photo {
   align-items: center;
   position: relative;
   margin: 3% 0;
@@ -594,7 +618,11 @@ header {
   align-items: center;
   scrollbar-width: none;
   margin: 5% 0;
-  .img_box {
+  @media (max-width: $breakpoint-md){
+    display: none;
+  }
+
+  &__img__box {
     flex-shrink: 0;
     width: $photoCardWidth;
     height: $photoCardHeight;
@@ -851,6 +879,7 @@ footer {
   height: 110px;
   display: inline-block;
   margin: 0 auto;
+  margin-left: 150px;
   align-self: center;
   cursor: pointer;
 
@@ -896,48 +925,6 @@ footer {
   }
 }
 
-.mini_period_wrapper {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  margin-right: 3%;
-  margin-left: 3%;
-  margin-top: 266px;
-
-  span {
-    display: inline-block;
-    width: 60px;
-    height: 1px;
-    transform: rotate(45deg);
-    border-bottom: 1px solid #b0dfe7;
-  }
-
-  p {
-    color: #a0a0a0;
-  }
-
-  .date {
-    position: relative;
-    bottom: 16px;
-    left: 50px;
-    text-align: center;
-    font-size: 1.25rem;
-    font-family: Arial, Helvetica, sans-serif;
-    border-bottom: 1px solid #b0dfe7;
-  }
-
-  .title {
-    position: absolute;
-    bottom: -4px;
-    left: 48px;
-    font-size: 1rem;
-    font-family: "Zen Kaku Gothic New", serif;
-    font-weight: 300;
-    font-style: normal;
-    white-space: nowrap;
-  }
-}
-
 .detail_container {
   display: inline-block;
   flex-shrink: 0;
@@ -946,8 +933,7 @@ footer {
   border: 1px solid #000;
   position: relative;
   padding: 3%;
-  margin-right: 3%;
-  margin-left: 8%;
+  margin-left: 20%;
 
   .year {
     font-size: 4rem;

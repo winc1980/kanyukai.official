@@ -101,6 +101,7 @@
     margin-left: 0;
     width: $slideWidth;
     margin-right: 6px;
+    
     @media (max-width: $breakpoint-md) {
       width: 65%;
     }
