@@ -1,9 +1,9 @@
 import type { ComponentChildren } from "preact";
 import type { Signal } from "@preact/signals";
 import Period from "./Period.tsx";
+import { useRef } from "preact/hooks";
 
 type Props = {
-  children: ComponentChildren;
   count: Signal<number>;
 };
 
