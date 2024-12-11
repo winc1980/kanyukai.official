@@ -604,6 +604,14 @@ header {
   }
 }
 
+
+.slidewrapper {
+  width: 75vw;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+}
+
 .p-photo {
   align-items: center;
   position: relative;
@@ -973,6 +981,122 @@ footer {
   display: flex;
   flex-direction: column;
 }
+
+
+.slide-wrapper {
+  width: 100%;
+  height: $slideHeight;
+  position: relative;
+  overflow: hidden;
+  .slide1 {
+    transform: translateX(0);
+    border: none;
+  }
+  .slide2 {
+    transform: translateX(-20%);
+  }
+  .slide3 {
+    transform: translateX(-40%);
+  }
+  .slide4 {
+    transform: translateX(-60%);
+  }
+  .slide5 {
+    transform: translateX(-80%);
+  }
+  .slide div:nth-of-type(1) {
+    background-color: #e1f3fc;
+  }
+  .slide div:nth-of-type(2) {
+    background-color: #fce8f0;
+  }
+  .slide div:nth-of-type(3) {
+    background-color: #e3f1e4;
+  }
+
+  .list {
+    background-color: white;
+  }
+
+  .slide_indicators {
+    position: absolute;
+    flex-shrink: 0;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .selected {
+    position: static;
+  }
+
+  .navigations {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: fit-content;
+    top: 0px;
+    left: 0px;
+    box-sizing: border-box;
+    z-index: 100;
+    margin-left: 1%;
+    span {
+      margin: 0 4%;
+    }
+  }
+
+  .navigation-inf {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: fit-content;
+    top: 0px;
+    left: 80%;
+    box-sizing: border-box;
+    z-index: 100;
+    margin-left: 1%;
+    span {
+      margin: 2% 4%;
+      text-align: right;
+    }
+  }
+
+  .next {
+    margin-left: 40px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+  .prev {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+
+  #progress {
+    transition: width 0.03s linear;
+  }
+
+  .slide {
+    width: 500%;
+    height: 100%;
+    display: flex;
+    transition: all 0.3s;
+  }
+  .slide div {
+    width: 20%;
+    height: 100%;
+    font-size: 16px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: -2;
+  }
 
 #progress {
   transition: width 0.03s linear;

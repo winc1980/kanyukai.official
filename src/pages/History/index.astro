@@ -11,6 +11,7 @@ const og_image = "";
 
 import Fishbg from "@/assets/images/fish_bg.webp";
 import dummy1 from "@/assets/images/dummy1.webp";
+import Slide from "@/components/Slide.astro";
 ---
 
 <Layout title={title} , description={description} og_image={og_image}>
@@ -24,42 +25,46 @@ import dummy1 from "@/assets/images/dummy1.webp";
               class="p-activities__fish-bg"
             />
             <div class="slidewrapper">
-            <Image 
-                src={dummy1} 
-                alt=""
-                class="slide"
-            />
+            <Slide>
             </div>
             <p>
-                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>
-                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>
-                内容内容内容内容内容内容内容内容内容内容内容内容<br>
+              内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+              内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+              内容内容内容内容内容内容内容内容内容内容内容内容
             </p>
         </div>
         </section>
 
-        <section id="History-contents" class="p-History-contents">
-
-            <div class="cp_timeline03">
-                <div class="timeline_group">
-                  <span class="time_year">2018</span>
-                  <div class="timeline_item">
-                    <div class="time">
-                      <span class="time_day">22</span>
-                      <span class="time_month">Feb</span>
-                    </div>
-                    <div class="desc">
-                      <p class="flag">タイトル</p>
-                      内容
-                    </div>
-                  </div>
-                </div>
-
-
-
-        </section>
-
-
+        
+        <section class="p-timeline" id="timeline">
+          <div class="l-container">
+            <ul class="timeline-item_wrapper">
+          <li class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h2 class="timeline_ttl">2000
+                <div class="dot">●</div>
+              </h2>
+              <h3>サブタイトル</h3>
+              <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
+                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
+                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
+                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
+                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
+                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
+              </p>
+            </div>
+            <div class="timeline-image">
+              <Image 
+						src={dummy1} 
+						alt=""
+						class="slide1"
+						/>
+            </div>
+          </li>
+        </ul>
+        </div>
+</section>
 
     </main>
 </Layout>
