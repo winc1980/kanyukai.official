@@ -2,12 +2,12 @@
 let {title, content} = Astro.props;
 ---
 
-<div class="status_elem">
-    <div class="top">
-        <div class="tag_bg"></div>
-        <div class="title">{title}</div>
+<div class="status__elem">
+    <div class="status__elem__top">
+        <span class="status__elem__top__tag__bg"></span>
+        <h5 class="status__elem__top__title">{title}</h5>
     </div>
-    <p class="bottom">
+    <p class="status__elem__bottom">
         {content}
     </p>
 </div>

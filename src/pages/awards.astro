@@ -2,9 +2,7 @@
 import Label from "../components/Label.astro";
 import Layout from "../layouts/Layout.astro";
 import demo from "../assets/demo.png";
-import ChAward from "../components/ChAward";
-import YearAward from "../components/YearAward";
-import Awards from "../components/Awards";
+import AwardsComponent from "../components/awards";
 import { getImage } from "astro:assets";
 
 const optimized_demo = await getImage({src: demo, format: 'webp'})
@@ -106,9 +104,9 @@ function referChange(pos: number) {
     <Label jp="大会実績" en="Awards" />
     <h6 class="zenkaku_light text-right tracking-wider my-5">クリックで下に表示されます</h6>
     <div >
-        <Awards awards={awards} years={years} client:only="preact">
+        <AwardsComponent awards={awards} years={years} client:only="preact">
             <div slot="fallback">Loading</div>
-        </Awards>
+        </AwardsComponent>
     </div>
   </main>
 </Layout>
