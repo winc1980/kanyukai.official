@@ -2,7 +2,7 @@
 .l-container {
   margin: 0 auto;
   padding: 0 15px;
-  width: 100%;
+  max-width: 1200px;
 }
 
 p,
@@ -61,7 +61,7 @@ body {
   margin-left: 2%;
 }
 
-.slidewrapper {
+.top_content {
   margin: 0 auto;
   text-align: center;
   align-items: center;
@@ -84,6 +84,7 @@ body {
 /* ------------------- Statusここから ------------------- */
 
 .p-Status {
+  overflow: hidden;
   background-color: #f6fdfe;
   height: auto;
   display: flex;
@@ -204,6 +205,10 @@ body {
 /* ------------------- Statusここまで ------------------- */
 /* ------------------- Eventsここから ------------------- */
 
+.p-Events {
+  padding-bottom: 10%;
+}
+
 .p-Events__titlewrapper {
   margin-left: 7%;
   padding-top: 3%;
@@ -267,7 +272,7 @@ body {
       &__flexbox {
         display: flex;
         justify-content: space-between;
-        width: 70%;
+        width: 100%;
         margin: 0 auto;
         img {
           height: auto;
@@ -275,6 +280,7 @@ body {
         }
         &__txtbox {
           vertical-align: text-bottom;
+          width: 70%;
           h3 {
             font-size: 2.7vw;
             font-weight: 100;
@@ -287,7 +293,7 @@ body {
           }
           p {
             margin-top: 2%;
-            font-size: 1vw;
+            font-size: 1.4vw;
             font-weight: 100;
           }
         }
