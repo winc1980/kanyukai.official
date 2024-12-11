@@ -6,6 +6,12 @@ html {
   scroll-behavior: smooth;
 }
 
+.l-container {
+  max-width: $slideWidth;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
 li {
   list-style: none;
 }
@@ -14,11 +20,27 @@ body * {
   font-size: 16px;
 }
 
-h1 {
-  font-size: 6rem;
+.l-container {
+  padding: 0 8%;
+  margin: 0 auto;
 }
 
-.flex_all_center{
+h1 {
+  font-size: 6rem;
+  @media (max-width: $breakpoint-xl) {
+    font-size: 4.5rem;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 1.5rem;
+  }
+}
+
+.flex_all_center {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,23 +73,37 @@ a {
 }
 
 .logo {
-  z-index: 100;
+  z-index: 50;
   position: absolute;
+  @media (max-width: $breakpoint-md){
+    display: none;
+  }
 }
+
+/* headerここから*/
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 7%;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
-  .header_link {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  .header__link {
+    overflow: hidden;
     display: flex;
-    align-items: center;
+    &__hamburger {
+      display: none;
+      
+    }
+    
     li {
       margin: 0 20px;
       font-style: "Zen Kaku Gothic New";
       font-size: 1.25rem;
+    }
+
+    a {
+      cursor: pointer;
     }
 
     a:hover {
@@ -76,131 +112,92 @@ header {
       transition: all 0.3s ease;
     }
 
-    .invitation {
+    &__background {
+      position: absolute;
+      background-color: $bgBlue;
+      width: 0%;
+      height: 0%;
+      top: 0;
+      right: 0;
+      transition: all 0.3s ease;
+      z-index: 100;
+      &__ul {
+        display: none;
+        text-align: center;
+        margin-top: 120px;
+        li {
+          margin: 3% 0;
+        }
+      }
+    }
+
+    .header__invitation {
       border: 1px solid #000;
       position: relative;
       width: 140px;
       height: 50px;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-right: 0;
     }
 
-    .bg_invitation {
+    .header__invitation::before {
       position: absolute;
       background-color: $strongBlue;
-      top: 3px;
-      left: 3px;
-      width: 100%;
-      height: 100%;
+      content: "";
+      inset: 2px -2px -2px 2px;
       z-index: -1;
     }
 
-    .invitation:hover {
-      .bg_invitation {
-        top: 0px;
-        left: 0px;
-        opacity: 0.8;
-        transition: all 0.4s ease;
-      }
+    .header__invitation:hover::before {
+      opacity: 0.8;
+      inset: 0;
+      transition: all 0.3s ease;
+    }
+
+    .header__invitation:hover {
+      inset: 0;
+      transition: all 0.3s ease;
     }
   }
-}
 
-//top
-.top_content {
-  padding: 2% 0 12% 8%;
-  position: relative;
-  justify-content: space-between;
-
-  .fish {
-    position: absolute;
-    right: 0;
-    top: 10px;
-    z-index: 100;
-  }
-
-  .fish_big {
-    position: absolute;
-    bottom: 7%;
-    right: 0;
-    z-index: 100;
-  }
-  .left_content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 5% 0;
-
-    .join_link {
-      border: 1px solid #000;
-      position: relative;
-      width: fit-content;
+  @media (max-width: $breakpoint-md) {
+    .header__link {
+      display: none;
+    }
+    .header__link__hamburger {
+      display: inline-block;
       cursor: pointer;
-      padding: 2% 5%;
-      margin-top: 5%;
-      .link_content {
-        display: flex;
-        svg {
-          margin-left: 6px;
-          align-self: flex-end;
-        }
+      z-index: 101;
+      &__line {
+        display: block;
+        width: 40px;
+        height: 3px;
+        background-color: #000;
+        margin: 6px 0;
+        transition: all 0.3s ease;
       }
-
-      .bg_link {
-        position: absolute;
-        background-color: $strongBlue;
-        top: 3px;
-        left: 3px;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-      }
-    }
-
-    .join_link:hover {
-      .bg_link {
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        opacity: 0.8;
-        transition: all 0.4s ease;
-      }
-    }
-  }
-
-  .right_content {
-    display: inline-block;
-    position: relative;
-    border: 1px solid #000;
-    height: $slideHeight;
-    margin-left: 0;
-    width: $slideWidth;
-    margin-right: 6px;
-
-    .img_wrapper {
-      position: absolute;
-      top: 6px;
-      left: 6px;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
     }
   }
 }
+
+/* headerここまで */
 
 .headline {
   display: flex;
   align-items: center;
   justify-content: center;
-  .title {
+  &__title {
     margin: 0 5%;
     font-family: "Zen Kaku Gothic New", sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 4rem;
+    @media (max-width: $breakpoint-md){
+      font-size: 1.5rem;
+    }
   }
 
   .line {
@@ -211,8 +208,15 @@ header {
 }
 
 .label {
+
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 5%;
+  }
   .label_top {
     font-size: 1.25rem;
+    @media (max-width: $breakpoint-md){
+      font-size: 1rem;
+    }
   }
 
   .label_bottom {
@@ -222,6 +226,10 @@ header {
       font-size: 3rem;
       letter-spacing: 8px;
       border-bottom: 1px solid #000;
+      @media (max-width: $breakpoint-md) {
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+      }
     }
 
     .dots {
@@ -260,36 +268,42 @@ header {
   align-self: center;
 }
 
-.article {
+#article {
   position: relative;
   margin-top: 2%;
 
-  .content {
+  .p-article__content {
     display: flex;
-    border: 1px solid #000;
+    background-color: $bgBlue;
     position: relative;
     width: inherit;
     height: inherit;
     padding: 3%;
 
-    .left {
+    &__left {
       width: 70%;
       margin-right: 5%;
-      .top {
+      @media (max-width: $breakpoint-md){
+        width: 50%;
+      }
+      &__top {
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #000;
         align-self: flex-end;
-        .title {
+        &__title {
           font-size: 2rem;
           font-family: "Noto Sans JP", sans-serif;
           font-optical-sizing: auto;
           font-weight: 400;
           font-style: normal;
           align-self: flex-end;
+          @media (max-width: $breakpoint-md){
+            font-size: 1rem;
+          }
         }
 
-        .date {
+        &__date {
           font-family: "Noto Sans JP", sans-serif;
           font-optical-sizing: auto;
           font-weight: 200;
@@ -297,33 +311,72 @@ header {
           align-self: flex-end;
         }
       }
+
+      &__content {
+        @media (max-width: $breakpoint-md){
+          height: 7.5em;
+          line-height: 1.5em;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 5; /* 表示する行数を指定 */
+          -webkit-box-orient: vertical;
+
+        }
+      }
     }
 
-    .right {
+    &__right {
       width: 30%;
       height: max-content;
       border: 1px solid #000;
-    }
-  }
+      position: relative;
+      @media (max-width: $breakpoint-md){
+        width: 50%;
+        .indicator li {
+          width: 10px;
+          height: 10px;
+        }
+  
+      }
 
-  .bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 12px;
-    left: 12px;
-    z-index: -1;
-    background-color: #e6fbff;
+      .prev {
+        top: 50% !important;
+        left: -2%;
+      }
+
+      .next {
+        top: 50%;
+        left:initial;
+        right: -2%;
+      }
+    }
   }
 }
 
-.button_container {
+#article::before {
+  position: absolute;
+  border: 1px solid #000;
+  inset: -6px 6px 6px -6px;
+  content: "";
+  z-index: 2;
+}
+
+.p-button {
   width: 141px;
   height: 54px;
   border: 1px solid #000;
   position: relative;
   cursor: pointer;
-  .button_content {
+  @media (max-width:$breakpoint-md){
+    width: 120px;
+    &__content {
+      padding: 0;
+    }
+    a {
+      font-size: 1rem;
+    }
+  }
+  &__content {
     display: flex;
     flex-direction: column;
     padding: 2%;
@@ -346,76 +399,90 @@ header {
       margin-right: 0;
     }
   }
-
-  .button_bg {
-    position: absolute;
-    background-color: #7aebff;
-    top: 1.5px;
-    left: 1.5px;
-    width: inherit;
-    height: inherit;
-    z-index: -1;
-  }
 }
 
-.button_container:hover {
-  .button_bg {
-    top: 0px;
-    left: 0px;
-    opacity: 0.8;
-    transition: all 0.4s ease;
-  }
+.p-button::before {
+  position: absolute;
+  background-color: $strongBlue;
+  inset: 2px -2px -2px 2px;
+  content: "";
+  z-index: -1;
 }
 
-.awards {
+.p-button:hover::before {
+  inset: 0;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.p-award {
   padding: 0 8%;
   display: flex;
   flex-direction: column;
   position: relative;
-  .award_container {
+  &__container {
     margin-top: 20px;
   }
 
-  .right {
+  &__right {
     top: 9%;
     right: 0;
   }
 
-  .left {
+  &__left {
     bottom: 4%;
     left: 0;
   }
 }
 
-.award {
+.award__element {
   display: flex;
   position: relative;
   width: 100%;
-  height: 117px;
+  height: auto;
   border: 1px solid #000;
   margin-bottom: 7px;
 
-  .award_content {
+  &__content {
     padding: 20px 3%;
     display: flex;
     width: 100%;
 
-    .award_right {
+    &__left__rectangle {
+      width: 9px;
+      height: 100%;
+      margin-right: 3%;
+      @media (max-width: $breakpoint-md){
+        width: 7px;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        margin: 0 4%;
+      }
+    }
+
+    &__right {
       width: 100%;
-      .award_top {
+     
+      &__top {
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #000;
         width: 100%;
-        .title {
+        &__title {
           font-size: 1.5rem;
           font-family: "Zen Kaku Gothic New", serif;
           font-weight: 400;
           font-style: normal;
           align-self: flex-end;
+          @media (max-width: $breakpoint-md){
+            font-size: 1.125rem;
+          }
         }
 
-        .date {
+        &__date {
           font-family: "Zen Kaku Gothic New", serif;
           font-weight: 300;
           font-style: normal;
@@ -429,102 +496,123 @@ header {
       font-family: "Zen Kaku Gothic New", serif;
       font-weight: 300;
       font-style: normal;
+      @media (max-width: $breakpoint-md){
+        font-size: 1rem;
+      }
     }
   }
 
-  .award_left_rectangle {
-    width: 9px;
-    height: 100%;
-    margin-right: 3%;
-  }
-
-  .award_bg {
-    width: inherit;
-    height: inherit;
+  &__content::before {
+    content: "";
     position: absolute;
-    top: 7px;
-    left: 7px;
+    inset: 7px -7px -7px 7px;
+    background-color: $bgBlue;
     z-index: -1;
-    background-color: #e6fbff;
   }
 }
 
-.invitations {
+.p-invitation {
   padding: 5% 8% 0 8%;
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 
-  .right {
+  &__right {
     top: 2%;
     right: 0;
   }
 
-  .left {
+  &__left {
     bottom: -2%;
     left: 0;
   }
-}
 
-.invitation {
-  width: 100%;
-  height: fit-content;
-  position: relative;
-  .bg {
+  &__element {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    &__content {
+      display: flex;
+      padding: 2%;
+      width: inherit;
+      @media (max-width: $breakpoint-md){
+        display: block;
+      }
+      &__left {
+        &__date {
+          font-size: 1.25rem;
+          @media (max-width: $breakpoint-md){
+            font-size: 1rem;
+          }
+        }
+      }
+  
+      &__right {
+        width: 100%;
+        padding: 0 5%;
+        @media (max-width: $breakpoint-md){
+          padding: 0;
+        }
+        &__top {
+          &__title {
+            font-size: 1.5rem;
+            font-family: "Noto Sans JP", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            @media (max-width:$breakpoint-md){
+              font-size: 1.125rem;
+              padding: 8px 0;
+            }
+          }
+        }
+  
+        &__middle {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          margin-top: 12px;
+          p {
+            @media (max-width: $breakpoint-md){
+              padding: 0;
+            }
+            font-size: 1.25rem;
+            font-family: "Zen Kaku Gothic New", serif;
+            font-weight: 300;
+            font-style: normal;
+            @media (max-width:$breakpoint-md){
+              font-size: 1rem;
+            }
+          }
+  
+          svg {
+            align-self: flex-end;
+  
+          }
+        }
+      }
+    }
+  }
+
+  &__element::before {
     position: absolute;
-    width: inherit;
-    height: 134px;
-    background-color: #e6fbff;
+    inset: 5% 0 20% 0%;
+    content: "";
+    background-color: $bgBlue;
     filter: blur(1.5rem);
     z-index: -1;
   }
-
-  .invitation_content {
-    display: flex;
-    padding: 2%;
-    width: inherit;
-    .left_content {
-      .date {
-        font-size: 1.25rem;
-        font-family: "Zen Kaku Gothic New", serif;
-        font-weight: 300;
-        font-style: normal;
-      }
-    }
-
-    .right_content {
-      width: 100%;
-      padding: 0 5%;
-      .top_content {
-        .title {
-          font-size: 1.5rem;
-          font-family: "Noto Sans JP", sans-serif;
-          font-weight: 400;
-          font-style: normal;
-        }
-      }
-
-      .middle_content {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 12px;
-        p {
-          font-size: 1.25rem;
-          font-family: "Zen Kaku Gothic New", serif;
-          font-weight: 300;
-          font-style: normal;
-        }
-
-        svg {
-          align-self: flex-end;
-        }
-      }
-    }
-  }
 }
 
-.photo_container {
+
+.slidewrapper {
+  width: 75vw;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+}
+
+.p-photo {
   align-items: center;
   position: relative;
   margin: 3% 0;
@@ -538,7 +626,11 @@ header {
   align-items: center;
   scrollbar-width: none;
   margin: 5% 0;
-  .img_box {
+  @media (max-width: $breakpoint-md){
+    display: none;
+  }
+
+  &__img__box {
     flex-shrink: 0;
     width: $photoCardWidth;
     height: $photoCardHeight;
@@ -746,21 +838,15 @@ footer {
 .to_top {
   position: fixed;
   bottom: 0;
-  z-index: 1000;
+  z-index: 70;
   right: 60px;
 }
 
 .to_top.locked {
   position: fixed;
   bottom: 102px;
-  z-index: 1000;
+  z-index: 70;
   right: 60px;
-}
-
-.absolute {
-  z-index: -3;
-  position: absolute;
-  background-color: #e6fbff;
 }
 
 .slip {
@@ -801,6 +887,7 @@ footer {
   height: 110px;
   display: inline-block;
   margin: 0 auto;
+  margin-left: 150px;
   align-self: center;
   cursor: pointer;
 
@@ -846,48 +933,6 @@ footer {
   }
 }
 
-.mini_period_wrapper {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  margin-right: 3%;
-  margin-left: 3%;
-  margin-top: 266px;
-
-  span {
-    display: inline-block;
-    width: 60px;
-    height: 1px;
-    transform: rotate(45deg);
-    border-bottom: 1px solid #b0dfe7;
-  }
-
-  p {
-    color: #a0a0a0;
-  }
-
-  .date {
-    position: relative;
-    bottom: 16px;
-    left: 50px;
-    text-align: center;
-    font-size: 1.25rem;
-    font-family: Arial, Helvetica, sans-serif;
-    border-bottom: 1px solid #b0dfe7;
-  }
-
-  .title {
-    position: absolute;
-    bottom: -4px;
-    left: 48px;
-    font-size: 1rem;
-    font-family: "Zen Kaku Gothic New", serif;
-    font-weight: 300;
-    font-style: normal;
-    white-space: nowrap;
-  }
-}
-
 .detail_container {
   display: inline-block;
   flex-shrink: 0;
@@ -896,8 +941,7 @@ footer {
   border: 1px solid #000;
   position: relative;
   padding: 3%;
-  margin-right: 3%;
-  margin-left: 8%;
+  margin-left: 20%;
 
   .year {
     font-size: 4rem;
@@ -937,6 +981,7 @@ footer {
   display: flex;
   flex-direction: column;
 }
+
 
 .slide-wrapper {
   width: 100%;
@@ -1003,6 +1048,23 @@ footer {
     }
   }
 
+  .navigation-inf {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: fit-content;
+    top: 0px;
+    left: 80%;
+    box-sizing: border-box;
+    z-index: 100;
+    margin-left: 1%;
+    span {
+      margin: 2% 4%;
+      text-align: right;
+    }
+  }
+
   .next {
     margin-left: 40px;
     width: 15px;
@@ -1035,21 +1097,23 @@ footer {
     align-items: center;
     z-index: -2;
   }
+
+#progress {
+  transition: width 0.03s linear;
 }
+
 .awards_main {
   margin: 0 8%;
 }
-
 
 @media (max-width: 768px) {
   a {
     font-size: 1rem;
   }
 
-  .top_content{
+  .top_content {
     h1 {
       font-size: 2rem;
     }
   }
-  
 }
