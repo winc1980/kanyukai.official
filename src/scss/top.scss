@@ -85,6 +85,9 @@
       inset: 3px -3px -3px 3px;
       content: "";
       z-index: -1;
+      @media (max-width: $breakpoint-md){
+        inset: 1.5px -1.5px -1.5px 1.5px;
+      }
     }
 
     &__join__link:hover::before {

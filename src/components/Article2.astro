@@ -1,0 +1,40 @@
+---
+let {title, date, content, imgSrc} = Astro.props;
+
+import sample from "../assets/sample.jpg";
+import SlideComponent from "./SlideShow";
+
+const imageSrcs = [
+    imgSrc,
+    sample,
+    sample,
+    sample,
+    sample
+];
+
+console.log(imageSrcs);
+---
+
+<div class="article">
+    <div class="content">
+        <div class="left">
+            <div class="top">
+                <div class="title">
+                    {title}
+                </div>
+                <div class="date">
+                    {date}
+                </div>
+            </div>
+            
+            <div>
+                {content}
+            </div>
+        </div>
+        
+        <div class="right">
+            <SlideComponent imgProps={imageSrcs} client:only="preact"/>
+        </div>
+    </div>
+    <div class="bg"></div>
+</div>
