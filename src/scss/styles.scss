@@ -65,7 +65,7 @@ a {
 }
 
 .helvetica_bold {
-  font-family: 'Inter Variable', sans-serif;
+  font-family: "Inter Variable", sans-serif;
   font-weight: bold;
 }
 
@@ -181,7 +181,7 @@ header {
         height: 3px;
         background-color: #000;
         margin: 6px 0;
-        transition: all 0.3s ease;
+        transition: all 0.5s ease;
       }
     }
   }
@@ -1001,7 +1001,7 @@ footer {
 }
 
 .history__wrapper__guide {
-  position:absolute;
+  position: absolute;
   right: 10%;
   bottom: 0px;
   z-index: 2;
@@ -1015,7 +1015,7 @@ footer {
 
   &__icon.shrinking {
     transform: scale(0.8) rotate(-90deg);
-    @media (max-width: $breakpoint-md){
+    @media (max-width: $breakpoint-md) {
       transform: scale(0.8);
     }
   }
@@ -1024,7 +1024,7 @@ footer {
     margin-left: 1.5rem;
   }
 
-  @media (max-width: $breakpoint-md){
+  @media (max-width: $breakpoint-md) {
     right: 30%;
     flex-direction: column-reverse;
     bottom: 5%;

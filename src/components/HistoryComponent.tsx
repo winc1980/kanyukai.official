@@ -69,30 +69,34 @@ export default function HistoryComponent({ count }: Props) {
 
   function elementClick() {
     if (historyRef.current) {
-      if(iconRef.current) {
-        iconRef.current.classList.add('shrinking');
+      if (iconRef.current) {
+        iconRef.current.classList.add("shrinking");
 
         setTimeout(() => {
-          iconRef.current!.classList.remove('shrinking');
+          iconRef.current!.classList.remove("shrinking");
         }, 200);
       }
       historyRef.current.scrollBy({
-        top: windowWidth <= 767 ? -xScroll: 0,
-        left: windowWidth > 767 ? -yScroll: 0, 
-        behavior: 'smooth',
-      });;
+        top: windowWidth <= 767 ? -xScroll : 0,
+        left: windowWidth > 767 ? -yScroll : 0,
+        behavior: "smooth",
+      });
     }
   }
 
   return (
     <div class="relative">
-      <div class="history__wrapper__guide" >
-          <div class="history__wrapper__guide__icon" onClick={elementClick} ref={(el) => iconRef.current = el}>
-            <ScrollIcon/>
-          </div>
-          <h6 class="helvetica_bold">Scroll</h6>
+      <div class="history__wrapper__guide">
+        <div
+          class="history__wrapper__guide__icon"
+          onClick={elementClick}
+          ref={(el) => (iconRef.current = el)}
+        >
+          <ScrollIcon />
         </div>
-      <div class="history__wrapper" ref={(el) => historyRef.current = el}>
+        <h6 class="helvetica_bold">Scroll</h6>
+      </div>
+      <div class="history__wrapper" ref={(el) => (historyRef.current = el)}>
         <span class="history__wrapper__border"></span>
         {periods.map((period, index) => (
           <Period
@@ -103,9 +107,7 @@ export default function HistoryComponent({ count }: Props) {
             periodClick={() => (count.value = index)}
           />
         ))}
-        
       </div>
     </div>
-    
   );
 }
