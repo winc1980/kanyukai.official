@@ -14,12 +14,12 @@ import img5 from '../assets/image 5.png';
 import Award from "../components/Award.astro";
 import Invitation from "../components/Invitation.astro";
 import Status from "../components/Status.astro";
-import Counter from "../components/Test";
 import { signal } from '@preact/signals';
 import Top from "../components/Top.astro";
 import Logo from "../components/Logo.astro";
 import Photo from "../components/Photo.astro";
 import Events from "../components/Events.astro";
+import HistoryComponent from "../components/Test";
 const count = signal(0);
 
 ---
@@ -92,7 +92,7 @@ const count = signal(0);
 		</div>
 		<Headline title="History"/>
 		<div class="history">
-			<Counter count={count} client:only="preact"/>
+			<HistoryComponent count={count} client:only="preact"/>
 			<div class="button_margin">
 				<ViewButton link="/History"/>
 			</div>

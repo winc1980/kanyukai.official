@@ -34,40 +34,37 @@ export default function Period({
   useEffect(() => {
     const period = periodRef.current;
     if (!period) return;
-
+  
     const updateCoord = () => {
       const rect = period.getBoundingClientRect();
-      if(windowWidth <= 767){
+      if (windowWidth <= 767) {
         setYCoord(rect.top);
-      }else {
+      } else {
         setXCoord(rect.left);
       }
-    }
-
+    };
+  
     const parent = period.parentElement;
     if (parent) {
-      if (windowWidth <= 767) {
-        parent.addEventListener("scroll", updateCoord);
-      } else {
-        parent.addEventListener("scroll", updateCoord);
-      }
+      parent.addEventListener("scroll", updateCoord);
     }
-
-    const observer = new ResizeObserver(updateCoord,);
+  
+    const observer = new ResizeObserver(updateCoord);
     observer.observe(period);
-
+  
+    // 初期化
     updateCoord();
-
+  
     return () => {
       if (parent) {
-        updateCoord();
+        parent.removeEventListener("scroll", updateCoord);
       }
       observer.disconnect();
     };
-  }, []);
+  }, [windowWidth]);
+  
 
-  console.log(yCoord);
-  console.log(windowWidth);
+  console.log("xCoord:", xCoord, "yCoord:", yCoord);
 
   return (
     <div
@@ -77,19 +74,19 @@ export default function Period({
       id="period"
       class="p-period"
     >
-      {(windowWidth > 767 && xCoord < 400 && xCoord > 50) ||
-      (windowWidth <= 767 && (yCoord < 1150 && yCoord > 1050)) ? (
+      {(windowWidth > 767 && xCoord < 500 && xCoord >= 0) ||
+      (windowWidth <= 767 && (yCoord < 1150 && yCoord > 750)) ? (
         <div class="p-period__detail">
           <h3 class="p-period__detail__year">{year}</h3>
           <h4 class="p-period__detail__title">{title}</h4>
           <p>{paragraph}</p>
         </div>
       ) : (
-        <div class="period_wrapper" onClick={periodClick}>
-          <span class="left_circle"></span>
-          <p class="date">{year}</p>
-          <span class="right_circle"></span>
-          <p class="title">{title}</p>
+        <div class="p-period__shrink" onClick={periodClick}>
+          <span class="p-period__shrink__left__circle"></span>
+          <h2 class="p-period__shrink__date">{year}</h2>
+          <span class="p-period__shrink__right__circle"></span>
+          <h5 class="p-period__shrink__title">{title}</h5>
         </div>
       )}
     </div>
