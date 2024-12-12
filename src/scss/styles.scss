@@ -957,47 +957,48 @@ footer {
   align-items: center;
   position: relative;
   margin: 3% 0;
-  overflow-x: auto;
+  overflow-x: scroll;
   white-space: nowrap;
   width: 100%;
   height: 600px;
-  box-sizing: border-box;
   margin: auto 0;
   display: flex;
-  align-items: center;
   scrollbar-width: none;
   @media (max-width: $breakpoint-md) {
     flex-direction: column;
-    justify-content: center;
-    overflow-x: hidden;
+    justify-content: start;
     overflow-y: scroll;
     height: 800px;
+    margin: 5% 0;
   }
   .border {
     position: absolute;
     background-color: #b0dfe7;
     z-index: -2;
     top: 400px;
-    width: 2400px;
+    width: 3000px;
     height: 2px;
     @media (max-width: $breakpoint-md) {
       width: 4px;
       height: 2400px;
       left: 50%;
+      top: 0;
     }
   }
 }
 
 #period {
+  margin-left: 5%;
   @media (max-width: $breakpoint-md) {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 5% auto;
+    margin-left: 38%;
   }
 }
 
-.period_wrapper {
+.p-period__shrink {
   transform: rotate(-45deg);
   border-bottom: 2px solid #b0dfe7;
   flex-shrink: 0;
@@ -1005,17 +1006,17 @@ footer {
   width: 204px;
   height: 110px;
   display: inline-block;
-  margin: 0 auto;
   margin-left: 150px;
   align-self: center;
   cursor: pointer;
   @media (max-width: $breakpoint-md) {
     margin-left: 0;
     display: block;
+    width: 117px;
     margin: 100px 0;
   }
 
-  .left_circle {
+  &__left__circle {
     position: absolute;
     width: 32px;
     height: 32px;
@@ -1024,7 +1025,7 @@ footer {
     bottom: -16px;
     left: -2px;
   }
-  .right_circle {
+  &__right__circle {
     position: absolute;
     width: 16px;
     height: 16px;
@@ -1034,33 +1035,57 @@ footer {
     right: -8px;
   }
 
-  .date {
-    position: relative;
-    bottom: -28px;
-    left: 16px;
+  &__date {
+    position: absolute;
+    bottom: -20px;
+    left: 30px;
     text-align: center;
-    font-size: 64px;
+    font-size: 4rem;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 6px;
+    
+    @media (max-width: $breakpoint-md){
+      margin-top: 35%;
+    }
   }
 
-  .title {
+  &__title {
     position: absolute;
     bottom: -32px;
     left: 42px;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-family: "Zen Kaku Gothic New", serif;
     font-weight: 300;
     font-style: normal;
     white-space: nowrap;
+  }
+
+  @media (max-width: $breakpoint-md){
+    &__left__circle {
+      width: 20px;
+      height: 20px;
+    }
+
+    &__right__circle {
+      width: 11px;
+      height: 11px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      bottom: 0;
+    }
+    h5 {
+      font-size: 1rem;
+    }
   }
 }
 
 .p-period__detail {
   display: inline-block;
   flex-shrink: 0;
-  width: 750px;
+  width: 500px;
   height: 500px;
   border: 1px solid #000;
   position: relative;
