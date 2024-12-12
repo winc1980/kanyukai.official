@@ -7,7 +7,7 @@ interface Props {
   years: string[];
 }
 
-export default function Awards({ awards, years }: Props) {
+export default function AwardsComponent({ awards, years }: Props) {
   const [referYear, setReferYear] = useState(years[0]);
   function changeRefer(year: string) {
     setReferYear(year);
