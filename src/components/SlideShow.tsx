@@ -54,8 +54,14 @@ export default function SlideComponent({
     resetAutoPlayInterval();
   }
 
+  console.log(autoPlayInterval);
+
   return (
     <div class="slide_component">
+      {/* <div class="slide__component__navigation">
+
+      </div> */}
+
       <div
         style={{ display: `${showNextPrevButton ? "flex" : "none"}` }}
         class="slide__wrapper__skip z-50"

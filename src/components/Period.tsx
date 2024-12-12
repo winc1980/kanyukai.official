@@ -39,11 +39,11 @@ export default function Period({
   useEffect(() => {
     const period = periodRef.current;
     if (!period) return;
-  
+
     const updateCoord = () => {
       const rect = period.getBoundingClientRect();
       const parent = period.parentElement;
-  
+
       if (parent) {
         const parentRect = parent.getBoundingClientRect();
         if (windowWidth <= 767) {
@@ -53,18 +53,18 @@ export default function Period({
         }
       }
     };
-  
+
     const parent = period.parentElement;
     if (parent) {
       parent.addEventListener("scroll", updateCoord);
     }
-  
+
     const observer = new ResizeObserver(updateCoord);
     observer.observe(period);
-  
+
     // 初期化
     updateCoord();
-  
+
     return () => {
       if (parent) {
         parent.removeEventListener("scroll", updateCoord);
@@ -72,22 +72,20 @@ export default function Period({
       observer.disconnect();
     };
   }, [windowWidth]);
-  
-  
 
   //座標確認用 あとで消します。
   console.log("xCoord:", xCoord, "yCoord:", yCoord);
 
   return (
     <div
-    ref={(el) => {
-      periodRef.current = el;
-    }}
+      ref={(el) => {
+        periodRef.current = el;
+      }}
       id="period"
       class="p-period"
     >
       {(windowWidth > 767 && xCoord < xCoordMax && xCoord >= 0) ||
-      (windowWidth <= 767 && (yCoord < yCoordMax && yCoord >= 0)) ? (
+      (windowWidth <= 767 && yCoord < yCoordMax && yCoord >= 0) ? (
         <div class="p-period__detail">
           <h3 class="p-period__detail__year">{year}</h3>
           <h4 class="p-period__detail__title">{title}</h4>
@@ -104,4 +102,3 @@ export default function Period({
     </div>
   );
 }
-

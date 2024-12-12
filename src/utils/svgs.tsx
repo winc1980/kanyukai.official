@@ -173,3 +173,28 @@ export function UnderBar() {
     </svg>
   );
 }
+
+export function ScrollIcon() {
+  return (
+    <svg
+      width="14"
+      height="34"
+      viewBox="0 0 14 34"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6.69565 0L13.3913 6V12L6.69565 6L0 12L0 6L6.69565 0Z"
+        fill="black"
+      />
+      <path
+        d="M6.69565 11L13.3913 17V23L6.69565 17L0 23L0 17L6.69565 11Z"
+        fill="black"
+      />
+      <path
+        d="M6.69565 22L13.3913 28V34L6.69565 28L0 34L0 28L6.69565 22Z"
+        fill="black"
+      />
+    </svg>
+  );
+}
