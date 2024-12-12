@@ -19,6 +19,11 @@ export default function Period({
   const [xCoord, setXCoord] = useState(0);
   const [yCoord, setYCoord] = useState(0);
 
+  //座標指定でdetailかshrinkか決めてます。親要素からの距離が0からyCoordMaxまでの間にいる時detail.
+  const yCoordMax = 350;
+  //yCoordMaxのPC版。ちょうどいい座標がいまいちわからない。
+  const xCoordMax = 500;
+
   useEffect(() => {
     setWindowWidth(window.innerWidth);
 
@@ -37,10 +42,15 @@ export default function Period({
   
     const updateCoord = () => {
       const rect = period.getBoundingClientRect();
-      if (windowWidth <= 767) {
-        setYCoord(rect.top);
-      } else {
-        setXCoord(rect.left);
+      const parent = period.parentElement;
+  
+      if (parent) {
+        const parentRect = parent.getBoundingClientRect();
+        if (windowWidth <= 767) {
+          setYCoord(rect.top - parentRect.top); // 親要素を基準にしたY座標
+        } else {
+          setXCoord(rect.left - parentRect.left); // 親要素を基準にしたX座標
+        }
       }
     };
   
@@ -63,7 +73,9 @@ export default function Period({
     };
   }, [windowWidth]);
   
+  
 
+  //座標確認用 あとで消します。
   console.log("xCoord:", xCoord, "yCoord:", yCoord);
 
   return (
@@ -74,8 +86,8 @@ export default function Period({
       id="period"
       class="p-period"
     >
-      {(windowWidth > 767 && xCoord < 500 && xCoord >= 0) ||
-      (windowWidth <= 767 && (yCoord < 1150 && yCoord > 750)) ? (
+      {(windowWidth > 767 && xCoord < xCoordMax && xCoord >= 0) ||
+      (windowWidth <= 767 && (yCoord < yCoordMax && yCoord >= 0)) ? (
         <div class="p-period__detail">
           <h3 class="p-period__detail__year">{year}</h3>
           <h4 class="p-period__detail__title">{title}</h4>

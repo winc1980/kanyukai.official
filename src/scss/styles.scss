@@ -975,9 +975,10 @@ footer {
   @media (max-width: $breakpoint-md) {
     flex-direction: column;
     justify-content: start;
+    align-items: center;
     overflow-y: scroll;
     height: 800px;
-    margin: 5% 0;
+    margin: 5% auto;
   }
   .border {
     position: absolute;
@@ -1001,8 +1002,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5% auto;
-    margin-left: 38%;
+    margin: 3% auto;
   }
 }
 
@@ -1018,10 +1018,12 @@ footer {
   align-self: center;
   cursor: pointer;
   @media (max-width: $breakpoint-md) {
+    transform: rotate(-35deg);
     margin-left: 0;
     display: block;
     width: 117px;
     margin: 100px 0;
+    margin-left: 20px;
   }
 
   &__left__circle {
@@ -1073,6 +1075,8 @@ footer {
     &__left__circle {
       width: 20px;
       height: 20px;
+      left: 0;
+      bottom: -10px;
     }
 
     &__right__circle {
@@ -1082,10 +1086,12 @@ footer {
 
     h2 {
       font-size: 1.5rem;
-      bottom: 0;
+      bottom: -5px;
+      left: 32px;
     }
     h5 {
       font-size: 1rem;
+      left: 2px;
     }
   }
 }
@@ -1122,7 +1128,7 @@ footer {
     white-space: pre-wrap;
   }
   @media (max-width: $breakpoint-md){
-    margin: 100px 0;
+    margin: 5% 0;
     width: 85%;
     height: auto;
     p {
