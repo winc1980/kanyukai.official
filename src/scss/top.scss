@@ -9,11 +9,12 @@
   justify-content: space-between;
   &__md__fish {
     display: none;
+    width: 30%;
     @media (max-width: $breakpoint-md) {
       display: block;
       position: absolute;
-      bottom: 25%;
-      left: 0;
+      bottom: 15vw;
+      left: 3%;
     }
   }
 
@@ -24,6 +25,7 @@
     }
     .fish_big {
       display: none;
+      
     }
   }
   .fish {
@@ -31,19 +33,25 @@
     right: 0;
     top: 10px;
     z-index: 10;
+    width: 30%;
   }
 
   .fish_big {
     position: absolute;
-    bottom: 7%;
+    width: 70%;
+    bottom: 3vw;
     right: 0;
     z-index: 10;
+    @media (max-width: $breakpoint-lg){
+      bottom: -2%;
+    }
   }
   &__left__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 5% 0;
+    width: 35%;
     @media (max-width: $breakpoint-lg) {
       padding: 8% 3%;
     }
@@ -85,7 +93,7 @@
       inset: 3px -3px -3px 3px;
       content: "";
       z-index: -1;
-      @media (max-width: $breakpoint-md){
+      @media (max-width: $breakpoint-md) {
         inset: 1.5px -1.5px -1.5px 1.5px;
       }
     }
@@ -100,9 +108,9 @@
   &__right__content {
     display: inline-block;
     position: relative;
+    width: 60%;
     height: auto;
     margin-left: 0;
-    width: $slideWidth;
     margin-right: 6px;
 
     @media (max-width: $breakpoint-md) {

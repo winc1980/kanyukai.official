@@ -30,11 +30,6 @@ export default function SlideComponent({
     resetAutoPlayInterval();
   }
 
-  function prevClick() {
-    changeSlidePos((prev) => (prev - 1 + slideLength) % slideLength);
-    resetAutoPlayInterval();
-  }
-
   function startAutoPlay() {
     autoPlayInterval.current = window.setInterval(nextClick, duration);
   }
@@ -74,7 +69,6 @@ export default function SlideComponent({
     return () => clearInterval(timer);
   }, []);
 
-  // console.log(autoPlayInterval);
   const prevRef = useRef<HTMLSpanElement>(null);
   const nextRef = useRef<HTMLSpanElement>(null);
   function skipIconClick(iconRef: RefObject<HTMLSpanElement>) {
@@ -99,51 +93,76 @@ export default function SlideComponent({
     resetAutoPlayInterval();
   }
 
+  const slideRef = useRef<HTMLDivElement>(null);
+  if(prevRef.current && nextRef.current && !showProgressBar && slideRef.current){
+    prevRef.current.style.top = `${slideRef.current.offsetHeight/2 - prevRef.current.offsetHeight/2}px`;
+    nextRef.current.style.top = `${slideRef.current.offsetHeight/2 - nextRef.current.offsetHeight/2}px`;
+    prevRef.current.style.left = `-${prevRef.current.offsetWidth/2}px`;
+    nextRef.current.style.right = `-${nextRef.current.offsetWidth/2}px`;
+  }
+
   return (
-    <div class="slide_component">
-      {showProgressBar ? 
-         (
-          <>
-          <div class="slide_component__navigation">
-          <h6 class="left">1</h6>
-          <div class="slide_component__navigation__progress">
-            <span
-              class="h-full bg-black"
-              style={{ width: `${progress}%` }}
-            ></span>
-          </div>
-          <h6 class="right">{imgProps.length}</h6>
-          <div
-            style={{ display: `${showNextPrevButton ? "flex" : "none"}` }}
-            class="slide_component__navigation__skip z-50"
-          >
-            <div id="prev" class="prev__custom" onClick={prevButtonClick} ref={(el) => prevRef.current = el}>
-              <PrevIcon />
-            </div>
-            <div id="next" class="next__custom" onClick={nextButtonClick} ref={(el) => nextRef.current = el}>
-              <NextIcon />
-            </div>
-          </div>
-        </div>
-          </>
-          
-        )
-      :  (
+    <div class="slide_component" ref={(el) => slideRef.current = el}>
+      {showProgressBar ? (
         <>
-        <div
+          <div class="slide_component__navigation">
+            <h6 class="left">1</h6>
+            <div class="slide_component__navigation__progress">
+              <span
+                class="h-full bg-black"
+                style={{ width: `${progress}%` }}
+              ></span>
+            </div>
+            <h6 class="right">{imgProps.length}</h6>
+            <div
+              style={{ display: `${showNextPrevButton ? "flex" : "none"}` }}
+              class="slide_component__navigation__skip z-50"
+            >
+              <div
+                id="prev"
+                class="prev__custom"
+                onClick={prevButtonClick}
+                ref={(el) => (prevRef.current = el)}
+              >
+                <PrevIcon />
+              </div>
+              <div
+                id="next"
+                class="next__custom"
+                onClick={nextButtonClick}
+                ref={(el) => (nextRef.current = el)}
+              >
+                <NextIcon/>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div
             style={{ display: `${showNextPrevButton ? "flex" : "none"}` }}
             class="slide_wrapper__skip z-50"
           >
-            <div id="prev" class="prev" onClick={prevButtonClick} ref={(el) => prevRef.current = el}>
+            <div
+              id="prev"
+              class="prev"
+              onClick={prevButtonClick}
+              ref={(el) => (prevRef.current = el)}
+            >
               <PrevIcon />
             </div>
-            <div id="next" class="next" onClick={nextButtonClick} ref={(el) => nextRef.current = el}>
-              <NextIcon />
+            <div
+              id="next"
+              class="next"
+              onClick={nextButtonClick}
+              ref={(el) => (nextRef.current = el)}
+            >
+              <NextIcon/>
             </div>
           </div>
         </>
       )}
-      
+
       <div class="slide_wrapper">
         <ul
           class="indicator"
@@ -172,8 +191,8 @@ export default function SlideComponent({
             <div>
               <img
                 src={img.src}
-                width={img.width}
-                height={img.height}
+                width={'100%'}
+                height={'auto'}
                 loading="eager"
                 alt={img.src}
               />

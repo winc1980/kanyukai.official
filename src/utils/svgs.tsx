@@ -1,8 +1,8 @@
 export const MdLogo = () => {
   return (
     <svg
-      width="119"
-      height="39"
+      width="100%"
+      height="auto"
       viewBox="0 0 119 39"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -126,29 +126,13 @@ export const BigUnderline = () => {
 
 export function PrevIcon() {
   return (
-    <svg
-      width="10"
-      height="12"
-      viewBox="0 0 10 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M9 1L1 6L9 11" stroke="black" />
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m10.108 12l4.246 4.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16l-4.388-4.389q-.131-.13-.184-.267q-.053-.136-.053-.298t.053-.298t.184-.267l4.388-4.389q.14-.14.344-.15t.364.15t.16.354t-.16.354z"/></svg>
   );
 }
 
 export function NextIcon() {
   return (
-    <svg
-      width="10"
-      height="12"
-      viewBox="0 0 10 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M1 1L9 6L1 11" stroke="black" />
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M13.292 12L9.046 7.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16l4.388 4.389q.131.13.184.267t.053.298t-.053.298t-.184.268l-4.388 4.388q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354z"/></svg>
   );
 }
 

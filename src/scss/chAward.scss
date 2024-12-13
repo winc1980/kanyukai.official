@@ -1,0 +1,155 @@
+@use "./variables" as *;
+
+.ch__award {
+  margin: 3% 2%;
+  padding:2% 3%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  position: relative;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2%;
+
+    &__left {
+      width: 80%;
+      display: flex;
+      align-items: center;
+      span {
+        display: inline-block;
+        width: 9px !important;
+        height: 100%;
+        background-color: #eeec9b;
+        box-sizing: border-box;
+        margin-right: 3%;
+      }
+
+      &__title {
+        font-size: 1.5rem;
+        text-wrap: nowrap;
+      }
+    }
+
+    &__right {
+      text-align: right;
+      font-family: "Zen Kaku Gothic New", sans-serif;
+      font-weight: 300;
+      font-style: normal;
+    }
+  }
+
+  &__main {
+    &__description {
+      display: flex;
+      width: 100%;
+      padding:0 2%;
+      
+      p {
+        font-family: "Zen Kaku Gothic New", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 1.25rem;
+        width: 60%;
+        padding: 0 3rem 3rem 0;
+      }
+  
+      &__img__wrapper {
+        position: relative;
+        width: 40%;
+        .prev {
+          left: 0% !important;
+        }
+
+        .next {
+          left: auto !important;
+          right: 0% !important;
+        }
+      }
+
+      
+    }
+
+    &__fewImgContainer {
+      width: 100%;
+      padding:0 2%;
+      p {
+        font-family: "Zen Kaku Gothic New", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 1.25rem;
+        width: 100%;
+        padding: 0 3rem 0 0;
+      }
+
+      &__imgs {
+        display: flex;
+        justify-content: center;
+        margin: 3% 0;
+      }
+    }
+    
+  }
+
+  @media (max-width: $breakpoint-md){
+    &__top {
+      margin: 3%;
+      &__left {
+        display: flex;
+        width: 100%;
+        div {
+          width: 100%;
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          margin-right: 5%;
+          border-bottom: 2px solid #3d3b3b;
+          padding: 2% 0;
+        }
+
+        h4 {
+          font-size: 1.125rem;
+        }
+      }
+
+      &__right {
+        display: none;
+      }
+    }
+    &__main {
+      &__description {
+        flex-direction: column;
+        padding:0 8%;
+        p {
+          width: 100%;
+          padding: 0;
+          font-size: 1rem;
+        }
+  
+        &__img__wrapper {
+          margin: 5% 0;
+          width: 100%;
+          padding: 0;
+        }
+      }
+
+      &__fewImgContainer {
+        padding: 0 8%;
+        p {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.ch__award::before {
+  position: absolute;
+  content: "";
+  inset: 8px -8px -8px 8px;
+  background-color: $bgBlue;
+  z-index: -2;
+  @media (max-width: $breakpoint-md) {
+    inset: 4px -4px -4px 4px;
+  }
+}

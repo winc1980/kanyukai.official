@@ -96,7 +96,7 @@ header {
   .header__logo {
     width: 200px;
     height: 85px;
-    @media (max-width: $breakpoint-md){
+    @media (max-width: $breakpoint-md) {
       width: 100px;
       height: 42px;
     }
@@ -350,14 +350,12 @@ header {
       }
 
       .prev {
-        top: 50% !important;
-        left: -2%;
+        left: 0%;
       }
 
       .next {
-        top: 50%;
         left: initial;
-        right: -2%;
+        right: 0%;
       }
     }
   }
@@ -377,7 +375,7 @@ header {
   border: 1px solid #000;
   position: relative;
   cursor: pointer;
-  
+
   &__content {
     display: flex;
     flex-direction: column;
@@ -420,7 +418,7 @@ header {
   inset: 2px -2px -2px 2px;
   content: "";
   z-index: -1;
-  @media (max-width: $breakpoint-md){
+  @media (max-width: $breakpoint-md) {
     inset: 1px -1px -1px 1px;
   }
 }

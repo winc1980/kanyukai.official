@@ -2,11 +2,11 @@ import type { RefObject } from "preact";
 import { useCallback } from "preact/hooks";
 
 // 引数のtargetProperty をDOMRectのもつPropertyに限定する
-type DOMRectProperty = keyof Omit<DOMRect, 'toJSON'>;
+type DOMRectProperty = keyof Omit<DOMRect, "toJSON">;
 
 // RefObjectの型は div, span, p, input などのさまざまなHTML要素に対応できるようにextendsで制限をかけつつ抽象化
 export const useGetElementProperty = <T extends HTMLElement>(
-  elementRef: RefObject<T>
+  elementRef: RefObject<T>,
 ) => {
   const getElementProperty = useCallback(
     (targetProperty: DOMRectProperty): number => {
@@ -18,7 +18,7 @@ export const useGetElementProperty = <T extends HTMLElement>(
       // clientRect が undefined のときはデフォルトで0を返すようにする
       return 0;
     },
-    [elementRef]
+    [elementRef],
   );
 
   return {
