@@ -57,17 +57,22 @@ export default function SlideComponent({
   }
 
   useEffect(() => {
-    const interval = 5;
+    const interval = 10;
     const step = (100 / duration) * interval;
-
+  
     const timer = setInterval(() => {
       setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(timer);
+          return 0;
+        }
         return prev + step;
       });
     }, interval);
-
-    return () => clearInterval(timer);
-  }, []);
+  
+    return () => clearInterval(timer); 
+  }, [slidePos]); 
+  
 
   const prevRef = useRef<HTMLSpanElement>(null);
   const nextRef = useRef<HTMLSpanElement>(null);

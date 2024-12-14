@@ -8,7 +8,7 @@ html {
 
 .l-container {
   max-width: $slideWidth;
-  margin: 0 auto;
+  margin: 5% auto;
   padding: 0 15px;
 }
 
@@ -20,9 +20,10 @@ body * {
   font-size: 16px;
 }
 
-.l-container {
-  padding: 0 8%;
-  margin: 0 auto;
+.calender-l-container {
+  max-width: 1200px;
+  padding: 5% 8%;
+  margin: 5% auto;
 }
 
 h1 {
@@ -104,6 +105,7 @@ header {
   .header__link {
     overflow: hidden;
     display: flex;
+    align-items: center;
     &__hamburger {
       display: none;
     }
