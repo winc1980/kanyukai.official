@@ -59,11 +59,13 @@
         width: 40%;
         .prev {
           left: 0% !important;
+          width: 50px;
         }
 
         .next {
           left: auto !important;
           right: 0% !important;
+          width: 50px;
         }
       }
 

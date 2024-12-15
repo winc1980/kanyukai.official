@@ -112,6 +112,13 @@
     height: auto;
     margin-left: 0;
     margin-right: 6px;
+    .prev {
+      width: 50px;
+    }
+
+    .next {
+      width: 50px;
+    }
 
     @media (max-width: $breakpoint-md) {
       width: 65%;

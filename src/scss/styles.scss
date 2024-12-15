@@ -94,6 +94,12 @@ header {
   align-items: center;
   padding: 15px 7%;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  // position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  // background-color: white;
+  
   .header__logo {
     width: 200px;
     height: 85px;
@@ -174,6 +180,11 @@ header {
     .header__invitation:hover {
       inset: 0;
       transition: all 0.3s ease;
+      a {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        color: rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+      }
     }
   }
 
@@ -343,6 +354,7 @@ header {
       height: max-content;
       border: 1px solid #000;
       position: relative;
+      align-self: center;
       @media (max-width: $breakpoint-md) {
         width: 50%;
         .indicator li {
@@ -353,11 +365,23 @@ header {
 
       .prev {
         left: 0%;
+        width: 64px !important;
       }
 
       .next {
         left: initial;
         right: 0%;
+        width: 64px !important;
+      }
+
+      @media (max-width: $breakpoint-md){
+        .prev {
+          width: 48px !important;
+        }
+
+        .next {
+          width: 48px !important;
+        }
       }
     }
   }
@@ -370,6 +394,11 @@ header {
   content: "";
   z-index: 2;
 }
+
+// #article:hover {
+//   transform: scale(1.05);
+//   transition: all 0.3s ease;
+// }
 
 .p-button {
   width: 141px;
@@ -527,6 +556,16 @@ header {
   }
 }
 
+// .award__element:hover {
+//   transform: scale(1.05);
+//   transition: all 0.3s ease;
+//   z-index: 10;
+
+//   &__content::before{
+//     z-index: -1;
+//   }
+// }
+
 .p-invitation {
   padding: 5% 8% 0 8%;
   display: flex;
@@ -545,8 +584,10 @@ header {
 
   &__element {
     width: 100%;
+    cursor: pointer;
     height: fit-content;
     position: relative;
+    margin: 1% 0;
     &__content {
       display: flex;
       padding: 2%;
@@ -612,9 +653,16 @@ header {
     inset: 5% 0 20% 0%;
     content: "";
     background-color: $bgBlue;
+    opacity: 1;
     filter: blur(1.5rem);
     z-index: -1;
   }
+
+  // &__element:hover {
+  //   transition: all 0.3s ease;
+  //   transform: scale(1.1);
+  //   cursor: pointer;
+  // }
 }
 
 .slidewrapper {
@@ -969,6 +1017,12 @@ footer {
   bottom: 0;
   z-index: 70;
   right: 60px;
+  transition: all 0.1s ease;
+}
+
+.to_top.fade {
+  opacity: 0;
+  transition: all 0.3s ease;
 }
 
 .to_top.locked {
@@ -1205,7 +1259,7 @@ footer {
   z-index: -1;
   content: "";
   background-color: $bgBlue;
-  inset: 8px -8px -8px -8px;
+  inset: 8px -8px -8px 8px;
 }
 
 .history {

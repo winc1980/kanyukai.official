@@ -33,7 +33,7 @@ import headerLogo from '../assets/logo.png';
     </div>
     <ul class="header__link">
         <li>
-            <a class="cursor-pointer" href="/Activities">大会実績</a>
+            <a class="cursor-pointer" href="/awards">大会実績</a>
         </li>
         <li>
             <a class="cursor-pointer" href="/Information">サークル情報</a>
@@ -48,6 +48,7 @@ import headerLogo from '../assets/logo.png';
 </header>
 
 <script>
+    const header = document.getElementById('header') as HTMLElement;
     const hamburger = document.getElementsByClassName('header__link__hamburger')[0] as HTMLElement;
     const line1 = document.getElementsByClassName('line__1')[0] as HTMLElement;
     const line2 = document.getElementsByClassName('line__2')[0] as HTMLElement;
