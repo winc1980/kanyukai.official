@@ -24,6 +24,7 @@
     "@types/react-dom": "^19.0.2",
     "@xexiu/astro-progress-bar": "^0.3.9",
     "astro": "^4.14.2",
+    "microcms-js-sdk": "^3.1.2",
     "preact": "^10.25.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
