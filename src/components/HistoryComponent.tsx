@@ -2,6 +2,7 @@ import type { Signal } from "@preact/signals";
 import Period from "./Period.tsx";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ScrollIcon } from "../utils/svgs.tsx";
+import "../scss/historyComponent.scss";
 
 type Props = {
   count: Signal<number>;

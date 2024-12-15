@@ -5,6 +5,14 @@
   margin: 0 auto;
   padding: 0 15px;
   max-width: 1200px;
+  @media (min-width: 1440px){
+    max-width: max-content;
+  }
+}
+
+.activities_l_container {
+  margin: 0 8%;
+  padding: 0 15px;
 }
 
 p,
@@ -37,11 +45,11 @@ body {
 /* ------------------- activitiesここから ------------------- */
 .p-activities {
   width: 95%;
-  margin: 0 0 0 auto;
+  margin: 0 0 0 0;
   &__titlewrapper {
     margin-top: 5%;
     p {
-      margin-left: 3%;
+      // margin-left: 3%;
       font-size: 20px;
       font-weight: 100;
       font-family: "Zen Kaku Gothic New";
@@ -64,9 +72,12 @@ body {
     }
   }
   img {
-    width: 20vw;
+    width: 24%;
     height: auto;
-    margin-top: 2%;
+    // margin-top: 2%;
+    position: absolute;
+    top: 60px;
+    right: 5%;
   }
 }
 
@@ -187,6 +198,20 @@ body {
     }
   }
 }
+
+.to_top {
+  position: fixed;
+  bottom: 0;
+  z-index: 70;
+  right: 60px;
+  width: 4vw;
+  height: auto;
+  transition: all 0.1s ease;
+  @media (max-width: $breakpoint-lg){
+    width: 48px;
+  }
+}
+
 
 .p-blog__wrapper__card__flexbox_left {
   width: 70%;
