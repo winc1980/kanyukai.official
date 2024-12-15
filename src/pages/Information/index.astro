@@ -1,4 +1,5 @@
 ---
+let {title, date, content} = Astro.props;
 import Layout from '@/layouts/Layout.astro';
 import { Image } from "astro:assets";
 
@@ -6,20 +7,30 @@ import '@/scss/info.scss';
 
 import '@fontsource/zen-kaku-gothic-new';
 
-
-const title = "";
 const description = "";
 const og_image = "";
 
 import Slide from "@/components/Slide.astro";
 import Fishbg from "@/assets/images/fish_bg.webp";
 import dummy1 from "@/assets/images/dummy1.webp";
+import dummy2 from "@/assets/images/dummy2.webp";
+import Instagram from "@/assets/images/Instagram.webp";
+import X from "@/assets/images/X.webp";
 import Top from "@/components/Top.astro";
+import SlideShow2 from "@/components/SlideShow2.tsx";
+
+// 画像リスト
+const slides = [
+  { src: "/assets/images/dummy1.webp", alt: "スライド1" },
+  { src: "/assets/images/dummy2.webp", alt: "スライド2" },
+  { src: "/assets/images/dummy1.webp", alt: "スライド3" },
+];
+
 ---
 
-<Layout title={title} , description={description} og_image={og_image}>
+<Layout title={title} description={description} og_image={og_image}>
   <main>
-    <a class="to_top" href="#top">
+    <a class="to_top sp-none" href="#top">
 			<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<rect opacity="0.5" x="3" y="3" width="54" height="54" fill="#74C1F5"/>
 				<path opacity="0.5" d="M7.54606 39.0757C6.48176 40.3903 7.42842 42.3504 9.11976 42.3341L13.5063 42.2918C14.1031 42.2861 14.6662 42.0141 15.0417 41.5501L28.8017 24.5471C29.6021 23.5581 31.1104 23.558 31.9109 24.5469L45.6749 41.5503C46.0504 42.0141 46.6134 42.2861 47.2102 42.2918L51.6309 42.3342C53.3221 42.3505 54.2687 40.3906 53.2046 39.076L31.9315 12.7953C31.1311 11.8065 29.623 11.8064 28.8225 12.7952L7.54606 39.0757Z" fill="#F0F5FD"/>
@@ -28,7 +39,7 @@ import Top from "@/components/Top.astro";
 		</a>
 		
 
-    <section id="Info-top" class="p-Info-top">
+    <section id="Info-top" class="p-Info-top sp-none">
       <a class="to_top" href="#top">
         <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect opacity="0.5" x="3" y="3" width="54" height="54" fill="#74C1F5"/>
@@ -47,29 +58,56 @@ import Top from "@/components/Top.astro";
               <Slide>
             </div>
     </section>
+
+    <div class="p-Status__flexbox pc-none">
+      <div class="p-Status__titlewrapper pc-none">
+        <p>基本情報</p>
+        <div class="p-Status__titlewrapper__flexbox">
+          <h1 class="p-Status__titlewrapper__flexbox__title">About</h1>
+          
+        </div>
+      </div>
+      <div class="p-Status__img-wrapper pc-none">
+        <Image
+          src={Fishbg}
+                alt={""}
+        />
+      </div>
+      
+    </div>
+    
     <section id="Status" class="p-Status">
         <div class="l-container">
-          <div class="p-Status__flexbox">
-            <div class="p-Status__titlewrapper">
+          
+          <div class="p-Status__flexbox sp-none">
+            <div class="p-Status__titlewrapper sp-none">
               <p>基本情報</p>
               <div class="p-Status__titlewrapper__flexbox">
                 <h1 class="p-Status__titlewrapper__flexbox__title">Status</h1>
-                <pre class="p-Status__titlewrapper__flexbox__margin">　　　</pre>
+                <pre class="p-Status__titlewrapper__flexbox__margin sp-none">　　　</pre>
               </div>
             </div>
-            <div class="p-Status__img-wrapper">
+            <div class="p-Status__img-wrapper sp-none">
               <Image
                 src={Fishbg}
                       alt={""}
+                
               />
               <Image
                 src={Fishbg}
                       alt={""}
               />
             </div>
+            
           </div>
           
+          
           <div class="p-activities__contentswrapper">
+            <Image
+            src={dummy2}
+            alt=""
+            class="p-activities__contentswrapper__img pc-none"
+            />
             <div class="p-activities__contentswrapper__leftcontents">
               <div class="p-activities__contentswrapper__leftcontents__wrapper">
                 <h2 class="contentstitle">正式名称</h2>
@@ -103,6 +141,20 @@ import Top from "@/components/Top.astro";
                 る事が最大の魅力です。
               </p>
             </div>
+            <div class="link-wrapper">
+            <p class="link-txt pc-none">旧ブログのリンクはこちらから</p>
+        
+            <div class="icon-wrapper pc-none">
+              <Image
+              src={Instagram}
+              alt=""
+              />
+              <Image
+              src={X}
+              alt=""
+              />
+            </div>
+            </div>
           </div>
 
         </div>
@@ -110,10 +162,19 @@ import Top from "@/components/Top.astro";
     <section id="Events" class="p-Events">
         <div class="l-container">
           <div class="p-Events__titlewrapper">
-            <p>年中行事</p>
-            <div class="p-Events__titlewrapper__flexbox">
-              <h1 class="p-Events__titlewrapper__flexbox__title">Events</h1>
-              <pre class="p-Events__titlewrapper__flexbox__margin">　　　</pre>
+            <div>
+              <p>年中行事</p>
+              <div class="p-Events__titlewrapper__flexbox">
+                <h1 class="p-Events__titlewrapper__flexbox__title">Events</h1>
+                <pre class="p-Events__titlewrapper__flexbox__margin">　　　</pre>
+              </div>
+            </div>
+            <div class="img-wrapper">
+            <Image
+                src={Fishbg}
+                alt={""}
+                class="pc-none"    
+              />
             </div>
           </div>
 
@@ -123,10 +184,17 @@ import Top from "@/components/Top.astro";
                 <Image 
                 src={dummy1} 
                 alt=""
-                class="slide1"
+                class="slide1 sp-none"
                 />
                 <div class="p-Events__cardswrapper__card__flexbox__txtbox">
                   <h3>月例釣行</h3>
+                  <div>
+                  <Image 
+                src={dummy1} 
+                alt=""
+                class="slide1 pc-none"
+                />
+              </div>
                   <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
                      容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                      内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
@@ -152,6 +220,13 @@ import Top from "@/components/Top.astro";
               <div class="p-Events__cardswrapper__card__flexbox">
                 <div class="p-Events__cardswrapper__card__flexbox__txtbox">
                   <h3>合宿</h3>
+                  <div class="img-wrapper">
+                    <Image
+                        src={dummy1}
+                        alt={""}
+                        class="pc-none"    
+                      />
+                    </div>
                   <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
                     容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                     内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
@@ -165,7 +240,7 @@ import Top from "@/components/Top.astro";
                 <Image 
                 src={dummy1} 
                 alt=""
-                class="slide1"
+                class="slide1 sp-none"
                 />
               </div>
             </div>
@@ -187,6 +262,7 @@ import Top from "@/components/Top.astro";
                 />
                 <div class="p-Events__cardswrapper__card__flexbox__txtbox">
                   <h3>文化祭</h3>
+                  
                   <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
                     容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                     内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
@@ -208,6 +284,8 @@ import Top from "@/components/Top.astro";
         
       
     </section>
+
+    <SlideShow2 images={slides} client:only="preact" />
   </main>
 </Layout>
 
