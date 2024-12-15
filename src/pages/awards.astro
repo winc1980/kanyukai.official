@@ -2,10 +2,10 @@
 import Label from "../components/Label.astro";
 import Layout from "../layouts/Layout.astro";
 import demo from "../assets/demo.png";
-import ChAward from "../components/ChAward";
-import YearAward from "../components/YearAward";
-import Awards from "../components/Awards";
+import AwardsComponent from "../components/awards";
 import { getImage } from "astro:assets";
+import Logo from "../components/Logo.astro";
+import "../scss/awards.scss";
 
 const optimized_demo = await getImage({src: demo, format: 'webp'})
 
@@ -93,23 +93,25 @@ const awards: Award[] = [
   },
 ];
 const years = [... new Set(awards.map((award) => award.date.slice(0, 4)))];
-let referYear = "2024";
-
-function referChange(pos: number) {
-    referYear = years[pos];
-}
-
 ---
 
 <Layout title="" description="" og_image="">
-  <main class="my-20 mx-[8%]">
-    <Label jp="大会実績" en="Awards" />
-    <h6 class="zenkaku_light text-right tracking-wider my-5">クリックで下に表示されます</h6>
-    <div>
-        <Awards awards={awards} years={years} client:only="preact">
-            <div slot="fallback">Loading</div>
-        </Awards>
-    </div>
+  <main >
+    <section class="p-awards relative h-full">
+      <span class="awards__logo">
+        <Logo/>
+      </span>
+      <div class="my-20 mx-[8%]">
+        <Label jp="大会実績" en="Awards" />
+        <h6 class="zenkaku_light text-right tracking-wider my-5">クリックで下に表示されます</h6>
+        <div >
+            <AwardsComponent awards={awards} years={years} client:only="preact">
+                <div slot="fallback">Loading</div>
+            </AwardsComponent>
+        </div>
+      </div>
+    </section>
+    
   </main>
 </Layout>
 

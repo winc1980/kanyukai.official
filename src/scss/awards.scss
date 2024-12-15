@@ -1,0 +1,84 @@
+@use "./variables" as *;
+
+.awards__logo {
+  position: absolute;
+  top: -3vw;
+  right: 2%;
+  width: 30%;
+  height: auto;
+}
+
+.awards-container {
+  overflow: hidden;
+  transition:
+    height 0.3s ease,
+    opacity 0.3s ease;
+  height: 0;
+  opacity: 0;
+}
+
+.awards-container.open {
+  height: auto;
+  opacity: 1;
+}
+
+.award__arrow {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  align-self: flex-end;
+  @media (max-width: $breakpoint-md){
+    transform: scale(0.8);
+  }
+}
+
+.award__arrow.open {
+  transform: rotate(-90deg) scale(0.8);
+  display: flex;
+  align-items: end;
+  align-self: auto;
+  @media (max-width: $breakpoint-md){
+    transform: scale(0.6) rotate(-90deg);
+  }
+}
+
+.year__award {
+  margin: 1.25rem 0;
+  padding: 2% 0;
+  border: 1px solid #000;
+  &__top {
+    padding: 0 2%;
+  }
+
+  &__direction__icon__mobile {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg);
+    background-color: #7AEBFF;
+    align-self: center;
+    transition: all 0.3s ease;
+  }
+
+  &__direction__icon__mobile::before {
+    position: absolute;
+    inset: -2px 2px 2px -2px;
+    border: 0.5px solid #000;
+    content: "";
+  }
+
+  &__direction__icon__pc.open {
+    transform: rotate(90deg);
+    transition: all 0.3s ease;
+  }
+
+  &__direction__icon__mobile.open {
+    transform: rotate(135deg);
+  }
+  @media (max-width: $breakpoint-md) {
+    &__top {
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+  }
+}

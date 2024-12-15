@@ -1,4 +1,93 @@
+@use "./variables" as *;
+
 .slide_component {
+  .next {
+    z-index: 10;
+    display: inline-block;
+    position: absolute;
+    top: 3%;
+    left: 10%;
+    cursor: pointer;
+  }
+
+  .prev {
+    z-index: 10;
+    display: inline-block;
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    cursor: pointer;
+  }
+
+  .shrink {
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+  }
+  &__navigation {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    z-index: 50;
+    width: 20rem;
+    @media (max-width: $breakpoint-lg){
+      width: 15rem;
+    }
+    h6 {
+      font-size: 1.25rem;
+    }
+
+    h6.left {
+      text-align: start;
+    }
+
+    h6.right {
+      right: 0;
+      text-align: end;
+    }
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+    &__progress {
+      width: 60%;
+      height: 3px;
+      display: flex;
+      align-items: center;
+      background-color: #b6b6b6;
+      margin: 0 10%;
+      
+      span {
+        height: 3px;
+        display: inline-block;
+      }
+    }
+
+    &__skip {
+      display: flex;
+      width: 40%;
+      justify-content: space-between;
+      margin-left: 5%;
+      .next__custom {
+        width: 48px;
+        z-index: 10;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .prev__custom {
+        width: 48px;
+        z-index: 10;
+        display: inline-block;
+        cursor: pointer;
+      }
+      @media (max-width: $breakpoint-lg){
+        .next__custom, .prev__custom {
+          width: 36px;
+        }
+      }
+    }
+  }
   .slide_wrapper {
     position: relative;
     overflow: hidden;
@@ -41,23 +130,5 @@
     .indicator li:first-of-type {
       background-color: #000;
     }
-  }
-
-  .next {
-    z-index: 10;
-    display: inline-block;
-    position: absolute;
-    top: 3%;
-    left: 10%;
-    cursor: pointer;
-  }
-
-  .prev {
-    z-index: 10;
-    display: inline-block;
-    position: absolute;
-    top: 3%;
-    left: 3%;
-    cursor: pointer;
   }
 }

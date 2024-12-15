@@ -1,69 +1,107 @@
 import type { Award } from "../pages/awards.astro";
 import ChAward from "./ChAward";
+import "../scss/awards.scss";
+import { useEffect, useRef, useState } from "preact/hooks";
 interface Props {
   awards: Award[];
   year: string;
-  isOpen: boolean;
+  initialIsOpen?: boolean;
   chevronClicked: () => void;
 }
 
 export default function YearAward({
   awards,
   year,
-  isOpen,
+  initialIsOpen=false,
   chevronClicked,
 }: Props) {
-  return (
-    <div class={`${year} border border-black p-5 my-5`}>
-      <div class="flex justify-between">
-        <div class="flex items-center" onClick={chevronClicked}>
-          <span>
-            <svg
-              width="38"
-              height="30"
-              viewBox="0 0 38 30"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M38 14.6532L11.75 27.3366L11.75 1.96975L38 14.6532Z"
-                fill="#7AEBFF"
-              />
-              <path
-                d="M9 2.3682L34.4254 14.6532L9 26.9382L9 2.3682Z"
-                stroke="black"
-                stroke-width="0.5"
-              />
-            </svg>
-          </span>
-          <h3 class="helvetica_light text-4xl tracking-widest ml-10">{year}</h3>
-        </div>
+  const [isOpen, setIsOpen] = useState(initialIsOpen);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const directionIconRef = useRef<HTMLSpanElement>(null);
+  const arrowIconRef = useRef<HTMLSpanElement>(null);
+  const [windowWidth, setWindowWidth] = useState(0);
 
-        {isOpen ? (
-          <svg
-            width="9"
-            height="37"
-            viewBox="0 0 9 37"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line x1="8.5" y1="37" x2="8.5" y2="0.433098" stroke="black" />
-            <line
-              y1="-0.5"
-              x2="15.4391"
-              y2="-0.5"
-              transform="matrix(-0.518166 0.85528 -0.847969 -0.530045 8 0.433075)"
-              stroke="black"
-            />
-          </svg>
-        ) : (
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (container) {
+      if (isOpen) {
+        container.style.height = `${container.scrollHeight}px`;
+        container.style.opacity = "1";
+      } else {
+        container.style.height = "0px";
+        container.style.opacity = "0";
+      }
+    }
+
+    if (arrowIconRef.current) {
+      if (isOpen) {
+        arrowIconRef.current.classList.add("open");
+      } else {
+        arrowIconRef.current.classList.remove("open");
+      }
+    }
+
+    if(directionIconRef.current) {
+      if(isOpen) {
+        directionIconRef.current.classList.add("open");
+      }else {
+        directionIconRef.current.classList.remove("open");
+      }
+    }
+  }, [isOpen]);
+
+  return (
+    <div class={`${year} year__award`}>
+      <div class="flex justify-between year__award__top" onClick={() => setIsOpen(!isOpen)}>
+        <div class="flex items-center">
+          {windowWidth <= 767 ? (
+            <span class="year__award__direction__icon__mobile ml-5" ref={(el) => directionIconRef.current = el}></span>
+          ): (
+            <span ref={(el) => directionIconRef.current = el} class="year__award__direction__icon__pc">
+              <svg
+                width="38"
+                height="30"
+                viewBox="0 0 38 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M38 14.6532L11.75 27.3366L11.75 1.96975L38 14.6532Z"
+                  fill="#7AEBFF"
+                />
+                <path
+                  d="M9 2.3682L34.4254 14.6532L9 26.9382L9 2.3682Z"
+                  stroke="black"
+                  stroke-width="0.5"
+                />
+              </svg>
+            </span>
+          )}
+          
+          <h2 class="helvetica_light text-4xl tracking-widest ml-10">{year}</h2>
+        </div>
+        <span
+          ref={(el) => (arrowIconRef.current = el)}
+          class="award__arrow"
+        >
           <svg
             width="60"
             height="9"
             viewBox="0 0 60 9"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            class={`self-end ${isOpen ? "portrait" : "landscape"}`}
           >
             <line
               x1="4.37114e-08"
@@ -80,21 +118,26 @@ export default function YearAward({
               stroke="black"
             />
           </svg>
-        )}
+        </span>
       </div>
-      {awards.map((award) => {
-        return (
-          <div class={`${isOpen ? "" : "hidden"}`}>
-            <ChAward
-              date={award.date}
-              tags={award.tags}
-              title={award.title}
-              content={award.content}
-              images={award.images}
-            />
-          </div>
-        );
-      })}
+      <div
+        class={`awards-container ${isOpen ? "open" : ""}`}
+        ref={(el) => (containerRef.current = el)}
+      >
+        {awards.map((award) => {
+          return (
+            <div class={`${isOpen ? "" : "h-0 hidden"}`}>
+              <ChAward
+                date={award.date}
+                tags={award.tags}
+                title={award.title}
+                content={award.content}
+                images={award.images}
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

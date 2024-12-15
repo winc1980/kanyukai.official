@@ -7,7 +7,7 @@ interface Props {
   years: string[];
 }
 
-export default function Awards({ awards, years }: Props) {
+export default function AwardsComponent({ awards, years }: Props) {
   const [referYear, setReferYear] = useState(years[0]);
   function changeRefer(year: string) {
     setReferYear(year);
@@ -20,7 +20,7 @@ export default function Awards({ awards, years }: Props) {
           <YearAward
             awards={awards.filter((award) => award.date.includes(year))}
             year={year}
-            isOpen={year == referYear}
+            initialIsOpen={year == '2024'}
             chevronClicked={() => changeRefer(year)}
           />
         );
