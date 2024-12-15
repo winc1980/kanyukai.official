@@ -1,3 +1,5 @@
+@use "./variables.scss" as *;
+
 /* ------------------- 共通要素ここから ------------------- */
 .l-container {
   margin: 0 auto;
@@ -126,6 +128,27 @@ body {
   }
 }
 
+@media (max-width: $breakpoint-md) {
+  .p-Status__titlewrapper {
+    p {
+      font-size: 13px;
+    }
+  }
+
+  .p-Status__titlewrapper__flexbox {
+    h1 {
+      font-size: 24px;
+    }
+  }
+
+  .p-Status__img-wrapper {
+    img {
+      width: 33vw;
+      height: auto;
+    }
+  }
+}
+
 .p-Status__titlewrapper__flexbox__title::after {
   content: "";
   width: 100%;
@@ -147,10 +170,23 @@ body {
   width: 50%;
 }
 
+@media (max-width: $breakpoint-md) {
+  .p-Status__titlewrapper__flexbox__margin::after {
+    display: none;
+  }
+}
+
 .p-Status__flexbox {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+@media (max-width: $breakpoint-md) {
+  .p-Status__flexbox {
+    display: flex !important;
+    padding: 8% 0;
+  }
 }
 
 .p-activities__contentswrapper {
@@ -184,6 +220,35 @@ body {
   }
 }
 
+@media (max-width: $breakpoint-md) {
+  .p-activities__contentswrapper {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .p-activities__contentswrapper__img {
+    width: 50vw;
+    height: auto;
+    padding: 5% 0;
+  }
+  .p-activities__contentswrapper__leftcontents__wrapper {
+    p {
+      font-size: 12px;
+    }
+  }
+  .p-activities__contentswrapper__rightcontents {
+    p {
+      font-size: 10px;
+    }
+  }
+  .p-activities__contentswrapper__leftcontents {
+    width: 90%;
+  }
+  .p-activities__contentswrapper__rightcontents {
+    width: 90%;
+  }
+}
+
 .contentstitle {
   font-size: 1.7vw;
   font-weight: 300;
@@ -192,6 +257,27 @@ body {
   letter-spacing: 0.25em;
 }
 
+@media (max-width: $breakpoint-md) {
+  .contentstitle {
+    font-size: 12px;
+  }
+  .link-wrapper {
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+  }
+  .link-txt {
+    font-size: 12px;
+    font-weight: 100;
+    letter-spacing: 0.25em;
+  }
+  .icon-wrapper {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
 .contentstitle::before {
   content: "";
   display: inline-block;
@@ -220,7 +306,6 @@ body {
   &__flexbox {
     display: flex;
     h1 {
-      line-height: 0.8;
       font-size: 4vw;
       font-weight: 100;
       position: relative;
@@ -235,6 +320,28 @@ body {
   }
 }
 
+@media (max-width: $breakpoint-md) {
+  .p-Events__titlewrapper {
+    display: flex;
+    justify-content: space-between;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    p {
+      font-size: 13px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+  }
+  .img-wrapper {
+    width: 25vw;
+    height: auto;
+    margin: auto 0;
+  }
+}
+
 .p-Events__titlewrapper__flexbox__title::after {
   content: "";
   width: 100%;
@@ -246,6 +353,12 @@ body {
   left: 0%;
 }
 
+@media (max-width: $breakpoint-md) {
+  .p-Events__titlewrapper__flexbox__title::after {
+    bottom: -5px;
+  }
+}
+
 .p-Events__titlewrapper__flexbox__margin::after {
   border-bottom: 5px dotted #000;
   content: "";
@@ -254,6 +367,12 @@ body {
   bottom: -10px;
   left: 0;
   width: 50%;
+}
+
+@media (max-width: $breakpoint-md) {
+  .p-Events__titlewrapper__flexbox__margin::after {
+    display: none;
+  }
 }
 
 .p-Events__flexbox {
@@ -302,17 +421,68 @@ body {
   }
 }
 
-.p-Events__rightbg {
+@media (max-width: $breakpoint-md) {
+  .p-Events__cardswrapper__card__flexbox__txtbox {
+    margin: 0 auto;
+    align-items: center;
+    width: 90%;
+    h3 {
+      font-size: 20px;
+      border-bottom: none;
+      text-align: center;
+      margin: 0;
+      font-weight: 100;
+    }
+    p {
+      margin-top: 6%;
+      font-size: 11px;
+    }
+    div {
+      width: 90%;
+      height: auto;
+      margin: 0 auto;
+      img {
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .p-Events__cardswrapper {
+    width: 100%;
+  }
+  .p-Events__cardswrapper__card__flexbox {
+    flex-direction: column;
+  }
+}
+
+.p-Events__leftbg {
   margin-top: 8%;
   margin-bottom: 8%;
   width: 20vw;
   height: auto;
 }
 
-.p-Events__leftbg {
+.p-Events__rightbg {
   margin: 8% 0 8% auto;
   width: 20vw;
   height: auto;
 }
 
 /* ------------------- Eventsここまで ------------------- */
+@media (min-width: $breakpoint-md) {
+  .pc-none {
+    display: none;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .sp-none {
+    display: none;
+  }
+  .slide1 {
+    margin: 0 auto !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+}

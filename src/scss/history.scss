@@ -1,3 +1,5 @@
+@use "./variables.scss" as *;
+
 /* ------------------- 共通要素ここから ------------------- */
 .l-container {
   margin: 0 auto;
@@ -90,24 +92,22 @@ body {
 /* ------------------- Historyここまで ------------------- */
 /* ------------------- time-lineここから ------------------- */
 .p-timeline {
-  background-color: #f6fdfe;
+  background-color: #e6fbff;
   position: relative;
   margin: 50px auto;
   width: 100%;
+  height: auto;
   padding-left: 20px;
   padding-top: 10%;
   padding-bottom: 10%;
+  overflow: hidden;
 }
 
-/* 縦のライン */
-.p-timeline::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 18px;
-  width: 4px;
-  height: 100%;
-  background: #b0dfe7;
+@media (max-width: $breakpoint-md) {
+  .p-timeline {
+    height: auto;
+    padding-bottom: 10%;
+  }
 }
 
 /* タイムラインの各アイテム */
@@ -119,11 +119,37 @@ body {
   justify-content: space-between;
 }
 
+@media (max-width: $breakpoint-md) {
+  .timeline-item {
+    height: 400px;
+  }
+}
+
+.line {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -17px;
+  width: 4px;
+  height: 800px;
+  background: #b0dfe7;
+  align-items: center;
+}
+
+@media (max-width: $breakpoint-md) {
+  .line {
+    width: 10px;
+    height: 800px;
+    top: -200px;
+    left: 3%;
+  }
+}
+
 /* ドット */
 .timeline-dot {
   position: absolute;
-  top: 50%;
-  left: -24px;
+  top: 300px;
+  left: -9px;
   width: 20px;
   height: 20px;
   background-color: #b0dfe7;
@@ -136,23 +162,71 @@ body {
   flex: 1;
   padding-left: 40px;
   width: 10%;
+  margin-top: 140px;
 }
 
-.timeline-content h2 {
+.timeline-content h3 {
   margin: 0;
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 36px;
+  font-weight: 100;
   position: relative;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: $breakpoint-md) {
+  .timeline-content {
+    align-items: center;
+    p {
+      padding-top: 50px;
+      width: 50vw;
+      font-size: 11px !important;
+      align-items: center;
+    }
+  }
+  .flexbox {
+    display: flex;
+  }
+  .timeline-image {
+    width: 90% !important;
+    margin: 10% auto;
+  }
+  .slide1 {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 .timeline_ttl {
   color: black;
+  position: absolute;
+  position: relative;
+  left: 57px;
+  top: 210px;
+  font-size: 48px;
+}
+
+@media (max-width: $breakpoint-md) {
+  .timeline_ttl {
+    left: -18px;
+
+    padding-left: 3px;
+    padding-right: 3px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    p {
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
 }
 
 .dot {
   position: absolute;
-  top: 25px;
-  left: 50px;
+  top: 53px;
+  left: 100px;
   width: 25px;
   color: #b0dfe7;
 }
@@ -161,20 +235,26 @@ body {
   position: absolute;
   content: "";
   left: -17px;
-  top: 36px;
-  width: 70px;
+  top: 64px;
+  width: 120px;
   height: 3px;
   z-index: 1;
 
   background-color: #b0dfe7;
 }
 
-.timeline_ttl::before {
+@media (max-width: $breakpoint-md) {
+  .timeline_ttl::after {
+    display: none;
+  }
+}
+
+.rotatebar {
   position: absolute;
   content: "";
-  left: -50px;
-  top: 50px;
-  width: 39px;
+  left: 0px;
+  top: 290px;
+  width: 48px;
   height: 3px;
   z-index: 1;
   transform: rotate(-45deg);
@@ -211,21 +291,49 @@ body {
 }
 
 /* View More ボタン */
-.view-more {
-  text-align: center;
-  margin-bottom: 50px;
-}
 
-#viewMoreBtn {
-  background-color: #00a5c5;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
+.button {
+  margin: 0 auto;
+  border: 1px solid #353535;
+  position: relative;
+  width: fit-content;
   cursor: pointer;
-  font-size: 1em;
+  padding: 1% 4%;
+  background-color: #7aebff;
+  &__content {
+    display: flex;
+    padding-bottom: 3px;
+    padding-right: 3px;
+    svg {
+      margin-left: 6px;
+      align-self: flex-end;
+    }
+  }
 }
 
-#viewMoreBtn:hover {
-  background-color: #008ba3;
+.button::before {
+  position: absolute;
+  inset: -3px 3px 3px -3px;
+  content: "";
+  border: 1px solid #353535;
 }
+
+.button:hover {
+  transition: all 0.4s ease;
+  background-color: rgba($color: black, $alpha: 0.1);
+  inset: 0;
+}
+
 /* ------------------- History-contentsここまで ------------------- */
+
+@media (min-width: $breakpoint-md) {
+  .pc-none {
+    display: none;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .sp-none {
+    display: none;
+  }
+}

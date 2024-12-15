@@ -104,6 +104,7 @@ body {
   left: 0;
   width: 50%;
 }
+
 /* ------------------- activitiesここまで ------------------- */
 
 /* ------------------- blogここから ------------------- */
@@ -265,3 +266,21 @@ body {
   background-color: #000;
 }
 /* ------------------- blogここまで ------------------- */
+
+.pc-none {
+  display: none;
+}
+
+.sp-none {
+  display: block;
+}
+
+@media (max-width: $breakpoint-md) {
+  .pc-none {
+    display: block;
+  }
+
+  .sp-none {
+    display: none;
+  }
+}
