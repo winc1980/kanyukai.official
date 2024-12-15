@@ -5,8 +5,10 @@ import "../scss/top.scss";
 import "../scss/slide.scss";
 import type { RefObject } from "preact";
 
+//props 
 interface Props {
   imgProps: ImageMetadata[];
+  //●○のやつを表示するかどうかのフラグ,デフォルトでtrue
   showIndicators?: boolean;
   showNextPrevButton?: boolean;
   showProgressBar?: boolean;
@@ -111,14 +113,14 @@ export default function SlideComponent({
       {showProgressBar ? (
         <>
           <div class="slide_component__navigation">
-            <h6 class="left">1</h6>
+            <h6 class="left">01</h6>
             <div class="slide_component__navigation__progress">
               <span
-                class="h-full bg-black"
+                class="h-full bg-black "
                 style={{ width: `${progress}%` }}
               ></span>
             </div>
-            <h6 class="right">{imgProps.length}</h6>
+            <h6 class="right">{imgProps.length < 10 ? '0'+imgProps.length : imgProps.length}</h6>
             <div
               style={{ display: `${showNextPrevButton ? "flex" : "none"}` }}
               class="slide_component__navigation__skip z-50"

@@ -39,6 +39,7 @@ body {
   width: 95%;
   margin: 0 0 0 auto;
   &__titlewrapper {
+    margin-top: 5%;
     p {
       margin-left: 3%;
       font-size: 20px;
@@ -109,8 +110,41 @@ body {
 /* ------------------- blogここから ------------------- */
 
 .p-blog {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin: 7vw 0;
+  &__component__wrapper {
+    padding: 0 8%;
+    margin-left: 6px;
+    &__component {
+      margin: 10vw 0;
+      @media (max-width: $breakpoint-md){
+        margin: 15vw 0;
+        .p-article__content {
+          flex-direction: column;
+          &__left {
+            width: 100% !important;
+            &__top {
+              margin: 2% 0;
+              padding-bottom: 1vw;
+              &__title {
+                font-size: 1.125rem !important;
+              }
+            }
+          }
+
+          &__right {
+            width: 50%;
+            margin: 5% 0;
+          }
+        }
+      }
+    }
+    &__component:hover {
+      transform: scale(1.1);
+      transition: all 0.3s ease;
+      
+    }
+  }
+
   &__wrapper__card {
     margin: 0 auto;
     width: 90%;
@@ -213,33 +247,33 @@ body {
   transform: translateX(-55%);
 }
 
-.next {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  right: 10px;
-  bottom: 50%;
-  z-index: 10;
-  cursor: pointer;
-  border-top: solid 3px #000;
-  border-right: solid 3px #000;
-  -webkit-transform: rotate(45deg) translateY(50%);
-  transform: rotate(45deg) translateY(50%);
-}
+// .next {
+//   position: absolute;
+//   width: 15px;
+//   height: 15px;
+//   right: 10px;
+//   bottom: 50%;
+//   z-index: 10;
+//   cursor: pointer;
+//   border-top: solid 3px #000;
+//   border-right: solid 3px #000;
+//   -webkit-transform: rotate(45deg) translateY(50%);
+//   transform: rotate(45deg) translateY(50%);
+// }
 
-.prev {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  left: 25px;
-  bottom: 50%;
-  z-index: 10;
-  cursor: pointer;
-  border-top: solid 3px #000;
-  border-right: solid 3px #000;
-  -webkit-transform: rotate(-135deg) translateY(-50%);
-  transform: rotate(-135deg) translateY(-50%);
-}
+// .prev {
+//   position: absolute;
+//   width: 15px;
+//   height: 15px;
+//   left: 25px;
+//   bottom: 50%;
+//   z-index: 10;
+//   cursor: pointer;
+//   border-top: solid 3px #000;
+//   border-right: solid 3px #000;
+//   -webkit-transform: rotate(-135deg) translateY(-50%);
+//   transform: rotate(-135deg) translateY(-50%);
+// }
 /* ↓ インジケーター */
 .indicator {
   width: 100%;
