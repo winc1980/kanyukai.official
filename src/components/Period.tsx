@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "preact/hooks";
+import "../scss/historyComponent.scss";
 
 interface periodProps {
   title: string;
