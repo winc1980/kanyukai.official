@@ -12,6 +12,7 @@ export type Awards = {
     id: string;
     date: string;
     title: string;
+    
     // if文でRGBAに分岐
     // medalcolor:;
     og_Image?: {
