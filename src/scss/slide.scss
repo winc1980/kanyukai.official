@@ -59,10 +59,12 @@
       align-items: center;
       background-color: #b6b6b6;
       margin: 0 10%;
+      border-radius: 3px;
       
       span {
         height: 3px;
         display: inline-block;
+        border-radius: 2px;
       }
     }
 
