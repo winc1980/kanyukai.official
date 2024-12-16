@@ -34,7 +34,7 @@ body * {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 6.7vw;
   @media (max-width: $breakpoint-xl) {
     font-size: 4.5rem;
   }
@@ -112,8 +112,8 @@ header {
   }
   
   .header__logo {
-    width: 200px;
-    height: 85px;
+    width: 13.9vw;
+    height: 5.9vw;
     @media (max-width: $breakpoint-md) {
       width: 100px;
       height: 42px;
@@ -128,9 +128,9 @@ header {
     }
 
     li {
-      margin: 0 20px;
+      margin: 0 1.39vw;
       font-style: "Zen Kaku Gothic New";
-      font-size: 1.25rem;
+      font-size: 1.39vw;
     }
 
     a {
@@ -168,8 +168,9 @@ header {
     .header__invitation {
       border: 1px solid #000;
       position: relative;
-      width: 140px;
-      height: 50px;
+      width: 10vw;
+      height: auto;
+      padding: 0.7vw 0;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -202,6 +203,13 @@ header {
     }
   }
 
+  @media (max-width: $breakpoint-xl){
+    .header__invitation {
+      width: 140px;
+      height: 50px;
+    }
+  }
+
   @media (max-width: $breakpoint-md) {
     .header__link {
       display: none;
@@ -219,6 +227,7 @@ header {
         transition: all 0.5s ease;
       }
     }
+    
   }
 }
 
@@ -233,7 +242,7 @@ header {
     font-family: "Zen Kaku Gothic New", sans-serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 4rem;
+    font-size: 4.4vw;
     @media (max-width: $breakpoint-md) {
       font-size: 1.5rem;
     }
@@ -251,7 +260,7 @@ header {
     margin-bottom: 5%;
   }
   .label_top {
-    font-size: 1.25rem;
+    font-size: 1.39vw;
     @media (max-width: $breakpoint-md) {
       font-size: 1rem;
     }
@@ -261,7 +270,7 @@ header {
     display: flex;
 
     .en {
-      font-size: 3rem;
+      font-size: 3.3vw;
       letter-spacing: 8px;
       border-bottom: 1px solid #000;
       @media (max-width: $breakpoint-md) {
@@ -333,30 +342,43 @@ header {
         border-bottom: 1px solid #000;
         align-self: flex-end;
         &__title {
-          font-size: 2rem;
+          font-size: 2.2vw;
           font-family: "Noto Sans JP", sans-serif;
           font-optical-sizing: auto;
           font-weight: 400;
           font-style: normal;
           align-self: flex-end;
-          @media (max-width: $breakpoint-md) {
-            font-size: 1rem;
+          @media (max-width: $breakpoint-lg) {
+            font-size: 1.125rem;
           }
         }
 
         &__date {
+          font-size: 1.1vw;
           font-family: "Noto Sans JP", sans-serif;
           font-optical-sizing: auto;
           font-weight: 200;
           font-style: normal;
           align-self: flex-end;
+          @media (max-width: $breakpoint-lg){
+            font-size: 1rem;
+          }
         }
       }
 
       &__content {
+        font-size: 1.1vw;
+        @media (max-width: $breakpoint-xl){
+          font-size: 1rem;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 5; /* 表示する行数を指定 */
+          -webkit-box-orient: vertical;
+        }
         @media (max-width: $breakpoint-md) {
           height: 7.5em;
           line-height: 1.5em;
+          font-size: 1rem;
           overflow: hidden;
           display: -webkit-box;
           -webkit-line-clamp: 5; /* 表示する行数を指定 */
@@ -371,27 +393,31 @@ header {
       border: 1px solid #000;
       position: relative;
       align-self: center;
+
+      .indicator li {
+        width: 1vw;
+        height: 1vw;
+        max-width: 24px;
+        max-height: 24px;
+        min-width: 10px;
+        min-height: 10px;
+      }
       @media (max-width: $breakpoint-md) {
         width: 50%;
-        .indicator li {
-          width: 10px;
-          height: 10px;
-        }
       }
 
       .prev {
         left: 0%;
-        width: 64px !important;
+        width: 4.44vw;
       }
 
       .next {
-
         top: 50%;
         left: initial;
         right: -2%;
         left: initial;
         right: 0%;
-        width: 64px !important;
+        width: 4.44vw;
       }
 
       @media (max-width: $breakpoint-md){
@@ -428,7 +454,7 @@ header {
   position: relative;
   cursor: pointer;
   @media (min-width: 1980px){
-    width: max-content;
+    width: 10vw;
     height: auto;
     padding: 20px 2vw;
     
@@ -448,22 +474,26 @@ header {
     flex-direction: column;
     padding: 2%;
     height: 100%;
+    
 
     a {
       height: 75%;
       display: flex;
       align-items: end;
       justify-content: center;
-      font-size: 1.25rem;
+      font-size: 1.39vw;
       text-wrap: nowrap;
+      @media (max-width: $breakpoint-xl){
+        font-size: 1rem;
+      }
     }
 
-    svg {
-      height: 25%;
-      display: flex;
+    &__svg {
+      width: 30%;
+      height: auto;
       justify-content: end;
       align-self: flex-end;
-      align-items: end;
+      display: flex;
       margin-right: 0;
     }
   }
@@ -483,7 +513,7 @@ header {
 .p-button::before {
   position: absolute;
   background-color: $strongBlue;
-  inset: 2px -2px -2px 2px;
+  inset: 0.2vw -0.2vw -0.2vw 0.2vw;
   content: "";
   z-index: -1;
   @media (max-width: $breakpoint-md) {
@@ -556,27 +586,31 @@ header {
         border-bottom: 1px solid #000;
         width: 100%;
         &__title {
-          font-size: 1.5rem;
+          font-size: 1.67vw;
           font-family: "Zen Kaku Gothic New", serif;
           font-weight: 400;
           font-style: normal;
           align-self: flex-end;
-          @media (max-width: $breakpoint-md) {
+          @media (max-width: $breakpoint-lg) {
             font-size: 1.125rem;
           }
         }
 
         &__date {
+          font-size: 1.11vw;
           font-family: "Zen Kaku Gothic New", serif;
           font-weight: 300;
           font-style: normal;
           align-self: flex-end;
+          @media (max-width: $breakpoint-lg){
+            font-size: 1rem;
+          }
         }
       }
     }
 
     p {
-      font-size: 1.25rem;
+      font-size: 1.39vw;
       font-family: "Zen Kaku Gothic New", serif;
       font-weight: 300;
       font-style: normal;
@@ -638,8 +672,8 @@ header {
       }
       &__left {
         &__date {
-          font-size: 1.25rem;
-          @media (max-width: $breakpoint-md) {
+          font-size: 1.39vw;
+          @media (max-width: $breakpoint-lg) {
             font-size: 1rem;
           }
         }
@@ -653,11 +687,11 @@ header {
         }
         &__top {
           &__title {
-            font-size: 1.5rem;
+            font-size: 1.67vw;
             font-family: "Noto Sans JP", sans-serif;
             font-weight: 400;
             font-style: normal;
-            @media (max-width: $breakpoint-md) {
+            @media (max-width: $breakpoint-lg) {
               font-size: 1.125rem;
               padding: 8px 0;
             }
@@ -670,7 +704,7 @@ header {
           width: 100%;
           margin-top: 12px;
           p {
-
+            font-size: 1.11vw;
             @media (max-width: $breakpoint-md) {
               padding: 0;
               font-size: 1.25rem;
@@ -789,28 +823,39 @@ header {
       display: flex;
       &__tag__bg {
         background-color: #c5c5c5;
-        width: 4px;
-        height: 40px;
+        width: 0.278vw;
+        min-width: 4px;
+        height: auto;
         display: inline-block;
       }
       &__title {
-        font-size: 1.5rem;
+        font-size: 1.67vw;
         font-family: "Zen Kaku Gothic New", serif;
         font-weight: 300;
         font-style: normal;
         display: flex;
         align-items: center;
-        margin-left: 4px;
+        margin-left: 0.278vw;
+        @media (max-width: $breakpoint-xl){
+          margin-left: 4px;
+        }
       }
     }
 
     &__bottom {
       align-self: center;
-      font-size: 1.5rem;
+      font-size: 1.67vw;
       font-family: "Zen Kaku Gothic New", serif;
       font-weight: 300;
       font-style: normal;
       margin: 0 4px;
+    }
+
+    @media (max-width: $breakpoint-lg){
+      h5,
+      p {
+        font-size: 1rem;
+      }
     }
 
     @media (max-width: $breakpoint-md) {
@@ -823,10 +868,7 @@ header {
           height: 30px;
         }
       }
-      h5,
-      p {
-        font-size: 1rem;
-      }
+      
     }
   }
 
@@ -838,12 +880,21 @@ header {
       &__link {
         margin-top: 4%;
         display: flex;
+        &__insta, &__twitter {
+          width: 2.22vw;
+          @media (max-width: $breakpoint-xl){
+            width: 32px;
+          }
+        }
         a {
           font-family: "Zen Kaku Gothic New", serif;
           font-weight: 300;
           font-style: normal;
-          font-size: 1.25rem;
+          font-size: 1.37vw;
           margin: 0 12px;
+          @media (max-width: $breakpoint-lg){
+            font-size: 1.25rem;
+          }
         }
       }
     }
@@ -972,13 +1023,16 @@ header {
       padding-top: 5%;
 
       &__title {
-        font-size: 2.25rem;
+        font-size: 2.5vw;
         font-family: "Zen Kaku Gothic New", serif;
         font-weight: 300;
         font-style: normal;
         border-bottom: 1px solid #000;
         margin-bottom: 4%;
         width: fit-content;
+        @media (max-width: $breakpoint-xl){
+          font-size: 2.25rem;
+        }
       }
 
       @media (max-width: $breakpoint-md) {
@@ -990,7 +1044,11 @@ header {
     }
 
     p {
-      font-size: 1rem;
+      font-size: 1.11vw;
+      @media (max-width: $breakpoint-lg){
+        font-size: 1rem;
+      }
+      
     }
   }
 
@@ -1058,8 +1116,16 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 1.25rem;
     padding: 27px 0;
+    h6 {
+      font-size: 1.37vw;
+    }
+    @media (max-width: $breakpoint-lg){
+      h6 {
+        font-size: 1.25rem;
+      }
+      
+    }
   }
 }
 
@@ -1071,8 +1137,8 @@ footer {
   width: 4vw;
   height: auto;
   transition: all 0.1s ease;
-  @media (max-width: $breakpoint-lg){
-    width: 36px;
+  @media (max-width: $breakpoint-xl){
+    width: 48px;
   }
 }
 
@@ -1099,49 +1165,6 @@ footer {
     }
   }
 }
-
-
-.top_page {
-  @media (min-width: 1980px){
-    font-size: 24px !important;
-    h1 {
-      font-size: 6vw !important;
-    }
-    h2 {
-      font-size: 4vw !important;
-    }
-    h3 {
-      font-size: 3vw !important;
-    }
-
-    h4 {
-      font-size: 2vw !important;
-    }
-
-    h5 {
-      font-size: 2vw !important;
-    }
-
-    h6 {
-      font-size: 1vw !important;
-    }
-
-    div {
-      font-size: 2vw !important;
-    }
-
-    p {
-      font-size: 1.5vw !important;
-    }
-
-    a {
-      font-size: 1.2vw !important;
-    }
-  }
-}
-
-
-
 
 .slide-wrapper {
   width: 100%;
