@@ -103,7 +103,7 @@ const years = [... new Set(awards.map((award) => award.date.slice(0, 4)))];
       </span>
       <div class="my-20 mx-[8%]">
         <Label jp="大会実績" en="Awards" />
-        <h6 class="zenkaku_light text-right tracking-wider my-5">クリックで下に表示されます</h6>
+        <h6 class="zenkaku_light text-right tracking-wider my-5 text-[1.11vw] xl:text-1rem">クリックで下に表示されます</h6>
         <div >
             <AwardsComponent awards={awards} years={years} client:only="preact">
                 <div slot="fallback">Loading</div>

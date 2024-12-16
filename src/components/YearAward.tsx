@@ -71,8 +71,8 @@ export default function YearAward({
           ): (
             <span ref={(el) => directionIconRef.current = el} class="year__award__direction__icon__pc">
               <svg
-                width="38"
-                height="30"
+                width="100%"
+                height="auto"
                 viewBox="0 0 38 30"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,15 +90,15 @@ export default function YearAward({
             </span>
           )}
           
-          <h2 class="helvetica_light text-4xl tracking-widest ml-10">{year}</h2>
+          <h2 class="helvetica_light tracking-widest ml-10">{year}</h2>
         </div>
         <span
           ref={(el) => (arrowIconRef.current = el)}
           class="award__arrow"
         >
           <svg
-            width="60"
-            height="9"
+            width="100%"
+            height="auto"
             viewBox="0 0 60 9"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

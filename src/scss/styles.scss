@@ -456,7 +456,7 @@ header {
   @media (min-width: 1980px){
     width: 10vw;
     height: auto;
-    padding: 20px 2vw;
+    padding: 0.5vw 2vw;
     
   }
 
@@ -644,6 +644,7 @@ header {
   display: flex;
   flex-direction: column;
   position: relative;
+  
 
   &__right {
     top: 2%;
@@ -652,7 +653,7 @@ header {
   }
 
   &__left {
-    bottom: -2%;
+    bottom: -5vw;
     left: 0;
     width: 24%;
   }
@@ -662,11 +663,12 @@ header {
     cursor: pointer;
     height: fit-content;
     position: relative;
-    margin: 1% 0;
+    margin: 1.05vw 0;
     &__content {
       display: flex;
       padding: 2%;
       width: inherit;
+      position: relative;
       @media (max-width: $breakpoint-md) {
         display: block;
       }
@@ -727,23 +729,48 @@ header {
         }
       }
     }
+
+    &__underline {
+      display: flex;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+
+      &__1, &__2, &__3 {
+        background-color: black;
+        height: 1px;
+      }
+      &__1 {
+        width: 85%;
+      }
+
+      &__2 {
+        position: absolute;
+        width: 5%;
+        transform: rotate(30deg);
+        top: 1.05vw;
+        left: 71.1vw;
+      }
+
+      &__3 {
+        width: 10%;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+      }
+    }
   }
 
   &__element::before {
     position: absolute;
-    inset: 5% 0 20% 0%;
+    inset: 0;
     content: "";
     background-color: $bgBlue;
     opacity: 1;
     filter: blur(1.5rem);
     z-index: -1;
-
   }
-  // &__element:hover {
-  //   transition: all 0.3s ease;
-  //   transform: scale(1.1);
-  //   cursor: pointer;
-  // }
 }
 
 .slidewrapper {
@@ -756,17 +783,16 @@ header {
 .p-photo {
   align-items: center;
   position: relative;
-  margin: 3% 0;
+  margin-top: 15vw;
+  margin-bottom: 3vw;
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;
   box-sizing: border-box;
-  margin: auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
   scrollbar-width: none;
-  margin: 5% 0;
   @media (max-width: $breakpoint-md) {
     display: none;
   }
