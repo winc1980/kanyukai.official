@@ -35,9 +35,46 @@ const activitiesProps: ActivityProp[] = [
 	{title: "タイトル", date: "YYYY/MM/DD", imgSrcs: [img2, img3, img4, img5], content: "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" },
 ]
 ---
+<script>
+	const footerHeight = document.getElementById('footer')!.offsetHeight;
+	const toTop = document.getElementsByClassName('to_top')[0] as HTMLElement;
+	let pos = document.documentElement.scrollHeight - window.scrollY;
+
+	if(pos > window.innerHeight+footerHeight) {
+		toTop.style.bottom = "0px";
+		toTop.classList.remove("locked");
+	} else {
+		if(pos > window.innerHeight){
+			toTop.style.bottom = `${pos-window.innerHeight}px`;
+		}else {
+			toTop.style.bottom = `${footerHeight}px`;
+			toTop.classList.add("locked");
+		}
+	}
+
+	document.addEventListener("scroll", () => {
+		if(window.scrollY==0){
+			toTop.classList.add('fade');
+		}else {
+			toTop.classList.remove('fade');
+		}
+    	pos = document.documentElement.scrollHeight - window.scrollY;
+		if(pos > window.innerHeight+footerHeight) {
+			toTop.style.bottom = "0px";
+			toTop.classList.remove("locked");
+		} else {
+			if(pos > window.innerHeight) {
+				toTop.style.bottom = `${footerHeight - (pos-window.innerHeight)}px`;
+			}else{
+				toTop.style.bottom = `${footerHeight}px`;
+				toTop.classList.add("locked");
+			}
+		}
+	});
+</script>
 
 <Layout title={title} , description={description} og_image={og_image}>
-	<main >
+	<main>
 		<a class="to_top" href="#header">
 			<svg width="100%" height="auto" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<rect opacity="0.5" x="3" y="3" width="54" height="54" fill="#74C1F5"/>
@@ -137,40 +174,3 @@ const activitiesProps: ActivityProp[] = [
 	</main>
 </Layout>
 
-<script>
-	const footerHeight = document.getElementById('footer')!.offsetHeight;
-	const toTop = document.querySelectorAll('a.to_top')[0] as HTMLElement;
-	let pos = document.documentElement.scrollHeight - window.scrollY;
-
-	if(pos > window.innerHeight+footerHeight) {
-		toTop.style.bottom = "0px";
-		toTop.classList.remove("locked");
-	} else {
-		if(pos > window.innerHeight){
-			toTop.style.bottom = `${pos-window.innerHeight}px`;
-		}else {
-			toTop.style.bottom = `${footerHeight}px`;
-			toTop.classList.add("locked");
-		}
-	}
-
-	document.addEventListener("scroll", () => {
-		if(window.scrollY==0){
-			toTop.classList.add('fade');
-		}else {
-			toTop.classList.remove('fade');
-		}
-    	pos = document.documentElement.scrollHeight - window.scrollY;
-		if(pos > window.innerHeight+footerHeight) {
-			toTop.style.bottom = "0px";
-			toTop.classList.remove("locked");
-		} else {
-			if(pos > window.innerHeight) {
-				toTop.style.bottom = `${footerHeight - (pos-window.innerHeight)}px`;
-			}else{
-				toTop.style.bottom = `${footerHeight}px`;
-				toTop.classList.add("locked");
-			}
-		}
-	});
-</script>
