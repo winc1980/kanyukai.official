@@ -99,7 +99,7 @@ header {
   width: 100%;
   z-index: 1000;
   // background-color: white;
-  
+
   .header__logo {
     width: 200px;
     height: 85px;
@@ -369,7 +369,6 @@ header {
       }
 
       .next {
-
         top: 50%;
         left: initial;
         right: -2%;
@@ -378,7 +377,7 @@ header {
         width: 64px !important;
       }
 
-      @media (max-width: $breakpoint-md){
+      @media (max-width: $breakpoint-md) {
         .prev {
           width: 48px !important;
         }
@@ -386,7 +385,6 @@ header {
         .next {
           width: 48px !important;
         }
-
       }
     }
   }
@@ -643,16 +641,13 @@ header {
           width: 100%;
           margin-top: 12px;
           p {
-
             @media (max-width: $breakpoint-md) {
               padding: 0;
               font-size: 1.25rem;
-            font-family: "Zen Kaku Gothic New", serif;
-            font-weight: 300;
-            font-style: normal;
+              font-family: "Zen Kaku Gothic New", serif;
+              font-weight: 300;
+              font-style: normal;
             }
-
-            
 
             @media (max-width: $breakpoint-md) {
               font-size: 1rem;
@@ -677,12 +672,12 @@ header {
     filter: blur(1.5rem);
     z-index: -1;
 
-=======
-  // &__element:hover {
-  //   transition: all 0.3s ease;
-  //   transform: scale(1.1);
-  //   cursor: pointer;
-  // }
+    // &__element:hover {
+    //   transition: all 0.3s ease;
+    //   transform: scale(1.1);
+    //   cursor: pointer;
+    // }
+  }
 }
 
 .slidewrapper {
@@ -1415,7 +1410,6 @@ footer {
   a {
     font-size: 1rem;
   }
-
   .top_content {
     h1 {
       font-size: 2rem;

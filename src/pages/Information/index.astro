@@ -2,9 +2,7 @@
 let {title, date, content} = Astro.props;
 import Layout from '@/layouts/Layout.astro';
 import { Image } from "astro:assets";
-
 import '@/scss/info.scss';
-
 import '@fontsource/zen-kaku-gothic-new';
 
 const description = "";
@@ -17,9 +15,9 @@ import dummy2 from "@/assets/images/dummy2.webp";
 import Instagram from "@/assets/images/Instagram.webp";
 import X from "@/assets/images/X.webp";
 import Top from "@/components/Top.astro";
-import SlideShow2 from "@/components/SlideShow2.tsx";
+import SlideShow from "@/components/SlideShow2.tsx";
 import SlideComponent from "@/components/SlideShow.tsx";
-
+import SlideShow2 from '@/components/SlideShow2.astro';
 // 画像リスト
 const slides = [
   { src: "/assets/images/dummy1.webp", alt: "スライド1" },
@@ -160,7 +158,7 @@ const slides = [
         </div>
     </section>
 
-    <SlideComponent imgProps={slides} showIndicators={false} showProgressBar={true} client:only="preact"/>
+    
     <section id="Events" class="p-Events">
         <div class="l-container">
           <div class="p-Events__titlewrapper">
@@ -183,11 +181,7 @@ const slides = [
           <div class="p-Events__cardswrapper">
             <div class="p-Events__cardswrapper__card">
               <div class="p-Events__cardswrapper__card__flexbox">
-                <Image 
-                src={dummy1} 
-                alt=""
-                class="slide1 sp-none"
-                />
+                <SlideShow2 class="sp-none"/>
                 <div class="p-Events__cardswrapper__card__flexbox__txtbox">
                   <h3>月例釣行</h3>
                   <div>
