@@ -22,8 +22,6 @@ import Events from "../components/Events.astro";
 import HistoryComponent from "../components/HistoryComponent";
 const count = signal(0);
 
-import { getAwards } from "../lib/microcms";
-const response = await getAwards({ fields: ["id", "title","date","description"] });
 ---
 <Layout title={title} , description={description} og_image={og_image}>
 	<main class="top_page">
@@ -61,12 +59,9 @@ const response = await getAwards({ fields: ["id", "title","date","description"] 
 			</div>
 			<Label jp="大会実績" en="Awards"/>
 			<div class="p-award__container">
-				{response.contents.map(award => (
-					<Award title={award.title} date={award.date} content={award.description} color="#EEEC9B"/>
-				))}
-				<!-- <Award title="全国大会 ＜ 総合１位 ＞" date="YYYY/DD/MM" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" color="#EEEC9B"/>
+				<Award title="全国大会 ＜ 総合１位 ＞" date="YYYY/DD/MM" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" color="#EEEC9B"/>
 				<Award title="全国大会 ＜ 総合２位 ＞" date="YYYY/DD/MM" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" color="#B4CFD1"/>
-				<Award title="全国大会 ＜ 総合３位 ＞" date="YYYY/DD/MM" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" color="#D1CAB4"/> -->
+				<Award title="全国大会 ＜ 総合３位 ＞" date="YYYY/DD/MM" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" color="#D1CAB4"/>
 			</div>
 			<div class="button_margin">
 				<ViewButton link="/awards"/>

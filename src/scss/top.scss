@@ -9,11 +9,12 @@
   justify-content: space-between;
   &__md__fish {
     display: none;
-    width: 30%;
+    width: 50.4vw;
     @media (max-width: $breakpoint-md) {
       display: block;
       position: absolute;
-      bottom: 15vw;
+      z-index: 5;
+      bottom: 10vw;
       left: 3%;
     }
   }
@@ -60,9 +61,12 @@
         a {
           font-size: 1rem;
         }
-        svg {
-          // display: none;
+        @media (max-width: $breakpointMobile){
+          svg {
+            display: none;
+          }
         }
+        
       }
     }
 
@@ -95,6 +99,11 @@
             width: 2.25vw;
             height: auto;
             margin-left: 6px;
+          }
+          @media (max-width: $breakpointMobile){
+            display: none;
+            width: 0;
+            height: 0;
           }
         }
       }
