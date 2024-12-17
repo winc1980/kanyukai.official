@@ -18,6 +18,7 @@ import Instagram from "@/assets/images/Instagram.webp";
 import X from "@/assets/images/X.webp";
 import Top from "@/components/Top.astro";
 import SlideShow2 from "@/components/SlideShow2.tsx";
+import SlideComponent from "@/components/SlideShow.tsx";
 
 // 画像リスト
 const slides = [
@@ -25,7 +26,6 @@ const slides = [
   { src: "/assets/images/dummy2.webp", alt: "スライド2" },
   { src: "/assets/images/dummy1.webp", alt: "スライド3" },
 ];
-
 ---
 
 <Layout title={title} description={description} og_image={og_image}>
@@ -159,6 +159,8 @@ const slides = [
 
         </div>
     </section>
+
+    <SlideComponent imgProps={slides} showIndicators={false} showProgressBar={true} client:only="preact"/>
     <section id="Events" class="p-Events">
         <div class="l-container">
           <div class="p-Events__titlewrapper">
