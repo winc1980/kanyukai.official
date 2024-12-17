@@ -1,53 +1,42 @@
-import "./chAward.scss";
-// import { Image } from "astro:assets";
+import "../scss/chAward.scss";
 import type { Award } from "../pages/awards.astro";
+import { useEffect, useState } from "preact/hooks";
+import SlideComponent from "./SlideShow";
 
 export default function ChAward({ date, tags, title, content, images }: Award) {
+  
   return (
-    <div class="ch_award">
-      <div class="bg bgBlue"></div>
-      <div class="top_content">
-        <div class="left">
+    <div class="ch__award">
+      <div class="ch__award__top">
+        <div class="ch__award__top__left">
           <span></span>
           <div>
-            <h4 class="date zenkaku_light">{date}</h4>
-            <h4 class="title zenkaku_normal">{title}</h4>
+            <h4 class="ch__award__top__left__date zenkaku_light">{date}</h4>
+            <h4 class="ch__award__top__left__title zenkaku_normal">{title}</h4>
           </div>
         </div>
-        <div class="right">
+        <div class="ch__award__top__right">
           {tags.map((tag: string) => (
             <p>{`#${tag}`}</p>
           ))}
         </div>
       </div>
-      <div class="main_content">
+      <div class="ch__award__main">
         {!images || images.length !== 1 ? (
-          <div class="description">
+          <div class="ch__award__main__description">
             <p>{content}</p>
-            <div class="flex img_wrapper">
-              {images.map((image) => {
-                return (
-                  <div class="img_container">
-                    <img
-                      src={image.src}
-                      alt="img"
-                      height={image.height}
-                      loading="lazy"
-                    />
-                    {/* <div style={`background-image: url(${image.src}); height: ${image.}`}></div> */}
-                  </div>
-                );
-              })}
+            <div class="ch__award__main__description__img__wrapper">
+              <SlideComponent imgProps={images}/>
             </div>
           </div>
         ) : (
-          <div class="flex flex_container">
+          <div class="ch__award__main__fewImgContainer">
             <p>{content}</p>
+            
             {images[0] && (
-              <div class="img_container">
+              <div class="ch__award__main__fewImgContainer__imgs">
                 <img src={images[0].src} />
                 <div style={`background-image: url(${images[0].src});`}></div>
-                {/* <Image src={images[0].src || "/default-image.png"} alt="Award image" width={images[0].width} height={images[0].height}/> */}
               </div>
             )}
           </div>

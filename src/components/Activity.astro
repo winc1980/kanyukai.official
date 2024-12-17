@@ -1,36 +1,28 @@
 ---
-import Label from "./Label.astro";
+let {title, date, content, imgSrcs} = Astro.props;
 
-const paragraph = '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・';
-import img5 from '../assets/image 5.png';
-import { Image } from "astro:assets";
-import SlipCard from "./SlipCard.astro";
-const alt = "...";
+import SlideComponent from "./SlideShow";
 ---
 
-<div class="activity_mini">
-    <div class="left">
-        <Label jp="年間行事" en="Events"/>
-        <div class="content">
-            <div class="title">月例釣行</div>
-            <p>{paragraph}</p>
+<section id="article" class="p-article w-full">
+    <div class="p-article__content">
+        <div class="p-article__content__left">
+            <div class="p-article__content__left__top">
+                <h4 class="p-article__content__left__top__title">
+                    {title}
+                </h4>
+                <div class="p-article__content__left__top__date">
+                    {date}
+                </div>
+            </div>
+            
+            <p class="p-article__content__left__content">
+                {content}
+            </p>
         </div>
         
-    </div>
-
-    
-    <div class="right">
-        <div class="img_container">
-            <Image src={img5} alt={alt}/>
-        </div>
-        <div class="bg one">
-            <SlipCard width="250px" height="220px"/>
-        </div>
-        <div class="bg two">
-            <SlipCard width="300px" height="220px"/>
-        </div>
-        <div class="bg three">
-            <SlipCard width="300px" height="220px"/>
+        <div class="p-article__content__right">
+            <SlideComponent imgProps={imgSrcs} client:only="preact"/>
         </div>
     </div>
-</div>
+</section>

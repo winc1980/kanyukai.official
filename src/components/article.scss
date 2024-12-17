@@ -1,0 +1,59 @@
+.slide_wrapper {
+  width: 100%;
+  height: max-content;
+  position: relative;
+  overflow: hidden;
+}
+
+.article_slide {
+  display: flex;
+  width: 400%;
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.article_slide div {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.slide1 {
+  /* スライドさせるために必要なクラス */
+  transform: translateX(0);
+}
+.slide2 {
+  transform: translateX(-25%);
+}
+.slide3 {
+  transform: translateX(-50%);
+}
+.slide4 {
+  transform: translateX(-75%);
+}
+
+.slide_wrapper2 {
+  width: 100%;
+  height: max-content;
+  position: relative;
+  overflow: hidden;
+}
+
+.article_slide2 {
+  display: flex;
+  width: 400%;
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.article_slide2 div {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
