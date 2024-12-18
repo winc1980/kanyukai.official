@@ -70,6 +70,13 @@
       }
     }
 
+    @media (max-width: $breakpointMobile){
+      &__headline {
+        font-size: 6.4vw;
+      }
+      
+    }
+
     &__join__link {
       border: 1px solid #353535;
       position: relative;

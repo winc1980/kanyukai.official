@@ -555,7 +555,7 @@ header {
   content: "";
   z-index: -1;
   @media (max-width: $breakpoint-md) {
-    inset: 1px -1px -1px 1px;
+    inset: 0.427vw -0.427vw -0.427vw 0.427vw;
   }
 }
 
@@ -715,6 +715,9 @@ header {
     height: fit-content;
     position: relative;
     margin: 1.05vw 0;
+    @media (max-width: $breakpoint-md){
+      margin: 3.73vw 0;
+    }
     &__content {
       display: flex;
       padding: 2%;
@@ -820,8 +823,12 @@ header {
         position: absolute;
         width: 7vw;
         transform: rotate(25deg);
-        top: 1.47vw;
-        right: -6.5vw;
+        top: 1.5vw;
+        right: -6.7vw;
+        @media (max-width: $breakpoint-md) {
+          top: 1.47vw;
+          right: -6.5vw;
+        }
       }
 
       &__3 {
