@@ -3,8 +3,8 @@ import '@/scss/slideshow2.scss';
 ---
 <script>
 const slide = document.getElementById('slide0');
-const prev = document.getElementById('prev00');
-const next = document.getElementById('next');
+const prev = document.getElementById('prev0');
+const next = document.getElementById('next0');
 const indicator = document.getElementById('indicator0');
 const lists = document.querySelectorAll('.list0');
 const totalSlides = lists.length;
@@ -60,21 +60,21 @@ startAutoPlay();
 <div class="slide0-wrapper">
     <!-- スライド（コンテンツ） -->
     <div id="slide0" class="slide0">
-      <div class="slide1">
-        <p>スライド１</p>
+      <div>
+        <p class="slide1">スライド１</p>
       </div>
-      <div class="slide2">
-        <p>スライド２</p>
+      <div>
+        <p class="slide2">スライド２</p>
       </div>
-      <div class="slide3">
-        <p>スライド３</p>
+      <div>
+        <p class="slide3">スライド３</p>
       </div>
     </div>
     <!-- 左右のボタン -->
     <span id="prev0" class="prev0"></span>
     <span id="next0" class="next0"></span>
     <!-- インジケーター -->
-    <ul class="indicator0" id="indicator">
+    <ul class="indicator0" id="indicator0">
       <li class="list0"></li>
       <li class="list0"></li>
       <li class="list0"></li>
