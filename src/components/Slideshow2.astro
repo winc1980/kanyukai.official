@@ -1,5 +1,8 @@
 ---
 import '@/scss/slideshow2.scss';
+import { Image } from "astro:assets";
+import dummy1 from "@/assets/images/dummy1.webp";
+import dummy2 from "@/assets/images/dummy2.webp";
 ---
 <script>
 const slide = document.getElementById('slide0');
@@ -61,13 +64,25 @@ startAutoPlay();
     <!-- スライド（コンテンツ） -->
     <div id="slide0" class="slide0">
       <div>
-        <p class="slide1">スライド１</p>
+        <Image
+        src={dummy1}
+        alt=""
+        class="slide1"
+        />
       </div>
       <div>
-        <p class="slide2">スライド２</p>
+        <Image
+        src={dummy1}
+        alt=""
+        class="slide2"
+        />
       </div>
       <div>
-        <p class="slide3">スライド３</p>
+        <Image
+        src={dummy1}
+        alt=""
+        class="slide3"
+        />
       </div>
     </div>
     <!-- 左右のボタン -->
