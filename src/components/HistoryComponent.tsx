@@ -88,10 +88,10 @@ export default function HistoryComponent({ count }: Props) {
   function onShrinkClick(index: number) {
     setDetailPos(index);
     historyRef.current?.scrollBy({
-      top: windowWidth <= 767 ? (index-detailPos)*windowWidth*0.367 : 0,
-      left: windowWidth > 768 ? (index - detailPos)*windowWidth *0.667 : 0,
-      behavior: "smooth"
-    })
+      top: windowWidth <= 767 ? (index - detailPos) * windowWidth * 0.367 : 0,
+      left: windowWidth > 768 ? (index - detailPos) * windowWidth * 0.667 : 0,
+      behavior: "smooth",
+    });
   }
 
   console.log(detailPos);
@@ -109,7 +109,13 @@ export default function HistoryComponent({ count }: Props) {
         <h6 class="helvetica_bold">Scroll</h6>
       </div>
       <div class="history__wrapper" ref={(el) => (historyRef.current = el)}>
-        <span class="history__wrapper__border" style={{width: `${windowWidth <= 767 ? 4 : periods.length*windowWidth*0.4}px`, height: `${windowWidth <= 767 ? `${0.667*periods.length*windowWidth}px` : `${0.139}vw`}`}}></span>
+        <span
+          class="history__wrapper__border"
+          style={{
+            width: `${windowWidth <= 767 ? 4 : periods.length * windowWidth * 0.4}px`,
+            height: `${windowWidth <= 767 ? `${0.667 * periods.length * windowWidth}px` : `${0.139}vw`}`,
+          }}
+        ></span>
         {periods.map((period, index) => (
           <Period
             year={period.year}

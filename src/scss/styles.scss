@@ -24,11 +24,11 @@ body * {
   padding: 5% 8%;
   margin: 5% auto;
   aspect-ratio: 16/9;
-  @media (max-width: $breakpoint-md){
+  @media (max-width: $breakpoint-md) {
     aspect-ratio: 5/4;
   }
 
-  @media (max-width: $breakpointMobile){
+  @media (max-width: $breakpointMobile) {
     aspect-ratio: 1/1;
   }
 }
@@ -93,7 +93,6 @@ a {
   }
 }
 
-
 /* headerここから*/
 
 header {
@@ -107,10 +106,10 @@ header {
   width: 100%;
   z-index: 1000;
   // background-color: white;
-  @media (min-width: 1980px){
+  @media (min-width: 1980px) {
     padding: 2vw 7%;
   }
-  
+
   .header__logo {
     width: 13.9vw;
     height: 5.9vw;
@@ -135,7 +134,7 @@ header {
 
     a {
       cursor: pointer;
-      @media (min-width: 1980px){
+      @media (min-width: 1980px) {
         font-size: 1.2vw;
       }
     }
@@ -184,7 +183,7 @@ header {
       content: "";
       inset: 0.139vw -0.139vw -0.139vw 0.139vw;
       z-index: -1;
-      @media (max-width: $breakpoint-xl){
+      @media (max-width: $breakpoint-xl) {
         inset: 2px -2px -2px 2px;
       }
     }
@@ -206,7 +205,7 @@ header {
     }
   }
 
-  @media (max-width: $breakpoint-xl){
+  @media (max-width: $breakpoint-xl) {
     .header__invitation {
       width: 140px;
       height: 50px;
@@ -231,7 +230,6 @@ header {
         border-radius: 0.533vw;
       }
     }
-    
   }
 }
 
@@ -269,7 +267,7 @@ header {
       font-size: 1rem;
     }
 
-    @media (max-width: $breakpointMobile){
+    @media (max-width: $breakpointMobile) {
       font-size: 3.47vw;
     }
   }
@@ -368,21 +366,21 @@ header {
           font-weight: 200;
           font-style: normal;
           align-self: flex-end;
-          @media (max-width: $breakpoint-lg){
+          @media (max-width: $breakpoint-lg) {
             font-size: 1rem;
           }
         }
-        @media (max-width: $breakpointMobile){
-          &__title, &__date {
+        @media (max-width: $breakpointMobile) {
+          &__title,
+          &__date {
             font-size: 2.93vw;
           }
         }
-        
       }
 
       &__content {
         font-size: 1.1vw;
-        @media (max-width: $breakpoint-xl){
+        @media (max-width: $breakpoint-xl) {
           font-size: 1rem;
           overflow: hidden;
           display: -webkit-box;
@@ -399,7 +397,7 @@ header {
           -webkit-box-orient: vertical;
         }
 
-        @media (max-width: $breakpointMobile){
+        @media (max-width: $breakpointMobile) {
           font-size: 2.67vw;
         }
       }
@@ -438,7 +436,7 @@ header {
         width: 4.44vw;
       }
 
-      @media (max-width: $breakpoint-md){
+      @media (max-width: $breakpoint-md) {
         .prev {
           width: 48px !important;
         }
@@ -446,11 +444,11 @@ header {
         .next {
           width: 48px !important;
         }
-
       }
 
-      @media (max-width: $breakpointMobile){
-        .prev, .next {
+      @media (max-width: $breakpointMobile) {
+        .prev,
+        .next {
           width: 32px !important;
         }
       }
@@ -477,11 +475,10 @@ header {
   border: 1px solid #000;
   position: relative;
   cursor: pointer;
-  @media (min-width: 1980px){
+  @media (min-width: 1980px) {
     width: 10vw;
     height: auto;
     padding: 0.5vw 2vw;
-    
   }
 
   @media (max-width: $breakpoint-md) {
@@ -498,7 +495,6 @@ header {
     flex-direction: column;
     padding: 2%;
     height: 100%;
-    
 
     a {
       height: 75%;
@@ -507,7 +503,7 @@ header {
       justify-content: center;
       font-size: 1.39vw;
       text-wrap: nowrap;
-      @media (max-width: $breakpoint-xl){
+      @media (max-width: $breakpoint-xl) {
         font-size: 1rem;
       }
       @media (max-width: $breakpointMobile) {
@@ -537,7 +533,7 @@ header {
     }
   }
 
-  @media (max-width: $breakpointMobile){
+  @media (max-width: $breakpointMobile) {
     width: 20vw;
     height: 6.93vw;
     &__content {
@@ -633,8 +629,6 @@ header {
           @media (max-width: $breakpoint-lg) {
             font-size: 1.125rem;
           }
-
-          
         }
 
         &__date {
@@ -643,12 +637,13 @@ header {
           font-weight: 300;
           font-style: normal;
           align-self: flex-end;
-          @media (max-width: $breakpoint-lg){
+          @media (max-width: $breakpoint-lg) {
             font-size: 1rem;
           }
         }
 
-        &__title, &__date {
+        &__title,
+        &__date {
           @media (max-width: $breakpointMobile) {
             font-size: 2.67vw;
           }
@@ -695,7 +690,6 @@ header {
   display: flex;
   flex-direction: column;
   position: relative;
-  
 
   &__right {
     top: 2%;
@@ -715,7 +709,7 @@ header {
     height: fit-content;
     position: relative;
     margin: 1.05vw 0;
-    @media (max-width: $breakpoint-md){
+    @media (max-width: $breakpoint-md) {
       margin: 3.73vw 0;
     }
     &__content {
@@ -756,7 +750,7 @@ header {
               padding: 8px 0;
             }
 
-            @media (max-width: $breakpointMobile){
+            @media (max-width: $breakpointMobile) {
               font-size: 2.93vw;
             }
           }
@@ -772,9 +766,9 @@ header {
             @media (max-width: $breakpoint-md) {
               padding: 0;
               font-size: 1.25rem;
-            font-family: "Zen Kaku Gothic New", serif;
-            font-weight: 300;
-            font-style: normal;
+              font-family: "Zen Kaku Gothic New", serif;
+              font-weight: 300;
+              font-style: normal;
             }
 
             @media (max-width: $breakpoint-md) {
@@ -788,18 +782,17 @@ header {
           }
           svg {
             align-self: flex-end;
-            @media (max-width: $breakpoint-md){
+            @media (max-width: $breakpoint-md) {
               width: 8.8vw;
             }
           }
-          
         }
       }
     }
     &__svg {
       position: absolute;
       bottom: 0;
-      
+
       display: none;
       @media (max-width: $breakpoint-md) {
         display: block;
@@ -811,7 +804,9 @@ header {
       position: absolute;
       bottom: 0;
 
-      &__1, &__2, &__3 {
+      &__1,
+      &__2,
+      &__3 {
         background-color: black;
         height: 1px;
       }
@@ -836,10 +831,8 @@ header {
         position: absolute;
         top: 0;
         right: 0;
-
       }
     }
-    
   }
 
   &__element::before {
@@ -880,7 +873,7 @@ header {
     height: auto;
     margin: 0 1%;
     border: 1px solid #000;
-    @media (max-width: $breakpointMobile){
+    @media (max-width: $breakpointMobile) {
       width: 24vw;
       margin: 0 3vw;
     }
@@ -949,11 +942,9 @@ header {
         display: flex;
         align-items: center;
         margin-left: 0.278vw;
-        @media (max-width: $breakpoint-xl){
+        @media (max-width: $breakpoint-xl) {
           margin-left: 4px;
         }
-
-        
       }
     }
 
@@ -966,7 +957,7 @@ header {
       margin: 0 4px;
     }
 
-    @media (max-width: $breakpoint-lg){
+    @media (max-width: $breakpoint-lg) {
       h5,
       p {
         font-size: 1rem;
@@ -983,14 +974,13 @@ header {
           height: 30px;
         }
       }
-      
     }
 
-    @media (max-width: $breakpointMobile){
-      h5, p {
+    @media (max-width: $breakpointMobile) {
+      h5,
+      p {
         font-size: 3.2vw;
       }
-      
     }
   }
 
@@ -1002,9 +992,10 @@ header {
       &__link {
         margin-top: 4%;
         display: flex;
-        &__insta, &__twitter {
+        &__insta,
+        &__twitter {
           width: 2.22vw;
-          @media (max-width: $breakpoint-xl){
+          @media (max-width: $breakpoint-xl) {
             width: 32px;
           }
         }
@@ -1014,7 +1005,7 @@ header {
           font-style: normal;
           font-size: 1.37vw;
           margin: 0 12px;
-          @media (max-width: $breakpoint-lg){
+          @media (max-width: $breakpoint-lg) {
             font-size: 1.25rem;
           }
         }
@@ -1155,7 +1146,7 @@ header {
         border-bottom: 1px solid #000;
         margin-bottom: 4%;
         width: fit-content;
-        @media (max-width: $breakpoint-xl){
+        @media (max-width: $breakpoint-xl) {
           font-size: 2.25rem;
         }
       }
@@ -1170,14 +1161,13 @@ header {
 
     p {
       font-size: 1.11vw;
-      @media (max-width: $breakpoint-lg){
+      @media (max-width: $breakpoint-lg) {
         font-size: 1rem;
       }
 
-      @media (max-width: $breakpointMobile){
+      @media (max-width: $breakpointMobile) {
         font-size: 2.93vw;
       }
-      
     }
   }
 
@@ -1249,14 +1239,13 @@ footer {
     h6 {
       font-size: 1.37vw;
     }
-    @media (max-width: $breakpoint-lg){
+    @media (max-width: $breakpoint-lg) {
       h6 {
         font-size: 1.25rem;
       }
-      
     }
 
-    @media (max-width: $breakpoint-md){
+    @media (max-width: $breakpoint-md) {
       h6 {
         font-size: 2.39vw;
       }
@@ -1272,7 +1261,7 @@ footer {
   width: 4vw;
   height: auto;
   transition: all 0.1s ease;
-  @media (max-width: $breakpoint-xl){
+  @media (max-width: $breakpoint-xl) {
     width: 48px;
   }
 }
@@ -1426,256 +1415,255 @@ footer {
 }
 
 .history__wrapper {
-    display: none;
-    align-items: center;
-    position: relative;
-    margin: 3% 0;
-    overflow-x: scroll;
-    white-space: nowrap;
-    width: 100%;
-    height: 41.7vw;
-    margin: auto 0;
-    display: flex;
-    scrollbar-width: none;
-    @media (max-width: $breakpoint-md) {
-      flex-direction: column;
-      justify-content: start;
-      align-items: center;
-      overflow-y: scroll;
-      height: 800px;
-      margin: 5% auto;
-    }
-    &__border {
-      position: absolute;
-      background-color: #b0dfe7;
-      z-index: -2;
-      top: 27.65vw;
-      // width: 208vw;
-      height: 0.139vw;
-      @media (max-width: $breakpoint-xl){
-        height: 2px;
-      }
-      @media (max-width: $breakpoint-md) {
-        width: 4px;
-        // height: 2400px;
-        left: 50%;
-        top: 0;
-      }
-    }
-  }
-  
-  .history__wrapper__guide {
-    position: absolute;
-    right: 10%;
-    bottom: 0px;
-    z-index: 2;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    &__icon {
-      transform: rotate(-90deg);
-      margin: -0.417vw 0px 0px 0px;
-      width: 0.972vw;
-      height: 2.36vw;
-      min-width: 14px;
-      min-height: 34px;
-      transition: all 0.3s ease;
-    }
-  
-    &__icon.shrinking {
-      transform: scale(0.8) rotate(-90deg);
-      @media (max-width: $breakpoint-md) {
-        transform: scale(0.8);
-      }
-    }
-  
-    h6 {
-      margin-left: 1.67vw;
-      font-size: 1.11vw;
-    }
-  
-    @media (max-width: $breakpoint-md) {
-      right: 30%;
-      flex-direction: column-reverse;
-      bottom: 5%;
-      &__icon {
-        transform: rotate(0);
-        display: flex;
-        justify-content: center;
-        margin-top: 1rem;
-      }
-      h6 {
-        font-size: 2.08vw;
-        margin-left: -0rem;
-      }
-    }
-  }
-  #period {
-    margin-left: 5%;
-    @media (max-width: $breakpoint-md) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 3% auto;
-    }
-  }
-  
-  .p-period__shrink {
-    transform: rotate(-45deg);
-    border-bottom: 0.139vw solid #b0dfe7;
-    flex-shrink: 0;
-    position: relative;
-    width: 14.2vw;
-    height: 7.64vw;
-    display: inline-block;
-    margin-left: 10.4vw;
-    align-self: center;
-    @media (max-width: $breakpoint-xl){
-      border-bottom: 2px solid #b0dfe7;
-    }
-
-    @media (max-width: $breakpoint-md) {
-      transform: rotate(-35deg);
-      margin-left: 0;
-      display: block;
-      width: 36.5vw;
-      margin: 13vw 0;
-      margin-left: 22vw;
-    }
-  
-    &__left__circle {
-      position: absolute;
-      width: 2.22vw;
-      height: 2.22vw;
-      border-radius: 50%;
-      background-color: #b0dfe7;
-      bottom: -1.5vw;
-      left: -0.139vw;
-    }
-    &__right__circle {
-      position: absolute;
-      width: 1.11vw;
-      height: 1.11vw;
-      border-radius: 50%;
-      background-color: #b0dfe7;
-      bottom: -0.556vw;
-      right: -0.556vw;
-    }
-  
-    &__date {
-      position: absolute;
-      bottom: -1.39vw;
-      left: 2.08vw;
-      text-align: center;
-      font-size: 4.44vw;
-      font-weight: bold;
-      font-family: Arial, Helvetica, sans-serif;
-      letter-spacing: 6px;
-  
-      @media (max-width: $breakpoint-md) {
-        margin-top: 35%;
-      }
-    }
-  
-    &__title {
-      position: absolute;
-      bottom: -2.22vw;
-      left: 2.92vw;
-      font-size: 1.39vw;
-      font-family: "Zen Kaku Gothic New", serif;
-      font-weight: 300;
-      font-style: normal;
-      white-space: nowrap;
-    }
-  
-    @media (max-width: $breakpoint-md) {
-      &__left__circle {
-        width: 5.33vw;
-        height: 5.33vw;
-        left: 0;
-        bottom: -2.67vw;
-      }
-  
-      &__right__circle {
-        width: 2.93vw;
-        height: 2.93vw;
-        bottom: -1.5vw;
-      }
-  
-      h2 {
-        font-size: 6.4vw;
-        bottom: -1.33vw;
-        left: 10vw;
-        text-align: center;
-      }
-      h5 {
-        font-size: 3.47vw;
-        left: 5.5vw;
-        top: 7vw;
-      }
-    }
-  }
-  
-  .p-period__detail {
-    display: inline-block;
-    flex-shrink: 0;
-    width: 34.7vw;
-    height: 34.7vw;
-    border: 1px solid #000;
-    position: relative;
-    padding: 3%;
-    margin-left: 20%;
-    &__year {
-      font-size: 4.44vw;
-      font-family: Arial, Helvetica, sans-serif;
-      letter-spacing: 8px;
-      font-weight: bold;
-    }
-  
-    &__title {
-      font-size: 1.67vw;
-      font-family: "Zen Kaku Gothic New", serif;
-      font-weight: 500;
-      font-style: normal;
-    }
-  
-    p {
-      margin-top: 3%;
-      font-size: 1.39vw;
-      font-family: "Zen Kaku Gothic New", serif;
-      font-weight: 300;
-      font-style: normal;
-      white-space: pre-wrap;
-    }
-    @media (max-width: $breakpoint-md) {
-      margin: 5% 0;
-      width: 87.5vw;
-      height: auto;
-      p {
-        font-size: 2.66vw;
-      }
-      &__year {
-        font-size: 6.4vw;
-      }
-      &__title {
-        font-size: 3.2vw;
-      }
-    }
-  }
-  
-  .p-period__detail::before {
-    position: absolute;
-    z-index: -1;
-    content: "";
-    background-color: $bgBlue;
-    inset: 0.486vw -0.486vw -0.486vw 0.486vw;
-    @media (max-width: $breakpoint-md){
-      inset: 1.04vw -1.04vw -1.04vw 1.04vw;
-
-    }
-  }
-  
-  .history {
-    display: flex;
+  display: none;
+  align-items: center;
+  position: relative;
+  margin: 3% 0;
+  overflow-x: scroll;
+  white-space: nowrap;
+  width: 100%;
+  height: 41.7vw;
+  margin: auto 0;
+  display: flex;
+  scrollbar-width: none;
+  @media (max-width: $breakpoint-md) {
     flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    overflow-y: scroll;
+    height: 800px;
+    margin: 5% auto;
   }
+  &__border {
+    position: absolute;
+    background-color: #b0dfe7;
+    z-index: -2;
+    top: 27.65vw;
+    // width: 208vw;
+    height: 0.139vw;
+    @media (max-width: $breakpoint-xl) {
+      height: 2px;
+    }
+    @media (max-width: $breakpoint-md) {
+      width: 4px;
+      // height: 2400px;
+      left: 50%;
+      top: 0;
+    }
+  }
+}
+
+.history__wrapper__guide {
+  position: absolute;
+  right: 10%;
+  bottom: 0px;
+  z-index: 2;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  &__icon {
+    transform: rotate(-90deg);
+    margin: -0.417vw 0px 0px 0px;
+    width: 0.972vw;
+    height: 2.36vw;
+    min-width: 14px;
+    min-height: 34px;
+    transition: all 0.3s ease;
+  }
+
+  &__icon.shrinking {
+    transform: scale(0.8) rotate(-90deg);
+    @media (max-width: $breakpoint-md) {
+      transform: scale(0.8);
+    }
+  }
+
+  h6 {
+    margin-left: 1.67vw;
+    font-size: 1.11vw;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    right: 30%;
+    flex-direction: column-reverse;
+    bottom: 5%;
+    &__icon {
+      transform: rotate(0);
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    h6 {
+      font-size: 2.08vw;
+      margin-left: -0rem;
+    }
+  }
+}
+#period {
+  margin-left: 5%;
+  @media (max-width: $breakpoint-md) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3% auto;
+  }
+}
+
+.p-period__shrink {
+  transform: rotate(-45deg);
+  border-bottom: 0.139vw solid #b0dfe7;
+  flex-shrink: 0;
+  position: relative;
+  width: 14.2vw;
+  height: 7.64vw;
+  display: inline-block;
+  margin-left: 10.4vw;
+  align-self: center;
+  @media (max-width: $breakpoint-xl) {
+    border-bottom: 2px solid #b0dfe7;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    transform: rotate(-35deg);
+    margin-left: 0;
+    display: block;
+    width: 36.5vw;
+    margin: 13vw 0;
+    margin-left: 22vw;
+  }
+
+  &__left__circle {
+    position: absolute;
+    width: 2.22vw;
+    height: 2.22vw;
+    border-radius: 50%;
+    background-color: #b0dfe7;
+    bottom: -1.5vw;
+    left: -0.139vw;
+  }
+  &__right__circle {
+    position: absolute;
+    width: 1.11vw;
+    height: 1.11vw;
+    border-radius: 50%;
+    background-color: #b0dfe7;
+    bottom: -0.556vw;
+    right: -0.556vw;
+  }
+
+  &__date {
+    position: absolute;
+    bottom: -1.39vw;
+    left: 2.08vw;
+    text-align: center;
+    font-size: 4.44vw;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 6px;
+
+    @media (max-width: $breakpoint-md) {
+      margin-top: 35%;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    bottom: -2.22vw;
+    left: 2.92vw;
+    font-size: 1.39vw;
+    font-family: "Zen Kaku Gothic New", serif;
+    font-weight: 300;
+    font-style: normal;
+    white-space: nowrap;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__left__circle {
+      width: 5.33vw;
+      height: 5.33vw;
+      left: 0;
+      bottom: -2.67vw;
+    }
+
+    &__right__circle {
+      width: 2.93vw;
+      height: 2.93vw;
+      bottom: -1.5vw;
+    }
+
+    h2 {
+      font-size: 6.4vw;
+      bottom: -1.33vw;
+      left: 10vw;
+      text-align: center;
+    }
+    h5 {
+      font-size: 3.47vw;
+      left: 5.5vw;
+      top: 7vw;
+    }
+  }
+}
+
+.p-period__detail {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 34.7vw;
+  height: 34.7vw;
+  border: 1px solid #000;
+  position: relative;
+  padding: 3%;
+  margin-left: 20%;
+  &__year {
+    font-size: 4.44vw;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 8px;
+    font-weight: bold;
+  }
+
+  &__title {
+    font-size: 1.67vw;
+    font-family: "Zen Kaku Gothic New", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  p {
+    margin-top: 3%;
+    font-size: 1.39vw;
+    font-family: "Zen Kaku Gothic New", serif;
+    font-weight: 300;
+    font-style: normal;
+    white-space: pre-wrap;
+  }
+  @media (max-width: $breakpoint-md) {
+    margin: 5% 0;
+    width: 87.5vw;
+    height: auto;
+    p {
+      font-size: 2.66vw;
+    }
+    &__year {
+      font-size: 6.4vw;
+    }
+    &__title {
+      font-size: 3.2vw;
+    }
+  }
+}
+
+.p-period__detail::before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  background-color: $bgBlue;
+  inset: 0.486vw -0.486vw -0.486vw 0.486vw;
+  @media (max-width: $breakpoint-md) {
+    inset: 1.04vw -1.04vw -1.04vw 1.04vw;
+  }
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+}

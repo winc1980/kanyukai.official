@@ -12,7 +12,7 @@ interface Props {
 export default function YearAward({
   awards,
   year,
-  initialIsOpen=false,
+  initialIsOpen = false,
   chevronClicked,
 }: Props) {
   const [isOpen, setIsOpen] = useState(initialIsOpen);
@@ -53,10 +53,10 @@ export default function YearAward({
       }
     }
 
-    if(directionIconRef.current) {
-      if(isOpen) {
+    if (directionIconRef.current) {
+      if (isOpen) {
         directionIconRef.current.classList.add("open");
-      }else {
+      } else {
         directionIconRef.current.classList.remove("open");
       }
     }
@@ -64,12 +64,21 @@ export default function YearAward({
 
   return (
     <div class={`${year} year__award`}>
-      <div class="flex justify-between year__award__top" onClick={() => setIsOpen(!isOpen)}>
+      <div
+        class="flex justify-between year__award__top"
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <div class="flex items-center">
           {windowWidth <= 767 ? (
-            <span class="year__award__direction__icon__mobile ml-5" ref={(el) => directionIconRef.current = el}></span>
-          ): (
-            <span ref={(el) => directionIconRef.current = el} class="year__award__direction__icon__pc">
+            <span
+              class="year__award__direction__icon__mobile ml-5"
+              ref={(el) => (directionIconRef.current = el)}
+            ></span>
+          ) : (
+            <span
+              ref={(el) => (directionIconRef.current = el)}
+              class="year__award__direction__icon__pc"
+            >
               <svg
                 width="100%"
                 height="auto"
@@ -89,13 +98,10 @@ export default function YearAward({
               </svg>
             </span>
           )}
-          
+
           <h2 class="helvetica_light tracking-widest ml-10">{year}</h2>
         </div>
-        <span
-          ref={(el) => (arrowIconRef.current = el)}
-          class="award__arrow"
-        >
+        <span ref={(el) => (arrowIconRef.current = el)} class="award__arrow">
           <svg
             width="100%"
             height="auto"
