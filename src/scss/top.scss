@@ -9,11 +9,12 @@
   justify-content: space-between;
   &__md__fish {
     display: none;
-    width: 30%;
+    width: 50.4vw;
     @media (max-width: $breakpoint-md) {
       display: block;
       position: absolute;
-      bottom: 15vw;
+      z-index: 5;
+      bottom: 10vw;
       left: 3%;
     }
   }
@@ -38,13 +39,10 @@
 
   .fish_big {
     position: absolute;
-    width: 70%;
-    bottom: 3vw;
+    width: 70vw;
+    bottom: -8vw;
     right: 0;
     z-index: 10;
-    @media (max-width: $breakpoint-lg){
-      bottom: -2%;
-    }
   }
   &__left__content {
     display: flex;
@@ -63,9 +61,12 @@
         a {
           font-size: 1rem;
         }
-        svg {
-          display: none;
+        @media (max-width: $breakpointMobile){
+          svg {
+            display: none;
+          }
         }
+        
       }
     }
 
@@ -80,9 +81,30 @@
         display: flex;
         padding-bottom: 3px;
         padding-right: 3px;
-        svg {
-          margin-left: 6px;
+        a{
+          font-size: 1.67vw;
+          @media (max-width: $breakpoint-xl){
+            font-size: 1.5rem;
+          }
+          @media (max-width: $breakpoint-md){
+            font-size: 1rem;
+          }
+        }
+        &__svg {
+          width: 2.5vw;
+          margin-left: 0.41vw;
           align-self: flex-end;
+          min-width: 36px;
+          @media (max-width: $breakpoint-md){
+            width: 2.25vw;
+            height: auto;
+            margin-left: 6px;
+          }
+          @media (max-width: $breakpointMobile){
+            display: none;
+            width: 0;
+            height: 0;
+          }
         }
       }
     }

@@ -34,7 +34,7 @@ body * {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 6.7vw;
   @media (max-width: $breakpoint-xl) {
     font-size: 4.5rem;
   }
@@ -112,8 +112,8 @@ header {
   }
   
   .header__logo {
-    width: 200px;
-    height: 85px;
+    width: 13.9vw;
+    height: 5.9vw;
     @media (max-width: $breakpoint-md) {
       width: 100px;
       height: 42px;
@@ -128,9 +128,9 @@ header {
     }
 
     li {
-      margin: 0 20px;
+      margin: 0 1.39vw;
       font-style: "Zen Kaku Gothic New";
-      font-size: 1.25rem;
+      font-size: 1.39vw;
     }
 
     a {
@@ -168,8 +168,9 @@ header {
     .header__invitation {
       border: 1px solid #000;
       position: relative;
-      width: 140px;
-      height: 50px;
+      width: 10vw;
+      height: auto;
+      padding: 0.7vw 0;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -181,8 +182,11 @@ header {
       position: absolute;
       background-color: $strongBlue;
       content: "";
-      inset: 2px -2px -2px 2px;
+      inset: 0.139vw -0.139vw -0.139vw 0.139vw;
       z-index: -1;
+      @media (max-width: $breakpoint-xl){
+        inset: 2px -2px -2px 2px;
+      }
     }
 
     .header__invitation:hover::before {
@@ -202,6 +206,13 @@ header {
     }
   }
 
+  @media (max-width: $breakpoint-xl){
+    .header__invitation {
+      width: 140px;
+      height: 50px;
+    }
+  }
+
   @media (max-width: $breakpoint-md) {
     .header__link {
       display: none;
@@ -212,13 +223,15 @@ header {
       z-index: 101;
       &__line {
         display: block;
-        width: 40px;
-        height: 3px;
+        width: 4.8vw;
+        height: 2px;
         background-color: #000;
         margin: 6px 0;
         transition: all 0.5s ease;
+        border-radius: 0.533vw;
       }
     }
+    
   }
 }
 
@@ -233,7 +246,7 @@ header {
     font-family: "Zen Kaku Gothic New", sans-serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 4rem;
+    font-size: 4.4vw;
     @media (max-width: $breakpoint-md) {
       font-size: 1.5rem;
     }
@@ -251,17 +264,20 @@ header {
     margin-bottom: 5%;
   }
   .label_top {
-    font-size: 1.25rem;
+    font-size: 1.39vw;
     @media (max-width: $breakpoint-md) {
       font-size: 1rem;
+    }
+
+    @media (max-width: $breakpointMobile){
+      font-size: 3.47vw;
     }
   }
 
   .label_bottom {
     display: flex;
-
     .en {
-      font-size: 3rem;
+      font-size: 3.3vw;
       letter-spacing: 8px;
       border-bottom: 1px solid #000;
       @media (max-width: $breakpoint-md) {
@@ -319,7 +335,7 @@ header {
     position: relative;
     width: inherit;
     height: inherit;
-    padding: 3%;
+    padding: 1.25vw 2.083vw 2.083vw 1.25vw;
 
     &__left {
       width: 70%;
@@ -332,35 +348,59 @@ header {
         justify-content: space-between;
         border-bottom: 1px solid #000;
         align-self: flex-end;
+
         &__title {
-          font-size: 2rem;
+          font-size: 2.2vw;
           font-family: "Noto Sans JP", sans-serif;
           font-optical-sizing: auto;
           font-weight: 400;
           font-style: normal;
           align-self: flex-end;
-          @media (max-width: $breakpoint-md) {
-            font-size: 1rem;
+          @media (max-width: $breakpoint-lg) {
+            font-size: 1.125rem;
           }
         }
 
         &__date {
+          font-size: 1.1vw;
           font-family: "Noto Sans JP", sans-serif;
           font-optical-sizing: auto;
           font-weight: 200;
           font-style: normal;
           align-self: flex-end;
+          @media (max-width: $breakpoint-lg){
+            font-size: 1rem;
+          }
         }
+        @media (max-width: $breakpointMobile){
+          &__title, &__date {
+            font-size: 2.93vw;
+          }
+        }
+        
       }
 
       &__content {
-        @media (max-width: $breakpoint-md) {
-          height: 7.5em;
-          line-height: 1.5em;
+        font-size: 1.1vw;
+        @media (max-width: $breakpoint-xl){
+          font-size: 1rem;
           overflow: hidden;
           display: -webkit-box;
           -webkit-line-clamp: 5; /* 表示する行数を指定 */
           -webkit-box-orient: vertical;
+        }
+        @media (max-width: $breakpoint-md) {
+          height: 7.5em;
+          line-height: 1.5em;
+          font-size: 1rem;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 5; /* 表示する行数を指定 */
+          -webkit-box-orient: vertical;
+        }
+
+        @media (max-width: $breakpointMobile){
+          font-size: 2.67vw;
         }
       }
     }
@@ -371,27 +411,31 @@ header {
       border: 1px solid #000;
       position: relative;
       align-self: center;
+
+      .indicator li {
+        width: 1vw;
+        height: 1vw;
+        max-width: 24px;
+        max-height: 24px;
+        min-width: 10px;
+        min-height: 10px;
+      }
       @media (max-width: $breakpoint-md) {
         width: 50%;
-        .indicator li {
-          width: 10px;
-          height: 10px;
-        }
       }
 
       .prev {
         left: 0%;
-        width: 64px !important;
+        width: 4.44vw;
       }
 
       .next {
-
         top: 50%;
         left: initial;
         right: -2%;
         left: initial;
         right: 0%;
-        width: 64px !important;
+        width: 4.44vw;
       }
 
       @media (max-width: $breakpoint-md){
@@ -404,6 +448,12 @@ header {
         }
 
       }
+
+      @media (max-width: $breakpointMobile){
+        .prev, .next {
+          width: 32px !important;
+        }
+      }
     }
   }
 }
@@ -411,7 +461,7 @@ header {
 #article::before {
   position: absolute;
   border: 1px solid #000;
-  inset: -6px 6px 6px -6px;
+  inset: -0.833vw 0.833vw 0.833vw -0.833vw;
   content: "";
   z-index: 2;
 }
@@ -428,9 +478,9 @@ header {
   position: relative;
   cursor: pointer;
   @media (min-width: 1980px){
-    width: max-content;
+    width: 10vw;
     height: auto;
-    padding: 20px 2vw;
+    padding: 0.5vw 2vw;
     
   }
 
@@ -448,22 +498,29 @@ header {
     flex-direction: column;
     padding: 2%;
     height: 100%;
+    
 
     a {
       height: 75%;
       display: flex;
       align-items: end;
       justify-content: center;
-      font-size: 1.25rem;
+      font-size: 1.39vw;
       text-wrap: nowrap;
+      @media (max-width: $breakpoint-xl){
+        font-size: 1rem;
+      }
+      @media (max-width: $breakpointMobile) {
+        font-size: 3.2vw;
+      }
     }
 
-    svg {
-      height: 25%;
-      display: flex;
+    &__svg {
+      width: 30%;
+      height: auto;
       justify-content: end;
       align-self: flex-end;
-      align-items: end;
+      display: flex;
       margin-right: 0;
     }
   }
@@ -473,9 +530,20 @@ header {
     height: 35px;
     &__content {
       padding: 0;
+      &__svg {
+        margin-right: 5%;
+        width: 20%;
+      }
     }
-    a {
-      font-size: 1rem;
+  }
+
+  @media (max-width: $breakpointMobile){
+    width: 20vw;
+    height: 6.93vw;
+    &__content {
+      &__svg {
+        width: 20%;
+      }
     }
   }
 }
@@ -483,7 +551,7 @@ header {
 .p-button::before {
   position: absolute;
   background-color: $strongBlue;
-  inset: 2px -2px -2px 2px;
+  inset: 0.2vw -0.2vw -0.2vw 0.2vw;
   content: "";
   z-index: -1;
   @media (max-width: $breakpoint-md) {
@@ -528,7 +596,7 @@ header {
   margin-bottom: 7px;
 
   &__content {
-    padding: 20px 3%;
+    padding: 0.972vw 3.54vw;
     display: flex;
     width: 100%;
 
@@ -555,33 +623,50 @@ header {
         justify-content: space-between;
         border-bottom: 1px solid #000;
         width: 100%;
+
         &__title {
-          font-size: 1.5rem;
+          font-size: 1.67vw;
           font-family: "Zen Kaku Gothic New", serif;
           font-weight: 400;
           font-style: normal;
           align-self: flex-end;
-          @media (max-width: $breakpoint-md) {
+          @media (max-width: $breakpoint-lg) {
             font-size: 1.125rem;
           }
+
+          
         }
 
         &__date {
+          font-size: 1.11vw;
           font-family: "Zen Kaku Gothic New", serif;
           font-weight: 300;
           font-style: normal;
           align-self: flex-end;
+          @media (max-width: $breakpoint-lg){
+            font-size: 1rem;
+          }
+        }
+
+        &__title, &__date {
+          @media (max-width: $breakpointMobile) {
+            font-size: 2.67vw;
+          }
         }
       }
     }
 
     p {
-      font-size: 1.25rem;
+      font-size: 1.39vw;
       font-family: "Zen Kaku Gothic New", serif;
       font-weight: 300;
       font-style: normal;
-      @media (max-width: $breakpoint-md) {
+      @media (max-width: $breakpoint-xl) {
         font-size: 1rem;
+      }
+
+      @media (max-width: $breakpointMobile) {
+        font-size: 2.67vw;
       }
     }
   }
@@ -589,7 +674,7 @@ header {
   &__content::before {
     content: "";
     position: absolute;
-    inset: 7px -7px -7px 7px;
+    inset: 0.486vw -0.486vw -0.486vw 0.486vw;
     background-color: $bgBlue;
     z-index: -1;
   }
@@ -610,6 +695,7 @@ header {
   display: flex;
   flex-direction: column;
   position: relative;
+  
 
   &__right {
     top: 2%;
@@ -618,7 +704,7 @@ header {
   }
 
   &__left {
-    bottom: -2%;
+    bottom: -5vw;
     left: 0;
     width: 24%;
   }
@@ -628,19 +714,24 @@ header {
     cursor: pointer;
     height: fit-content;
     position: relative;
-    margin: 1% 0;
+    margin: 1.05vw 0;
     &__content {
       display: flex;
       padding: 2%;
       width: inherit;
+      position: relative;
       @media (max-width: $breakpoint-md) {
         display: block;
       }
       &__left {
         &__date {
-          font-size: 1.25rem;
-          @media (max-width: $breakpoint-md) {
+          font-size: 1.39vw;
+          @media (max-width: $breakpoint-lg) {
             font-size: 1rem;
+          }
+
+          @media (max-width: $breakpointMobile) {
+            font-size: 2.67vw;
           }
         }
       }
@@ -653,13 +744,17 @@ header {
         }
         &__top {
           &__title {
-            font-size: 1.5rem;
+            font-size: 1.67vw;
             font-family: "Noto Sans JP", sans-serif;
             font-weight: 400;
             font-style: normal;
-            @media (max-width: $breakpoint-md) {
+            @media (max-width: $breakpoint-lg) {
               font-size: 1.125rem;
               padding: 8px 0;
+            }
+
+            @media (max-width: $breakpointMobile){
+              font-size: 2.93vw;
             }
           }
         }
@@ -668,9 +763,9 @@ header {
           display: flex;
           justify-content: space-between;
           width: 100%;
-          margin-top: 12px;
+          margin-top: 0.833vw;
           p {
-
+            font-size: 1.11vw;
             @media (max-width: $breakpoint-md) {
               padding: 0;
               font-size: 1.25rem;
@@ -679,25 +774,70 @@ header {
             font-style: normal;
             }
 
-            
-
             @media (max-width: $breakpoint-md) {
               font-size: 1rem;
               padding: 0;
             }
-          }
 
+            @media (max-width: $breakpointMobile) {
+              font-size: 2.67vw;
+            }
+          }
           svg {
             align-self: flex-end;
+            @media (max-width: $breakpoint-md){
+              width: 8.8vw;
+            }
           }
+          
         }
       }
     }
+    &__svg {
+      position: absolute;
+      bottom: 0;
+      
+      display: none;
+      @media (max-width: $breakpoint-md) {
+        display: block;
+      }
+    }
+    &__underline {
+      display: flex;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+
+      &__1, &__2, &__3 {
+        background-color: black;
+        height: 1px;
+      }
+      &__1 {
+        width: 75%;
+      }
+
+      &__2 {
+        position: absolute;
+        width: 7vw;
+        transform: rotate(25deg);
+        top: 1.47vw;
+        right: -6.5vw;
+      }
+
+      &__3 {
+        width: 10%;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+      }
+    }
+    
   }
 
   &__element::before {
     position: absolute;
-    inset: 5% 0 20% 0%;
+    inset: 0;
     content: "";
     background-color: $bgBlue;
     opacity: 1;
@@ -723,20 +863,16 @@ header {
 .p-photo {
   align-items: center;
   position: relative;
-  margin: 3% 0;
+  margin-top: 15vw;
+  margin-bottom: 3vw;
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;
   box-sizing: border-box;
-  margin: auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
   scrollbar-width: none;
-  margin: 5% 0;
-  @media (max-width: $breakpoint-md) {
-    display: none;
-  }
 
   &__img__box {
     flex-shrink: 0;
@@ -744,16 +880,26 @@ header {
     height: auto;
     margin: 0 1%;
     border: 1px solid #000;
+    @media (max-width: $breakpointMobile){
+      width: 24vw;
+      margin: 0 3vw;
+    }
   }
 
   .odd {
     margin-top: 5%;
     box-shadow: 0 50px 5px rgba(0, 0, 0, 0.3);
+    @media (max-width: $breakpointMobile) {
+      margin-top: 0;
+    }
   }
 
   .even {
     margin-bottom: 5%;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    @media (max-width: $breakpointMobile) {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -790,28 +936,41 @@ header {
       display: flex;
       &__tag__bg {
         background-color: #c5c5c5;
-        width: 4px;
-        height: 40px;
+        width: 0.278vw;
+        min-width: 4px;
+        height: auto;
         display: inline-block;
       }
       &__title {
-        font-size: 1.5rem;
+        font-size: 1.67vw;
         font-family: "Zen Kaku Gothic New", serif;
         font-weight: 300;
         font-style: normal;
         display: flex;
         align-items: center;
-        margin-left: 4px;
+        margin-left: 0.278vw;
+        @media (max-width: $breakpoint-xl){
+          margin-left: 4px;
+        }
+
+        
       }
     }
 
     &__bottom {
       align-self: center;
-      font-size: 1.5rem;
+      font-size: 1.67vw;
       font-family: "Zen Kaku Gothic New", serif;
       font-weight: 300;
       font-style: normal;
       margin: 0 4px;
+    }
+
+    @media (max-width: $breakpoint-lg){
+      h5,
+      p {
+        font-size: 1rem;
+      }
     }
 
     @media (max-width: $breakpoint-md) {
@@ -824,10 +983,14 @@ header {
           height: 30px;
         }
       }
-      h5,
-      p {
-        font-size: 1rem;
+      
+    }
+
+    @media (max-width: $breakpointMobile){
+      h5, p {
+        font-size: 3.2vw;
       }
+      
     }
   }
 
@@ -839,12 +1002,21 @@ header {
       &__link {
         margin-top: 4%;
         display: flex;
+        &__insta, &__twitter {
+          width: 2.22vw;
+          @media (max-width: $breakpoint-xl){
+            width: 32px;
+          }
+        }
         a {
           font-family: "Zen Kaku Gothic New", serif;
           font-weight: 300;
           font-style: normal;
-          font-size: 1.25rem;
+          font-size: 1.37vw;
           margin: 0 12px;
+          @media (max-width: $breakpoint-lg){
+            font-size: 1.25rem;
+          }
         }
       }
     }
@@ -872,7 +1044,7 @@ header {
     @media (max-width: $breakpoint-md) {
       justify-content: center;
       align-self: center;
-      width: 50%;
+      width: 55%;
       margin: 8% 0;
     }
 
@@ -951,6 +1123,9 @@ header {
         font-style: normal;
         font-size: 1.25rem;
         margin: 0 12px;
+        @media (max-width: $breakpointMobile) {
+          font-size: 3.2vw;
+        }
       }
     }
   }
@@ -973,13 +1148,16 @@ header {
       padding-top: 5%;
 
       &__title {
-        font-size: 2.25rem;
+        font-size: 2.5vw;
         font-family: "Zen Kaku Gothic New", serif;
         font-weight: 300;
         font-style: normal;
         border-bottom: 1px solid #000;
         margin-bottom: 4%;
         width: fit-content;
+        @media (max-width: $breakpoint-xl){
+          font-size: 2.25rem;
+        }
       }
 
       @media (max-width: $breakpoint-md) {
@@ -991,7 +1169,15 @@ header {
     }
 
     p {
-      font-size: 1rem;
+      font-size: 1.11vw;
+      @media (max-width: $breakpoint-lg){
+        font-size: 1rem;
+      }
+
+      @media (max-width: $breakpointMobile){
+        font-size: 2.93vw;
+      }
+      
     }
   }
 
@@ -1004,7 +1190,7 @@ header {
     @media (max-width: $breakpoint-md) {
       display: flex;
       align-self: center;
-      width: 50%;
+      width: 55%;
     }
     &__bg {
       position: absolute;
@@ -1059,8 +1245,22 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 1.25rem;
     padding: 27px 0;
+    h6 {
+      font-size: 1.37vw;
+    }
+    @media (max-width: $breakpoint-lg){
+      h6 {
+        font-size: 1.25rem;
+      }
+      
+    }
+
+    @media (max-width: $breakpoint-md){
+      h6 {
+        font-size: 2.39vw;
+      }
+    }
   }
 }
 
@@ -1072,8 +1272,8 @@ footer {
   width: 4vw;
   height: auto;
   transition: all 0.1s ease;
-  @media (max-width: $breakpoint-lg){
-    width: 36px;
+  @media (max-width: $breakpoint-xl){
+    width: 48px;
   }
 }
 
@@ -1100,49 +1300,6 @@ footer {
     }
   }
 }
-
-
-.top_page {
-  @media (min-width: 1980px){
-    font-size: 24px !important;
-    h1 {
-      font-size: 6vw !important;
-    }
-    h2 {
-      font-size: 4vw !important;
-    }
-    h3 {
-      font-size: 3vw !important;
-    }
-
-    h4 {
-      font-size: 2vw !important;
-    }
-
-    h5 {
-      font-size: 2vw !important;
-    }
-
-    h6 {
-      font-size: 1vw !important;
-    }
-
-    div {
-      font-size: 2vw !important;
-    }
-
-    p {
-      font-size: 1.5vw !important;
-    }
-
-    a {
-      font-size: 1.2vw !important;
-    }
-  }
-}
-
-
-
 
 .slide-wrapper {
   width: 100%;
@@ -1276,28 +1433,10 @@ footer {
     overflow-x: scroll;
     white-space: nowrap;
     width: 100%;
-    height: 600px;
+    height: 41.7vw;
     margin: auto 0;
     display: flex;
     scrollbar-width: none;
-    @media (min-width: 1980px){
-      h2{
-        font-size: 4rem !important;
-      }
-      h3{
-        font-size: 4rem !important;
-      }
-      h4{
-        font-size: 1.5rem !important;
-      }
-      h5{
-        font-size: 1.25rem !important;
-      }
-
-      p {
-        font-size: 1rem !important;
-      }
-    }
     @media (max-width: $breakpoint-md) {
       flex-direction: column;
       justify-content: start;
@@ -1310,12 +1449,15 @@ footer {
       position: absolute;
       background-color: #b0dfe7;
       z-index: -2;
-      top: 400px;
-      width: 3000px;
-      height: 2px;
+      top: 27.65vw;
+      // width: 208vw;
+      height: 0.139vw;
+      @media (max-width: $breakpoint-xl){
+        height: 2px;
+      }
       @media (max-width: $breakpoint-md) {
         width: 4px;
-        height: 2400px;
+        // height: 2400px;
         left: 50%;
         top: 0;
       }
@@ -1329,9 +1471,14 @@ footer {
     z-index: 2;
     display: flex;
     cursor: pointer;
+    align-items: center;
     &__icon {
       transform: rotate(-90deg);
-      margin: -6px 0px 0px 0px;
+      margin: -0.417vw 0px 0px 0px;
+      width: 0.972vw;
+      height: 2.36vw;
+      min-width: 14px;
+      min-height: 34px;
       transition: all 0.3s ease;
     }
   
@@ -1343,7 +1490,8 @@ footer {
     }
   
     h6 {
-      margin-left: 1.5rem;
+      margin-left: 1.67vw;
+      font-size: 1.11vw;
     }
   
     @media (max-width: $breakpoint-md) {
@@ -1357,6 +1505,7 @@ footer {
         margin-top: 1rem;
       }
       h6 {
+        font-size: 2.08vw;
         margin-left: -0rem;
       }
     }
@@ -1373,53 +1522,52 @@ footer {
   
   .p-period__shrink {
     transform: rotate(-45deg);
-    border-bottom: 2px solid #b0dfe7;
+    border-bottom: 0.139vw solid #b0dfe7;
     flex-shrink: 0;
     position: relative;
-    width: 204px;
-    height: 110px;
+    width: 14.2vw;
+    height: 7.64vw;
     display: inline-block;
-    margin-left: 150px;
+    margin-left: 10.4vw;
     align-self: center;
-    cursor: pointer;
-    @media (min-width: 1980px){
-      width: 100%;
-      height: auto;
+    @media (max-width: $breakpoint-xl){
+      border-bottom: 2px solid #b0dfe7;
     }
+
     @media (max-width: $breakpoint-md) {
       transform: rotate(-35deg);
       margin-left: 0;
       display: block;
-      width: 117px;
-      margin: 100px 0;
-      margin-left: 20px;
+      width: 36.5vw;
+      margin: 13vw 0;
+      margin-left: 22vw;
     }
   
     &__left__circle {
       position: absolute;
-      width: 32px;
-      height: 32px;
+      width: 2.22vw;
+      height: 2.22vw;
       border-radius: 50%;
       background-color: #b0dfe7;
-      bottom: -16px;
-      left: -2px;
+      bottom: -1.5vw;
+      left: -0.139vw;
     }
     &__right__circle {
       position: absolute;
-      width: 16px;
-      height: 16px;
+      width: 1.11vw;
+      height: 1.11vw;
       border-radius: 50%;
       background-color: #b0dfe7;
-      bottom: -8px;
-      right: -8px;
+      bottom: -0.556vw;
+      right: -0.556vw;
     }
   
     &__date {
       position: absolute;
-      bottom: -20px;
-      left: 30px;
+      bottom: -1.39vw;
+      left: 2.08vw;
       text-align: center;
-      font-size: 4rem !important;
+      font-size: 4.44vw;
       font-weight: bold;
       font-family: Arial, Helvetica, sans-serif;
       letter-spacing: 6px;
@@ -1431,9 +1579,9 @@ footer {
   
     &__title {
       position: absolute;
-      bottom: -32px;
-      left: 42px;
-      font-size: 1.25rem !important;
+      bottom: -2.22vw;
+      left: 2.92vw;
+      font-size: 1.39vw;
       font-family: "Zen Kaku Gothic New", serif;
       font-weight: 300;
       font-style: normal;
@@ -1442,25 +1590,28 @@ footer {
   
     @media (max-width: $breakpoint-md) {
       &__left__circle {
-        width: 20px;
-        height: 20px;
+        width: 5.33vw;
+        height: 5.33vw;
         left: 0;
-        bottom: -10px;
+        bottom: -2.67vw;
       }
   
       &__right__circle {
-        width: 11px;
-        height: 11px;
+        width: 2.93vw;
+        height: 2.93vw;
+        bottom: -1.5vw;
       }
   
       h2 {
-        font-size: 1.5rem;
-        bottom: -5px;
-        left: 32px;
+        font-size: 6.4vw;
+        bottom: -1.33vw;
+        left: 10vw;
+        text-align: center;
       }
       h5 {
-        font-size: 1rem;
-        left: 2px;
+        font-size: 3.47vw;
+        left: 5.5vw;
+        top: 7vw;
       }
     }
   }
@@ -1468,21 +1619,21 @@ footer {
   .p-period__detail {
     display: inline-block;
     flex-shrink: 0;
-    width: 500px;
-    height: 500px;
+    width: 34.7vw;
+    height: 34.7vw;
     border: 1px solid #000;
     position: relative;
     padding: 3%;
     margin-left: 20%;
     &__year {
-      font-size: 4rem !important;
+      font-size: 4.44vw;
       font-family: Arial, Helvetica, sans-serif;
       letter-spacing: 8px;
       font-weight: bold;
     }
   
     &__title {
-      font-size: 1.5rem !important;
+      font-size: 1.67vw;
       font-family: "Zen Kaku Gothic New", serif;
       font-weight: 500;
       font-style: normal;
@@ -1490,7 +1641,7 @@ footer {
   
     p {
       margin-top: 3%;
-      font-size: 1.25rem Im !important;
+      font-size: 1.39vw;
       font-family: "Zen Kaku Gothic New", serif;
       font-weight: 300;
       font-style: normal;
@@ -1498,246 +1649,18 @@ footer {
     }
     @media (max-width: $breakpoint-md) {
       margin: 5% 0;
-      width: 85%;
+      width: 87.5vw;
       height: auto;
       p {
-        font-size: 1rem !important;
+        font-size: 2.66vw;
       }
       &__year {
-        font-size: 1.5rem !important;
+        font-size: 6.4vw;
       }
       &__title {
-        font-size: 1.125rem !important;
+        font-size: 3.2vw;
       }
     }
-  }
-
-  @media (min-width: 1980px){
-    .history__wrapper {
-        display: none;
-        align-items: center;
-        position: relative;
-        margin: 3% 0;
-        overflow-x: scroll;
-        white-space: nowrap;
-        width: 100%;
-        height: 600px;
-        margin: auto 0;
-        display: flex;
-        scrollbar-width: none;
-        @media (max-width: $breakpoint-md) {
-          flex-direction: column;
-          justify-content: start;
-          align-items: center;
-          overflow-y: scroll;
-          height: 800px;
-          margin: 5% auto;
-        }
-        &__border {
-          position: absolute;
-          background-color: #b0dfe7;
-          z-index: -2;
-          top: 400px;
-          width: 3000px;
-          height: 2px;
-          @media (max-width: $breakpoint-md) {
-            width: 4px;
-            height: 2400px;
-            left: 50%;
-            top: 0;
-          }
-        }
-      }
-      
-      .history__wrapper__guide {
-        position: absolute;
-        right: 10%;
-        bottom: 0px;
-        z-index: 2;
-        display: flex;
-        cursor: pointer;
-        &__icon {
-          transform: rotate(-90deg);
-          margin: -6px 0px 0px 0px;
-          transition: all 0.3s ease;
-        }
-      
-        &__icon.shrinking {
-          transform: scale(0.8) rotate(-90deg);
-          @media (max-width: $breakpoint-md) {
-            transform: scale(0.8);
-          }
-        }
-      
-        h6 {
-          margin-left: 1.5rem;
-        }
-      
-        @media (max-width: $breakpoint-md) {
-          right: 30%;
-          flex-direction: column-reverse;
-          bottom: 5%;
-          &__icon {
-            transform: rotate(0);
-            display: flex;
-            justify-content: center;
-            margin-top: 1rem;
-          }
-          h6 {
-            margin-left: -0rem;
-          }
-        }
-      }
-      #period {
-        margin-left: 5%;
-        @media (max-width: $breakpoint-md) {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 3% auto;
-        }
-      }
-      
-      .p-period__shrink {
-        transform: rotate(-45deg);
-        border-bottom: 2px solid #b0dfe7;
-        flex-shrink: 0;
-        position: relative;
-        width: 204px !important;
-        height: 110px !important;
-        display: inline-block;
-        margin-left: 150px;
-        align-self: center;
-        cursor: pointer;
-        @media (min-width: 1980px){
-          width: 100%;
-          height: auto;
-        }
-        @media (max-width: $breakpoint-md) {
-          transform: rotate(-35deg);
-          margin-left: 0;
-          display: block;
-          width: 117px;
-          margin: 100px 0;
-          margin-left: 20px;
-        }
-      
-        &__left__circle {
-          position: absolute;
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          background-color: #b0dfe7;
-          bottom: -16px;
-          left: -15px !important;
-        }
-        &__right__circle {
-          position: absolute;
-          width: 16px;
-          height: 16px;
-          border-radius: 50%;
-          background-color: #b0dfe7;
-          bottom: -8px;
-          right: -8px;
-        }
-      
-        &__date {
-          position: absolute;
-          bottom: -20px;
-          left: 30px;
-          text-align: center;
-          font-size: 4rem !important;
-          font-weight: bold;
-          font-family: Arial, Helvetica, sans-serif;
-          letter-spacing: 6px;
-      
-          @media (max-width: $breakpoint-md) {
-            margin-top: 35%;
-          }
-        }
-      
-        &__title {
-          position: absolute;
-          bottom: -32px;
-          left: 42px;
-          font-size: 1.25rem !important;
-          font-family: "Zen Kaku Gothic New", serif;
-          font-weight: 300;
-          font-style: normal;
-          white-space: nowrap;
-        }
-      
-        @media (max-width: $breakpoint-md) {
-          &__left__circle {
-            width: 20px;
-            height: 20px;
-            left: 0;
-            bottom: -10px;
-          }
-      
-          &__right__circle {
-            width: 11px;
-            height: 11px;
-          }
-      
-          h2 {
-            font-size: 1.5rem;
-            bottom: -5px;
-            left: 32px;
-          }
-          h5 {
-            font-size: 1rem;
-            left: 2px;
-          }
-        }
-      }
-      
-      .p-period__detail {
-        display: inline-block;
-        flex-shrink: 0;
-        width: 500px;
-        height: 500px;
-        border: 1px solid #000;
-        position: relative;
-        padding: 3%;
-        margin-left: 20%;
-        &__year {
-          font-size: 4rem !important;
-          font-family: Arial, Helvetica, sans-serif;
-          letter-spacing: 8px;
-          font-weight: bold;
-        }
-      
-        &__title {
-          font-size: 1.5rem !important;
-          font-family: "Zen Kaku Gothic New", serif;
-          font-weight: 500;
-          font-style: normal;
-        }
-      
-        p {
-          margin-top: 3%;
-          font-size: 1.25rem Im !important;
-          font-family: "Zen Kaku Gothic New", serif;
-          font-weight: 300;
-          font-style: normal;
-          white-space: pre-wrap;
-        }
-        @media (max-width: $breakpoint-md) {
-          margin: 5% 0;
-          width: 85%;
-          height: auto;
-          p {
-            font-size: 1rem !important;
-          }
-          &__year {
-            font-size: 1.5rem !important;
-          }
-          &__title {
-            font-size: 1.125rem !important;
-          }
-        }
-      }
   }
   
   .p-period__detail::before {
@@ -1745,7 +1668,11 @@ footer {
     z-index: -1;
     content: "";
     background-color: $bgBlue;
-    inset: 8px -8px -8px 8px;
+    inset: 0.486vw -0.486vw -0.486vw 0.486vw;
+    @media (max-width: $breakpoint-md){
+      inset: 1.04vw -1.04vw -1.04vw 1.04vw;
+
+    }
   }
   
   .history {

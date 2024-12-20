@@ -50,21 +50,27 @@ body {
     margin-top: 5%;
     p {
       // margin-left: 3%;
-      font-size: 20px;
+      font-size: 1.39vw;
       font-weight: 100;
       font-family: "Zen Kaku Gothic New";
+      @media (max-width: $breakpoint-xl){
+        font-size: 20px;
+      }
     }
     &__flexbox {
       display: flex;
       h1 {
         line-height: 0.8;
-        font-size: 48px;
+        font-size: 3.33vw;
         font-weight: 100;
         position: relative;
         font-family: "Zen Kaku Gothic New";
         display: block;
         margin-right: 1%;
         letter-spacing: 0.12em;
+        @media (max-width: $breakpoint-xl){
+          font-size: 48px;
+        }
       }
       pre {
         position: relative;
@@ -86,6 +92,15 @@ body {
   .p-activities {
     &__titlewrapper {
       margin-top: 10%;
+      p {
+        font-size: 1.125rem;
+      }
+
+      &__flexbox {
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
     }
   }
 }
@@ -138,7 +153,7 @@ body {
               margin: 2% 0;
               padding-bottom: 1vw;
               &__title {
-                font-size: 1.125rem !important;
+                font-size: 1.125rem;
               }
             }
           }
