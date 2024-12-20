@@ -18,6 +18,19 @@ import dummy1 from "@/assets/images/dummy1.webp";
 import Activity from "../../components/Activity.astro";
 import { string } from "astro/zod";
 
+// import { getActivities } from "../../lib/microcms";
+// const response2 = await getActivities({ fields: ["id", "title","date","description","og_image"] });
+
+// <ul>
+
+// 	{
+// 		response2.contents.map((activities: any) => (
+// 		<Activity title={activities.title} date={activities.date}  imgSrcs={activities.og_image} 
+// 		content={activities.description} />
+// 		))
+// 	}     
+// </ul>
+
 interface ActivityProp {
 	title: string;
 	date: string;

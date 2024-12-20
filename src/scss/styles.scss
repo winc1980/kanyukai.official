@@ -106,10 +106,18 @@ header {
   width: 100%;
   z-index: 1000;
   // background-color: white;
+
   @media (min-width: 1980px) {
     padding: 2vw 7%;
   }
 
+
+
+
+  @media (min-width: 1980px){
+    padding: 2vw 7%;
+  }
+ 
   .header__logo {
     width: 13.9vw;
     height: 5.9vw;
@@ -762,6 +770,7 @@ header {
           width: 100%;
           margin-top: 0.833vw;
           p {
+
             font-size: 1.11vw;
             @media (max-width: $breakpoint-md) {
               padding: 0;
@@ -843,6 +852,20 @@ header {
     opacity: 1;
     filter: blur(1.5rem);
     z-index: -1;
+
+
+    // &__element:hover {
+    //   transition: all 0.3s ease;
+    //   transform: scale(1.1);
+    //   cursor: pointer;
+    // }
+
+// 
+  // &__element:hover {
+  //   transition: all 0.3s ease;
+  //   transform: scale(1.1);
+  //   cursor: pointer;
+  // }
   }
 }
 
@@ -1434,7 +1457,17 @@ footer {
     height: 800px;
     margin: 5% auto;
   }
+
   &__border {
+
+
+  .top_content {
+    h1 {
+      font-size: 2rem;
+
+  
+  .history__wrapper__guide {
+
     position: absolute;
     background-color: #b0dfe7;
     z-index: -2;
@@ -1597,10 +1630,39 @@ footer {
       left: 10vw;
       text-align: center;
     }
+
     h5 {
       font-size: 3.47vw;
       left: 5.5vw;
       top: 7vw;
+  
+    @media (max-width: $breakpoint-md) {
+      &__left__circle {
+        width: 5.33vw;
+        height: 5.33vw;
+        left: 0;
+        bottom: -2.67vw;
+      }
+  
+      &__right__circle {
+        width: 2.93vw;
+        height: 2.93vw;
+        bottom: -1.5vw;
+      }
+  
+      h2 {
+        font-size: 6.4vw;
+        bottom: -1.33vw;
+        left: 10vw;
+        text-align: center;
+      }
+      h5 {
+        font-size: 3.47vw;
+        left: 5.5vw;
+        top: 7vw;
+      }
+
+
     }
   }
 }
