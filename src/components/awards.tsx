@@ -20,7 +20,7 @@ export default function AwardsComponent({ awards, years }: Props) {
           <YearAward
             awards={awards.filter((award) => award.date.includes(year))}
             year={year}
-            initialIsOpen={year == '2024'}
+            initialIsOpen={year == "2024"}
             chevronClicked={() => changeRefer(year)}
           />
         );
