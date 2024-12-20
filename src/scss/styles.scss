@@ -1457,17 +1457,7 @@ footer {
     height: 800px;
     margin: 5% auto;
   }
-
   &__border {
-
-
-  .top_content {
-    h1 {
-      font-size: 2rem;
-
-  
-  .history__wrapper__guide {
-
     position: absolute;
     background-color: #b0dfe7;
     z-index: -2;
@@ -1630,39 +1620,10 @@ footer {
       left: 10vw;
       text-align: center;
     }
-
     h5 {
       font-size: 3.47vw;
       left: 5.5vw;
       top: 7vw;
-  
-    @media (max-width: $breakpoint-md) {
-      &__left__circle {
-        width: 5.33vw;
-        height: 5.33vw;
-        left: 0;
-        bottom: -2.67vw;
-      }
-  
-      &__right__circle {
-        width: 2.93vw;
-        height: 2.93vw;
-        bottom: -1.5vw;
-      }
-  
-      h2 {
-        font-size: 6.4vw;
-        bottom: -1.33vw;
-        left: 10vw;
-        text-align: center;
-      }
-      h5 {
-        font-size: 3.47vw;
-        left: 5.5vw;
-        top: 7vw;
-      }
-
-
     }
   }
 }
