@@ -106,10 +106,18 @@ header {
   width: 100%;
   z-index: 1000;
   // background-color: white;
+
   @media (min-width: 1980px) {
     padding: 2vw 7%;
   }
 
+
+
+
+  @media (min-width: 1980px){
+    padding: 2vw 7%;
+  }
+ 
   .header__logo {
     width: 13.9vw;
     height: 5.9vw;
@@ -762,6 +770,7 @@ header {
           width: 100%;
           margin-top: 0.833vw;
           p {
+
             font-size: 1.11vw;
             @media (max-width: $breakpoint-md) {
               padding: 0;
@@ -843,6 +852,20 @@ header {
     opacity: 1;
     filter: blur(1.5rem);
     z-index: -1;
+
+
+    // &__element:hover {
+    //   transition: all 0.3s ease;
+    //   transform: scale(1.1);
+    //   cursor: pointer;
+    // }
+
+// 
+  // &__element:hover {
+  //   transition: all 0.3s ease;
+  //   transform: scale(1.1);
+  //   cursor: pointer;
+  // }
   }
 }
 
