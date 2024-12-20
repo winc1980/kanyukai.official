@@ -87,8 +87,8 @@
     transform: rotate(135deg);
   }
   @media (max-width: $breakpoint-md) {
-    &__top {
-    }
+    // &__top {
+    // }
     h2 {
       font-size: 1.5rem;
     }
