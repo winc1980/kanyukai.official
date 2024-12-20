@@ -1,0 +1,339 @@
+@use "./variables.scss" as *;
+
+/* ------------------- 共通要素ここから ------------------- */
+.l-container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1200px;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #000000d1;
+  font-style: normal;
+
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Zen Kaku Gothic New";
+}
+
+body {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* ------------------- 共通要素ここまで ------------------- */
+/* ------------------- Historyrmationここから ------------------- */
+
+.p-History-top {
+  overflow: hidden;
+  margin-bottom: 10%;
+  h1 {
+    font-size: 64px;
+    text-align: center;
+    font-weight: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  p {
+    width: 70%;
+    text-align: center;
+    font-size: 16px;
+    margin: 0 auto;
+  }
+}
+
+.p-History-top__ttl::before {
+  content: "";
+  height: 1px;
+  flex-grow: 1;
+  background-color: black;
+  margin-right: 2%;
+}
+
+.p-History-top__ttl::after {
+  content: "";
+  height: 1px;
+  flex-grow: 1;
+  background-color: black;
+  margin-left: 2%;
+}
+
+.slidewrapper {
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+}
+
+.slide {
+  width: 55%;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+}
+
+.p-activities__fish-bg {
+  margin: 0 0 0 auto;
+  width: 20vw;
+  height: auto;
+  margin-top: 2%;
+}
+/* ------------------- Historyここまで ------------------- */
+/* ------------------- time-lineここから ------------------- */
+.p-timeline {
+  background-color: #e6fbff;
+  position: relative;
+  margin: 50px auto;
+  width: 100%;
+  height: auto;
+  padding-left: 20px;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  overflow: hidden;
+}
+
+@media (max-width: $breakpoint-md) {
+  .p-timeline {
+    height: auto;
+    padding-bottom: 10%;
+  }
+}
+
+/* タイムラインの各アイテム */
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  position: relative;
+  justify-content: space-between;
+}
+
+@media (max-width: $breakpoint-md) {
+  .timeline-item {
+    height: 400px;
+  }
+}
+
+.line {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -17px;
+  width: 4px;
+  height: 800px;
+  background: #b0dfe7;
+  align-items: center;
+}
+
+@media (max-width: $breakpoint-md) {
+  .line {
+    width: 10px;
+    height: 800px;
+    top: -200px;
+    left: 3%;
+  }
+}
+
+/* ドット */
+.timeline-dot {
+  position: absolute;
+  top: 300px;
+  left: -9px;
+  width: 20px;
+  height: 20px;
+  background-color: #b0dfe7;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* コンテンツスタイル */
+.timeline-content {
+  flex: 1;
+  padding-left: 40px;
+  width: 10%;
+  margin-top: 140px;
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 100;
+  position: relative;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: $breakpoint-md) {
+  .timeline-content {
+    align-items: center;
+    p {
+      padding-top: 50px;
+      width: 50vw;
+      font-size: 11px !important;
+      align-items: center;
+    }
+  }
+  .flexbox {
+    display: flex;
+  }
+  .timeline-image {
+    width: 90% !important;
+    margin: 10% auto;
+  }
+  .slide1 {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.timeline_ttl {
+  color: black;
+  position: absolute;
+  position: relative;
+  left: 57px;
+  top: 210px;
+  font-size: 48px;
+}
+
+@media (max-width: $breakpoint-md) {
+  .timeline_ttl {
+    left: -18px;
+
+    padding-left: 3px;
+    padding-right: 3px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    p {
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+}
+
+.dot {
+  position: absolute;
+  top: 53px;
+  left: 100px;
+  width: 25px;
+  color: #b0dfe7;
+}
+
+.timeline_ttl::after {
+  position: absolute;
+  content: "";
+  left: -17px;
+  top: 64px;
+  width: 120px;
+  height: 3px;
+  z-index: 1;
+
+  background-color: #b0dfe7;
+}
+
+@media (max-width: $breakpoint-md) {
+  .timeline_ttl::after {
+    display: none;
+  }
+}
+
+.rotatebar {
+  position: absolute;
+  content: "";
+  left: 0px;
+  top: 290px;
+  width: 48px;
+  height: 3px;
+  z-index: 1;
+  transform: rotate(-45deg);
+  background-color: #b0dfe7;
+}
+
+.timeline-content h3 {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #666;
+}
+
+.timeline-content p {
+  font-size: 1vw;
+  color: #444;
+}
+
+/* イメージボックス */
+.timeline-image {
+  width: 23vw;
+  height: auto;
+  margin-left: 40px;
+}
+
+.desc {
+  padding: 0.5em 1em;
+  width: 100%;
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  font-size: 0.9em;
+}
+
+/* View More ボタン */
+
+.button {
+  margin: 0 auto;
+  border: 1px solid #353535;
+  position: relative;
+  width: fit-content;
+  cursor: pointer;
+  padding: 1% 4%;
+  background-color: #7aebff;
+  &__content {
+    display: flex;
+    padding-bottom: 3px;
+    padding-right: 3px;
+    svg {
+      margin-left: 6px;
+      align-self: flex-end;
+    }
+  }
+}
+
+.button::before {
+  position: absolute;
+  inset: -3px 3px 3px -3px;
+  content: "";
+  border: 1px solid #353535;
+}
+
+.button:hover {
+  transition: all 0.4s ease;
+  background-color: rgba($color: black, $alpha: 0.1);
+  inset: 0;
+}
+
+/* ------------------- History-contentsここまで ------------------- */
+
+@media (min-width: $breakpoint-md) {
+  .pc-none {
+    display: none;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .sp-none {
+    display: none;
+  }
+}

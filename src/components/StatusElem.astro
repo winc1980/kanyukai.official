@@ -1,0 +1,13 @@
+---
+let {title, content} = Astro.props;
+---
+
+<div class="status__elem">
+    <div class="status__elem__top">
+        <span class="status__elem__top__tag__bg"></span>
+        <h5 class="status__elem__top__title">{title}</h5>
+    </div>
+    <p class="status__elem__bottom">
+        {content}
+    </p>
+</div>

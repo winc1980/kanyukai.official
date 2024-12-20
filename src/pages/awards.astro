@@ -1,0 +1,120 @@
+---
+import Label from "../components/Label.astro";
+import Layout from "../layouts/Layout.astro";
+import demo from "../assets/demo.png";
+import AwardsComponent from "../components/awards";
+import { getImage } from "astro:assets";
+import Logo from "../components/Logo.astro";
+import "../scss/awards.scss";
+
+const optimized_demo = await getImage({src: demo, format: 'webp'})
+
+export interface Award {
+  date: string;
+  tags: string[];
+  title: string;
+  content: string;
+  images: any[];
+}
+
+
+const awards: Award[] = [
+{
+    date: "2025/MM/DD",
+    tags: ["2024", "男子", "1年"],
+    title: "第一回　全国大会　＜総合１位＞",
+    content:
+      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+    images: [optimized_demo, optimized_demo, optimized_demo, optimized_demo, optimized_demo],
+  },
+  {
+    date: "2024/MM/DD",
+    tags: ["2024", "男子", "1年"],
+    title: "第一回　全国大会　＜総合１位＞",
+    content:
+      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+    images: [optimized_demo, optimized_demo, optimized_demo],
+  },
+  {
+    date: "2024/MM/DD",
+    tags: ["2024", "男子", "1年"],
+    title: "第二回　全国大会　＜準優勝＞",
+    content:
+      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+    images: [optimized_demo],
+  },
+  {
+    date: "2023/MM/DD",
+    tags: ["2023", "男子", "1年"],
+    title: "第一回　全国大会　＜総合１位＞",
+    content:
+      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+    images: [optimized_demo, optimized_demo, optimized_demo],
+  },
+  {
+    date: "2023/MM/DD",
+    tags: ["2023", "男子", "1年"],
+    title: "第二回　全国大会　＜準優勝＞",
+    content:
+      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+    images: [optimized_demo],
+  },
+  {
+    date: "2022/MM/DD",
+    tags: ["2022", "男子", "1年"],
+    title: "第一回　全国大会　＜総合１位＞",
+    content:
+      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+    images: [optimized_demo, optimized_demo, optimized_demo],
+  },
+  {
+    date: "2022/MM/DD",
+    tags: ["2022", "男子", "1年"],
+    title: "第二回　全国大会　＜準優勝＞",
+    content:
+      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+    images: [optimized_demo],
+  },
+  {
+    date: "2021/MM/DD",
+    tags: ["2021", "男子", "1年"],
+    title: "第一回　全国大会　＜総合１位＞",
+    content:
+      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+    images: [optimized_demo, optimized_demo, optimized_demo],
+  },
+  {
+    date: "2021/MM/DD",
+    tags: ["2021", "男子", "1年"],
+    title: "第二回　全国大会　＜準優勝＞",
+    content:
+      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+    images: [optimized_demo],
+  },
+];
+const years = [... new Set(awards.map((award) => award.date.slice(0, 4)))];
+---
+
+<Layout title="" description="" og_image="">
+  <main >
+    <section class="p-awards relative h-full">
+      <span class="awards__logo">
+        <Logo/>
+      </span>
+      <div class="my-20 mx-[8%]">
+        <Label jp="大会実績" en="Awards" />
+        <h6 class="zenkaku_light text-right tracking-wider my-5">クリックで下に表示されます</h6>
+        <div >
+            <AwardsComponent awards={awards} years={years} client:only="preact">
+                <div slot="fallback">Loading</div>
+            </AwardsComponent>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+</Layout>
+
+<script>
+
+</script>
