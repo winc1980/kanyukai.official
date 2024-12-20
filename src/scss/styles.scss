@@ -107,10 +107,13 @@ header {
   width: 100%;
   z-index: 1000;
   // background-color: white;
+
+
+
   @media (min-width: 1980px){
     padding: 2vw 7%;
   }
-  
+ 
   .header__logo {
     width: 13.9vw;
     height: 5.9vw;
@@ -438,7 +441,7 @@ header {
         width: 4.44vw;
       }
 
-      @media (max-width: $breakpoint-md){
+      @media (max-width: $breakpoint-md) {
         .prev {
           width: 48px !important;
         }
@@ -446,7 +449,6 @@ header {
         .next {
           width: 48px !important;
         }
-
       }
 
       @media (max-width: $breakpointMobile){
@@ -765,13 +767,14 @@ header {
           width: 100%;
           margin-top: 0.833vw;
           p {
+
             font-size: 1.11vw;
             @media (max-width: $breakpoint-md) {
               padding: 0;
               font-size: 1.25rem;
-            font-family: "Zen Kaku Gothic New", serif;
-            font-weight: 300;
-            font-style: normal;
+              font-family: "Zen Kaku Gothic New", serif;
+              font-weight: 300;
+              font-style: normal;
             }
 
             @media (max-width: $breakpoint-md) {
@@ -844,7 +847,14 @@ header {
     filter: blur(1.5rem);
     z-index: -1;
 
-// =======
+
+    // &__element:hover {
+    //   transition: all 0.3s ease;
+    //   transform: scale(1.1);
+    //   cursor: pointer;
+    // }
+
+// 
   // &__element:hover {
   //   transition: all 0.3s ease;
   //   transform: scale(1.1);
@@ -1463,6 +1473,11 @@ footer {
       }
     }
   }
+
+  .top_content {
+    h1 {
+      font-size: 2rem;
+
   
   .history__wrapper__guide {
     position: absolute;
@@ -1613,6 +1628,7 @@ footer {
         left: 5.5vw;
         top: 7vw;
       }
+
     }
   }
   

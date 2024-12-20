@@ -2,9 +2,7 @@
 let {title, date, content} = Astro.props;
 import Layout from '@/layouts/Layout.astro';
 import { Image } from "astro:assets";
-
 import '@/scss/info.scss';
-
 import '@fontsource/zen-kaku-gothic-new';
 
 const description = "";
@@ -17,16 +15,16 @@ import dummy2 from "@/assets/images/dummy2.webp";
 import Instagram from "@/assets/images/Instagram.webp";
 import X from "@/assets/images/X.webp";
 import Top from "@/components/Top.astro";
-import SlideShow2 from "@/components/SlideShow2.tsx";
-
+import SlideShow2 from '@/components/SlideShow2.astro';
 // 画像リスト
 const slides = [
   { src: "/assets/images/dummy1.webp", alt: "スライド1" },
   { src: "/assets/images/dummy2.webp", alt: "スライド2" },
   { src: "/assets/images/dummy1.webp", alt: "スライド3" },
 ];
-
 ---
+
+
 
 <Layout title={title} description={description} og_image={og_image}>
   <main>
@@ -159,6 +157,8 @@ const slides = [
 
         </div>
     </section>
+
+    
     <section id="Events" class="p-Events">
         <div class="l-container">
           <div class="p-Events__titlewrapper">
@@ -177,15 +177,11 @@ const slides = [
               />
             </div>
           </div>
-
+          <!-- <SlideShow2 class="sp-none" />-->
           <div class="p-Events__cardswrapper">
             <div class="p-Events__cardswrapper__card">
               <div class="p-Events__cardswrapper__card__flexbox">
-                <Image 
-                src={dummy1} 
-                alt=""
-                class="slide1 sp-none"
-                />
+                
                 <div class="p-Events__cardswrapper__card__flexbox__txtbox">
                   <h3>月例釣行</h3>
                   <div>

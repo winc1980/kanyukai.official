@@ -4,15 +4,22 @@
 .l-container {
   margin: 0 auto;
   padding: 0 15px;
-  max-width: 1200px;
+  max-width: 1400px;
+  max-width: 100vw;
+}
+
+@media (min-width: $breakpoint-xl) {
+  .l-container {
+    max-width: 120vw;
+    padding: 0 10px;
+  }
 }
 
 p,
 h1,
 h2,
 h3,
-h4,
-h5 {
+h4 h5 {
   color: #000000d1;
   font-style: normal;
 
@@ -37,8 +44,9 @@ body {
 
 .p-Info-top {
   overflow: hidden;
+
   h1 {
-    font-size: 64px;
+    font-size: 5vw;
     text-align: center;
     font-weight: 100;
     display: flex;
@@ -90,14 +98,14 @@ body {
   background-color: #f6fdfe;
   height: auto;
   display: flex;
-  width: 100%;
+
   padding-bottom: 10%;
   &__titlewrapper {
     margin-left: 7%;
     padding-top: 3%;
     p {
       margin-left: 3%;
-      font-size: 20px;
+      font-size: 2vw;
       font-weight: 100;
       font-family: "Zen Kaku Gothic New";
     }
@@ -105,7 +113,7 @@ body {
       display: flex;
       h1 {
         line-height: 0.8;
-        font-size: 48px;
+        font-size: 4vw;
         font-weight: 100;
         position: relative;
         font-family: "Zen Kaku Gothic New";
@@ -131,12 +139,14 @@ body {
 @media (max-width: $breakpoint-md) {
   .p-Status__titlewrapper {
     p {
-      font-size: 13px;
+      width: 10vw;
+      font-size: 12px;
     }
   }
 
   .p-Status__titlewrapper__flexbox {
     h1 {
+      width: 10vw;
       font-size: 24px;
     }
   }
@@ -299,7 +309,7 @@ body {
   margin-left: 7%;
   padding-top: 3%;
   p {
-    font-size: 20px;
+    font-size: 2vw;
     font-weight: 100;
     font-family: "Zen Kaku Gothic New";
   }
@@ -329,7 +339,7 @@ body {
       height: auto;
     }
     p {
-      font-size: 13px;
+      font-size: 12px;
     }
     h1 {
       font-size: 24px;
@@ -401,17 +411,15 @@ body {
           vertical-align: text-bottom;
           width: 70%;
           h3 {
-            font-size: 2.7vw;
             font-weight: 100;
-
             padding: 0.3rem 0rem;
             margin-bottom: 1rem;
             border-bottom: 1px solid #a4a4a4;
             font-weight: bold;
-            font-size: 26px;
+            font-size: 2.7vw;
           }
           p {
-            margin-top: 2%;
+            margin-top: 2vw;
             font-size: 1.4vw;
             font-weight: 100;
           }
