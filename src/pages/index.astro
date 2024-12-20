@@ -25,6 +25,10 @@ const count = signal(0);
 // microCMSの設定
 import { getAwards } from "../lib/microcms";
 const response = await getAwards({ fields: ["id", "title","date","description"] });
+import { getActivities } from "../lib/microcms";
+const response2 = await getActivities({ fields: ["id", "title","date","description","og_image"] });
+import { getInvitation } from "../lib/microcms";
+const response3= await getInvitation({ fields: ["id", "title","date","description","og_image"] });
 
 ---
 <Layout title={title} , description={description} og_image={og_image}>
@@ -47,8 +51,17 @@ const response = await getAwards({ fields: ["id", "title","date","description"] 
 				<Logo/>
 			</div>
 			<Label jp="普段の活動" en="Activity"/>
-			<Activity title="タイトル" date="YYYY/MM/DD" imgSrcs={[img2, img3, img4, img5]} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" />
-			<Activity title="タイトル" date="YYYY/MM/DD" imgSrcs={[img2, img3, img4]} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/>
+			<ul>
+				{
+				  response2.contents.map((activities: any) => (
+				  <Activity title={activities.title} date={activities.date}  imgSrcs={activities.og_image} 
+				  content={activities.description} />
+				  ))
+				}     
+			</ul>
+			
+			<!-- <Activity title="タイトル" date="YYYY/MM/DD" imgSrcs={[img2, img3, img4, img5]} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" />
+			<Activity title="タイトル" date="YYYY/MM/DD" imgSrcs={[img2, img3, img4]} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/> -->
 			<div class="button_margin">
 				<ViewButton link="/Activities"/>
 			</div>
@@ -70,7 +83,7 @@ const response = await getAwards({ fields: ["id", "title","date","description"] 
 					  content={awards.description} color="#EEEC9B"/>
 					  ))
 					}      
-			  </ul>
+			    </ul>
 
 
 				<!-- <Award title="全国大会 ＜ 総合１位 ＞" date="YYYY/DD/MM" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" color="#EEEC9B"/>
@@ -89,9 +102,18 @@ const response = await getAwards({ fields: ["id", "title","date","description"] 
 			<div class="logo p-invitation__left">
 				<Logo/>
 			</div>
+			<ul>
+				{
+				  response3.contents.map((invitation: any) => (
+				  <Invitation title={invitation.title}  date={invitation.date}
+				  content={invitation.description} />
+				  ))
+				}      
+			</ul>
+
+			<!-- <Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
 			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
-			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
-			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/>
+			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/> -->
 		</section>
 		<Photo/>
 		<div class="calender-l-container">
