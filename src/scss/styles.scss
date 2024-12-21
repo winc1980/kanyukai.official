@@ -301,6 +301,11 @@ header {
         height: 3px;
         background-color: #000;
         margin-right: 6px;
+        @media (min-width: 1440px){
+          width: 0.21vw;
+          height: 0.21vw;
+          margin-right: 0.42vw;
+        }
       }
     }
   }
