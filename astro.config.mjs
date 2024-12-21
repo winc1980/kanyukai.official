@@ -8,12 +8,12 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "@": "/src"
-      }
-    }
+        "@": "/src",
+      },
+    },
   },
   build: {
-    format: "preserve" // NOTE: 出力ファイルの設定
+    format: "preserve", // NOTE: 出力ファイルの設定
   },
   integrations: [tailwind(), preact(), solidJs()]
 });

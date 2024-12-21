@@ -1,36 +1,55 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+// src/components/SlideShow.tsx
+import { h } from "preact";
+import { useState } from "preact/hooks";
 
-// Propsで画像リストを受け取る
-interface SlideShowProps {
-  images: { src: string; alt: string }[];
-}
+const slides = [
+  { src: "/images/dummy1.webp", alt: "Slide 1" }, // アップロードした画像のパス
+  { src: "/images/dummy2.webp", alt: "Slide 2" }, // 他の画像パス
+  { src: "/images/X.webp", alt: "Slide 3" },
+];
 
-const SlideShow2 = ({ images }: SlideShowProps) => {
+export default function SlideShow() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((currentSlide + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((currentSlide - 1 + slides.length) % slides.length);
+  };
+
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      spaceBetween={50}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: true }}
-      autoplay={{ delay: 3000 }}
-      loop={true}
+    <div
+      class="slideshow-container"
+      style={{ position: "relative", maxWidth: "600px", margin: "auto" }}
     >
-      {images.map((image, index) => (
-        <SwiperSlide key={index}>
-          <img
-            src={image.src}
-            alt={image.alt}
-            style={{ width: "100%", height: "auto" }}
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  );
-};
+      <button
+        onClick={prevSlide}
+        style={{ position: "absolute", left: "10px", top: "50%" }}
+      >
+        &#9664;
+      </button>
 
-export default SlideShow2;
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          style={{ display: index === currentSlide ? "block" : "none" }}
+        >
+          <img
+            src={slide.src}
+            alt={slide.alt}
+            style={{ width: "100%", borderRadius: "10px" }}
+          />
+        </div>
+      ))}
+
+      <button
+        onClick={nextSlide}
+        style={{ position: "absolute", right: "10px", top: "50%" }}
+      >
+        &#9654;
+      </button>
+    </div>
+  );
+}
