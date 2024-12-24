@@ -1,28 +1,42 @@
 ---
-let {title, date, content, imgSrcs} = Astro.props;
+let { title, date, content, imgSrcs } = Astro.props;
 
 import SlideComponent from "./SlideShow";
----
 
-<section id="article" class="p-article w-full">
-    <div class="p-article__content">
-        <div class="p-article__content__left">
-            <div class="p-article__content__left__top">
-                <h4 class="p-article__content__left__top__title">
-                    {title}
-                </h4>
-                <h5 class="p-article__content__left__top__date">
-                    {date}
-                </h5>
+import "@/scss/styles.scss";
+import { Image } from "astro:assets";
+
+import { getActivities, getActivitiesDetail } from "../lib/microcms";
+const response2 = await getActivities({
+    fields: ["id", "title", "date", "content", "og_Image"],
+});
+const { activitiesId } = Astro.params;
+const activities = await getActivitiesDetail(activitiesId as string);
+---
+<ul>
+    {response2.contents.map((activities: any) => (
+        <section id="article" class="p-article w-full">
+            <div class="p-article__content">
+                <div class="p-article__content__left">
+                    <div class="p-article__content__left__top">
+                        <h4 class="p-article__content__left__top__title">
+                            {activities.title}
+                        </h4>
+                        <h5 class="p-article__content__left__top__date">
+                            {activities.date}
+                        </h5>
+                    </div>
+
+                    <p class="p-article__content__left__content">
+                        {activities.content}
+                    </p>
+                </div>
+
+                <div class="p-article__content__right">
+                    <img src={activities.og_Image?.url} />
+                </div>
             </div>
-            
-            <p class="p-article__content__left__content">
-                {content}
-            </p>
-        </div>
-        
-        <div class="p-article__content__right">
-            <SlideComponent imgProps={imgSrcs} client:only="preact"/>
-        </div>
-    </div>
-</section>
+        </section>
+    ))}
+</ul>;
+---
