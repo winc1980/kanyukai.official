@@ -1,11 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import headerLogo from '../assets/logo.png';
+import { HeaderLogo } from "../utils/svgs"
 ---
 
 <header id="header">
     <a href="/" class="header__logo">
-        <Image src={headerLogo} alt="header__logo" >
+        <HeaderLogo />
     </a>
     <div class="header__link__hamburger">
         <span class="header__link__hamburger__line line__1">
