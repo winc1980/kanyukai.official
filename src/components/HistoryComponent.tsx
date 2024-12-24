@@ -3,6 +3,10 @@ import Period from "./Period.tsx";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ScrollIcon } from "../utils/svgs.tsx";
 
+
+import { getHistory } from "../lib/microcms";
+const response4= await getHistory({ fields: ["id", "year","title","description"] });
+
 type Props = {
   count: Signal<number>;
 };
