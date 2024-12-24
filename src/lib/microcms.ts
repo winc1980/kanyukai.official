@@ -20,9 +20,7 @@ export type Awards = {
     
     // if文でRGBAに分岐
     // medalcolor:;
-    og_Image?: {
-      url: string;
-    };
+    
   };
   export type AwardsResponse = {
     totalCount: number;
@@ -53,7 +51,7 @@ export type Activities= {
   date: string;
   title: string;
   content:string;
-  og_Image?: {
+  images?: {
     url: string;
   };
 };
