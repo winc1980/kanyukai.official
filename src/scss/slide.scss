@@ -31,12 +31,12 @@
     left: 2%;
     z-index: 50;
     width: 40%;
-    @media (max-width: $breakpoint-xl){
+    @media (max-width: $breakpoint-xl) {
       width: 45%;
     }
     h6 {
       font-size: 1.37vw;
-      @media (max-width: $breakpoint-xl){
+      @media (max-width: $breakpoint-xl) {
         font-size: 1.25rem;
       }
     }
@@ -60,7 +60,7 @@
       background-color: #b6b6b6;
       margin: 0 10%;
       border-radius: 3px;
-      
+
       span {
         height: 3px;
         display: inline-block;
@@ -86,8 +86,9 @@
         display: inline-block;
         cursor: pointer;
       }
-      @media (max-width: $breakpoint-lg){
-        .next__custom, .prev__custom {
+      @media (max-width: $breakpoint-lg) {
+        .next__custom,
+        .prev__custom {
           width: 36px;
         }
       }

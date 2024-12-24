@@ -1,6 +1,5 @@
 import "../scss/chAward.scss";
 import type { Award } from "../pages/awards.astro";
-import { useEffect, useState } from "preact/hooks";
 import SlideComponent from "./SlideShow";
 
 export default function ChAward({ date, tags, title, content, images }: Award) {

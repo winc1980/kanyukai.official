@@ -80,8 +80,8 @@ export default function Period({
       id="period"
       class="p-period"
     >
-      {(windowWidth > 767 && xCoord < windowWidth*0.367 && xCoord >= 0) ||
-      (windowWidth <= 767 && yCoord < windowWidth*0.667 && yCoord >= 0) ? (
+      {(windowWidth > 767 && xCoord < windowWidth * 0.367 && xCoord >= 0) ||
+      (windowWidth <= 767 && yCoord < windowWidth * 0.667 && yCoord >= 0) ? (
         <div class="p-period__detail">
           <h3 class="p-period__detail__year">{year}</h3>
           <h4 class="p-period__detail__title">{title}</h4>
