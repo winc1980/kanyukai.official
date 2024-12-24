@@ -30,12 +30,15 @@
     top: 2%;
     left: 2%;
     z-index: 50;
-    width: 20rem;
-    @media (max-width: $breakpoint-lg){
-      width: 15rem;
+    width: 40%;
+    @media (max-width: $breakpoint-xl) {
+      width: 45%;
     }
     h6 {
-      font-size: 1.25rem;
+      font-size: 1.37vw;
+      @media (max-width: $breakpoint-xl) {
+        font-size: 1.25rem;
+      }
     }
 
     h6.left {
@@ -56,10 +59,12 @@
       align-items: center;
       background-color: #b6b6b6;
       margin: 0 10%;
-      
+      border-radius: 3px;
+
       span {
         height: 3px;
         display: inline-block;
+        border-radius: 2px;
       }
     }
 
@@ -69,20 +74,21 @@
       justify-content: space-between;
       margin-left: 5%;
       .next__custom {
-        width: 48px;
+        width: 3.33vw;
         z-index: 10;
         display: inline-block;
         cursor: pointer;
       }
 
       .prev__custom {
-        width: 48px;
+        width: 3.33vw;
         z-index: 10;
         display: inline-block;
         cursor: pointer;
       }
-      @media (max-width: $breakpoint-lg){
-        .next__custom, .prev__custom {
+      @media (max-width: $breakpoint-lg) {
+        .next__custom,
+        .prev__custom {
           width: 36px;
         }
       }

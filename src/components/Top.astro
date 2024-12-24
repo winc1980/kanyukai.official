@@ -23,24 +23,27 @@ const slides = [
     <span class="fish">
         <LogoShort />
     </span>
-    <span class="fish_big">
-        <LogoBig/>
-    </span>
+    
     <span class="p-top__md__fish">
       <MdLogo/>
     </span>
     
     <div class="p-top__left__content">
-      <h1 class="zenkaku_normal tracking-widest">Enjoy with us!</h1>
+      <h1 class="zenkaku_normal tracking-widest p-top__left__content__headline">Enjoy with us!</h1>
       <div class="p-top__left__content__join__link flex_all_center">
         <div class="p-top__left__content__join__link__content relative">
-          <a class="text-[1.5rem]">Join us!</a>
-          <BigUnderline/>
+          <a class="p-top__left__content__join__link__content__link">Join us!</a>
+          <div class="p-top__left__content__join__link__content__svg">
+            <BigUnderline/>
+          </div>
         </div>
       </div>
     </div>
     <div class="p-top__right__content w-[60%]">
-      <div class="p-top__right__content__img__wrapper">
+      <div class="p-top__right__content__img__wrapper relative">
+        <span class="fish_big">
+          <LogoBig/>
+      </span>
         <SlideComponent imgProps={slides} showIndicators={false} showProgressBar={true} client:only="preact"/>
       </div>
   </div>

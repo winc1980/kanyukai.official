@@ -3,6 +3,10 @@ import Period from "./Period.tsx";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ScrollIcon } from "../utils/svgs.tsx";
 
+
+import { getHistory } from "../lib/microcms";
+const response4= await getHistory({ fields: ["id", "year","title","description"] });
+
 type Props = {
   count: Signal<number>;
 };
@@ -48,6 +52,7 @@ const periods: PeriodType[] = [
 
 export default function HistoryComponent({ count }: Props) {
   const [windowWidth, setWindowWidth] = useState(0);
+  const [detailPos, setDetailPos] = useState(0);
   useEffect(() => {
     setWindowWidth(window.innerWidth);
 
@@ -84,6 +89,17 @@ export default function HistoryComponent({ count }: Props) {
     }
   }
 
+  function onShrinkClick(index: number) {
+    setDetailPos(index);
+    historyRef.current?.scrollBy({
+      top: windowWidth <= 767 ? (index - detailPos) * windowWidth * 0.367 : 0,
+      left: windowWidth > 768 ? (index - detailPos) * windowWidth * 0.667 : 0,
+      behavior: "smooth",
+    });
+  }
+
+  console.log(detailPos);
+
   return (
     <div class="relative">
       <div class="history__wrapper__guide">
@@ -97,14 +113,19 @@ export default function HistoryComponent({ count }: Props) {
         <h6 class="helvetica_bold">Scroll</h6>
       </div>
       <div class="history__wrapper" ref={(el) => (historyRef.current = el)}>
-        <span class="history__wrapper__border"></span>
+        <span
+          class="history__wrapper__border"
+          style={{
+            width: `${windowWidth <= 767 ? 4 : periods.length * windowWidth * 0.4}px`,
+            height: `${windowWidth <= 767 ? `${0.667 * periods.length * windowWidth}px` : `${0.139}vw`}`,
+          }}
+        ></span>
         {periods.map((period, index) => (
           <Period
             year={period.year}
             title={period.title}
             paragraph={period.paragraph}
-            isDetail={index == count.value}
-            periodClick={() => (count.value = index)}
+            periodClick={() => onShrinkClick(index)}
           />
         ))}
       </div>

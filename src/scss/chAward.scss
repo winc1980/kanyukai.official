@@ -2,7 +2,7 @@
 
 .ch__award {
   margin: 3% 2%;
-  padding:2% 3%;
+  padding: 2% 3%;
   border: 1px solid rgba(0, 0, 0, 0.5);
   position: relative;
 
@@ -16,6 +16,16 @@
       width: 80%;
       display: flex;
       align-items: center;
+
+      &__date {
+        font-size: 1.39vw;
+        @media (max-width: $breakpoint-xl) {
+          font-size: 1.25rem;
+        }
+        @media (max-width: $breakpoint-md) {
+          font-size: 2.08vw;
+        }
+      }
       span {
         display: inline-block;
         width: 9px !important;
@@ -26,8 +36,14 @@
       }
 
       &__title {
-        font-size: 1.5rem;
+        font-size: 1.67vw;
         text-wrap: nowrap;
+        // @media (max-width: $breakpoint-xl){
+        //   font-size: 1.5rem;
+        // }
+        // @media (max-width: $breakpoint-md){
+        //   font-size: 1.125rem;
+        // }
       }
     }
 
@@ -36,6 +52,15 @@
       font-family: "Zen Kaku Gothic New", sans-serif;
       font-weight: 300;
       font-style: normal;
+      display: flex;
+      flex-direction: column;
+      span {
+        font-size: 1.11vw;
+        display: inline-block;
+        @media (max-width: $breakpoint-xl) {
+          font-size: 1rem;
+        }
+      }
     }
   }
 
@@ -43,45 +68,61 @@
     &__description {
       display: flex;
       width: 100%;
-      padding:0 2%;
-      
+      padding: 0 2%;
+
       p {
         font-family: "Zen Kaku Gothic New", sans-serif;
         font-weight: 300;
         font-style: normal;
-        font-size: 1.25rem;
+        font-size: 1.39vw;
         width: 60%;
         padding: 0 3rem 3rem 0;
+        @media (max-width: $breakpoint-xl) {
+          font-size: 1.25rem;
+        }
+        @media (max-width: $breakpoint-md) {
+          font-size: 2.08vw;
+        }
       }
-  
+
       &__img__wrapper {
         position: relative;
         width: 40%;
+        .indicator li {
+          width: 1vw !important;
+          height: 1vw !important;
+          max-width: 28px !important;
+          max-height: 28px !important;
+          min-width: 10px !important;
+          min-height: 10px !important;
+        }
+
         .prev {
-          left: 0% !important;
-          width: 50px;
+          width: 3.5vw;
+          min-width: 48px;
         }
 
         .next {
           left: auto !important;
-          right: 0% !important;
-          width: 50px;
+          width: 3.5vw;
+          min-width: 48px;
         }
       }
-
-      
     }
 
     &__fewImgContainer {
       width: 100%;
-      padding:0 2%;
+      padding: 0 2%;
       p {
         font-family: "Zen Kaku Gothic New", sans-serif;
         font-weight: 300;
         font-style: normal;
-        font-size: 1.25rem;
+        font-size: 1.39vw;
         width: 100%;
         padding: 0 3rem 0 0;
+        @media (max-width: $breakpoint-xl) {
+          font-size: 1.25rem;
+        }
       }
 
       &__imgs {
@@ -90,10 +131,9 @@
         margin: 3% 0;
       }
     }
-    
   }
 
-  @media (max-width: $breakpoint-md){
+  @media (max-width: $breakpoint-md) {
     &__top {
       margin: 3%;
       &__left {
@@ -110,7 +150,7 @@
         }
 
         h4 {
-          font-size: 1.125rem;
+          font-size: 2.35vw;
         }
       }
 
@@ -121,13 +161,13 @@
     &__main {
       &__description {
         flex-direction: column;
-        padding:0 8%;
+        padding: 0 8%;
         p {
           width: 100%;
           padding: 0;
-          font-size: 1rem;
+          font-size: 2.08vw;
         }
-  
+
         &__img__wrapper {
           margin: 5% 0;
           width: 100%;
@@ -139,6 +179,7 @@
         padding: 0 8%;
         p {
           padding: 0;
+          font-size: 2.08vw;
         }
       }
     }

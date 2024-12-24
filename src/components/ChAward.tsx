@@ -1,6 +1,5 @@
 import "../scss/chAward.scss";
 import type { Award } from "../pages/awards.astro";
-import { useEffect, useState } from "preact/hooks";
 import SlideComponent from "./SlideShow";
 
 export default function ChAward({ date, tags, title, content, images }: Award) {
@@ -11,13 +10,13 @@ export default function ChAward({ date, tags, title, content, images }: Award) {
         <div class="ch__award__top__left">
           <span></span>
           <div>
-            <h4 class="ch__award__top__left__date zenkaku_light">{date}</h4>
+            <h5 class="ch__award__top__left__date zenkaku_light">{date}</h5>
             <h4 class="ch__award__top__left__title zenkaku_normal">{title}</h4>
           </div>
         </div>
         <div class="ch__award__top__right">
           {tags.map((tag: string) => (
-            <p>{`#${tag}`}</p>
+            <span>{`#${tag}`}</span>
           ))}
         </div>
       </div>

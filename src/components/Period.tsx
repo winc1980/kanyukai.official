@@ -4,7 +4,6 @@ interface periodProps {
   title: string;
   year: string;
   paragraph: string;
-  isDetail: boolean;
   periodClick: () => void;
 }
 
@@ -18,11 +17,6 @@ export default function Period({
   const [windowWidth, setWindowWidth] = useState(0);
   const [xCoord, setXCoord] = useState(0);
   const [yCoord, setYCoord] = useState(0);
-
-  //座標指定でdetailかshrinkか決めてます。親要素からの距離が0からyCoordMaxまでの間にいる時detail.
-  const yCoordMax = 350;
-  //yCoordMaxのPC版。ちょうどいい座標がいまいちわからない。
-  const xCoordMax = 500;
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -73,8 +67,10 @@ export default function Period({
     };
   }, [windowWidth]);
 
-  //座標確認用 あとで消します。
-  console.log("xCoord:", xCoord, "yCoord:", yCoord);
+  function onShrinkClick() {
+    window.scrollX += 256;
+    periodClick();
+  }
 
   return (
     <div
@@ -84,15 +80,15 @@ export default function Period({
       id="period"
       class="p-period"
     >
-      {(windowWidth > 767 && xCoord < xCoordMax && xCoord >= 0) ||
-      (windowWidth <= 767 && yCoord < yCoordMax && yCoord >= 0) ? (
+      {(windowWidth > 767 && xCoord < windowWidth * 0.367 && xCoord >= 0) ||
+      (windowWidth <= 767 && yCoord < windowWidth * 0.667 && yCoord >= 0) ? (
         <div class="p-period__detail">
           <h3 class="p-period__detail__year">{year}</h3>
           <h4 class="p-period__detail__title">{title}</h4>
           <p>{paragraph}</p>
         </div>
       ) : (
-        <div class="p-period__shrink" onClick={periodClick}>
+        <div class="p-period__shrink" onClick={onShrinkClick}>
           <span class="p-period__shrink__left__circle"></span>
           <h2 class="p-period__shrink__date">{year}</h2>
           <span class="p-period__shrink__right__circle"></span>
