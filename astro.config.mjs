@@ -15,5 +15,5 @@ export default defineConfig({
   build: {
     format: "preserve", // NOTE: 出力ファイルの設定
   },
-  integrations: [tailwind(), preact(), solidJs()],
+  integrations: [tailwind(), preact(), solidJs()]
 });
