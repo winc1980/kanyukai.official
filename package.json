@@ -21,7 +21,7 @@
     "@fontsource/twinkle-star": "^5.1.0",
     "@fontsource/zen-kaku-gothic-new": "^5.1.0",
     "@xexiu/astro-progress-bar": "^0.3.9",
-    "astro": "^4.14.2",
+    "astro": "^4.16.18",
     "microcms-js-sdk": "^3.1.2",
     "preact": "^10.24.3",
     "sass": "^1.77.8",
