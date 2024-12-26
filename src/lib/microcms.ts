@@ -20,9 +20,7 @@ export type Awards = {
     
     // if文でRGBAに分岐
     // medalcolor:;
-    og_Image?: {
-      url: string;
-    };
+    
   };
   export type AwardsResponse = {
     totalCount: number;
@@ -52,8 +50,8 @@ export type Activities= {
   id: string;
   date: string;
   title: string;
-  desicription:string;
-  og_Image?: {
+  content:string;
+  images?: {
     url: string;
   };
 };
@@ -108,5 +106,35 @@ export const getInvitationDetail = async (
     queries,
   });
 };
+
+
+//  // history型定義
+//  export type History= {
+//   id: string;
+//   year: string;
+//   title: string;
+//   description:string;
+// };
+// export type HistoryResponse = {
+//   totalCount: number;
+//   offset: number;
+//   limit: number;
+//   contents: History[];
+// };
+
+// //APIの呼び出し
+// export const getHistory = async (queries?: MicroCMSQueries) => {
+//   return await client2.get<HistoryResponse>({ endpoint: "invitation", queries });
+// };
+// export const getHistoryDetail = async (
+//   contentId: string,
+//   queries?: MicroCMSQueries
+// ) => {
+//   return await client2.getListDetail<History>({
+//     endpoint: "history",
+//     contentId,
+//     queries,
+//   });
+// };
 
 
