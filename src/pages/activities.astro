@@ -1,0 +1,185 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import '@/scss/activitiespage.scss';
+import '@fontsource/zen-kaku-gothic-new';
+
+
+const title = "";
+const description = "";
+const og_image = "";
+import img2 from '../../assets/image 2.png';
+import img3 from '../../assets/image 3.png';
+import img4 from '../../assets/image 4.png';
+import img5 from '../../assets/image 5.png';
+
+import Fishbg from "@/assets/images/fish_bg.webp";
+import dummy1 from "@/assets/images/dummy1.webp";
+import Activity from "../components/Activity.astro";
+import { string } from "astro/zod";
+import Label from "../components/Label.astro";
+
+// import { getActivities } from "../../lib/microcms";
+// const response2 = await getActivities({ fields: ["id", "title","date","description","og_image"] });
+
+// <ul>
+
+// 	{
+// 		response2.contents.map((activities: any) => (
+// 		<Activity title={activities.title} date={activities.date}  imgSrcs={activities.og_image} 
+// 		content={activities.description} />
+// 		))
+// 	}     
+// </ul>
+
+interface ActivityProp {
+	title: string;
+	date: string;
+	imgSrcs: ImageMetadata[];
+	content: string;
+}
+
+const activitiesProps: ActivityProp[] = [
+	{title: "タイトル", date: "YYYY/MM/DD", imgSrcs: [img2, img3, img4, img5], content: "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" },
+	{title: "タイトル", date: "YYYY/MM/DD", imgSrcs: [img2, img3, img4, img5], content: "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" },
+	{title: "タイトル", date: "YYYY/MM/DD", imgSrcs: [img2, img3, img4, img5], content: "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" },
+	{title: "タイトル", date: "YYYY/MM/DD", imgSrcs: [img2, img3, img4, img5], content: "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" },
+	{title: "タイトル", date: "YYYY/MM/DD", imgSrcs: [img2, img3, img4, img5], content: "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" },
+	{title: "タイトル", date: "YYYY/MM/DD", imgSrcs: [img2, img3, img4, img5], content: "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" },
+	{title: "タイトル", date: "YYYY/MM/DD", imgSrcs: [img2, img3, img4, img5], content: "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" },
+]
+---
+<script>
+	const footerHeight = document.getElementById('footer')!.offsetHeight;
+	const toTop = document.getElementsByClassName('to_top')[0] as HTMLElement;
+	let pos = document.documentElement.scrollHeight - window.scrollY;
+
+	if(pos > window.innerHeight+footerHeight) {
+		toTop.style.bottom = "0px";
+		toTop.classList.remove("locked");
+	} else {
+		if(pos > window.innerHeight){
+			toTop.style.bottom = `${pos-window.innerHeight}px`;
+		}else {
+			toTop.style.bottom = `${footerHeight}px`;
+			toTop.classList.add("locked");
+		}
+	}
+
+	document.addEventListener("scroll", () => {
+		if(window.scrollY==0){
+			toTop.classList.add('fade');
+		}else {
+			toTop.classList.remove('fade');
+		}
+    	pos = document.documentElement.scrollHeight - window.scrollY;
+		if(pos > window.innerHeight+footerHeight) {
+			toTop.style.bottom = "0px";
+			toTop.classList.remove("locked");
+		} else {
+			if(pos > window.innerHeight) {
+				toTop.style.bottom = `${footerHeight - (pos-window.innerHeight)}px`;
+			}else{
+				toTop.style.bottom = `${footerHeight}px`;
+				toTop.classList.add("locked");
+			}
+		}
+	});
+</script>
+
+<Layout title={title} , description={description} og_image={og_image}>
+	<main>
+		<a class="to_top" href="#header">
+			<svg width="100%" height="auto" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<rect opacity="0.5" x="3" y="3" width="54" height="54" fill="#74C1F5"/>
+				<path opacity="0.5" d="M7.54606 39.0757C6.48176 40.3903 7.42842 42.3504 9.11976 42.3341L13.5063 42.2918C14.1031 42.2861 14.6662 42.0141 15.0417 41.5501L28.8017 24.5471C29.6021 23.5581 31.1104 23.558 31.9109 24.5469L45.6749 41.5503C46.0504 42.0141 46.6134 42.2861 47.2102 42.2918L51.6309 42.3342C53.3221 42.3505 54.2687 40.3906 53.2046 39.076L31.9315 12.7953C31.1311 11.8065 29.623 11.8064 28.8225 12.7952L7.54606 39.0757Z" fill="#F0F5FD"/>
+				<rect x="0.5" y="0.5" width="59" height="59" stroke="#51B7F2"/>
+			</svg> 
+		</a>
+		<section id="activities" class="p-activities relative">
+		  <div class="activities_l_container">
+			<div class="p-activities__wrapper">
+			<div class="p-activities__titlewrapper">
+				<Label jp="普段の活動" en="Activities"/>
+			</div>
+			<Image
+				src={Fishbg}
+            	alt={""}
+				class="p-activities__fish-bg"
+			/>
+			</div>
+		  </div>
+		</section>
+
+		<section id="blog" class="p-blog">
+		  <div class="l-container">
+			<ul class="p-blog__component__wrapper">
+				{activitiesProps.map(prop => {
+					return (
+						<li class="p-blog__component__wrapper__component">
+							<Activity title={prop.title} date={prop.date} imgSrcs={prop.imgSrcs} content={prop.content} />
+						</li>
+					)
+				})}
+			</ul>
+			
+			<!-- <ul class="p-blog__wrapper">
+			  <li class="p-blog__wrapper__card">
+			  	<div class="p-blog__wrapper__card__flexbox">
+				  <div class="p-blog__wrapper__card__flexbox_left">
+					<div class="p-blog__wrapper__card__flexbox__titlewrapper">
+					  <h3>タイトル</h3>
+			    	  <p>YYYY/MM/DD</p>
+					</div>
+					<p class="p-blog__wrapper__card__flexbox__txt">
+						内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
+						容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容							
+						容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+						内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
+						容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+						内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
+						容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+					</p>
+				  </div>
+				  <div class="p-blog__wrapper__card__flexbox__slide-wrapper">
+					<div id=slide class="p-blog__wrapper__card__flexbox__slide">
+						<div>
+						<Image 
+						src={dummy1} 
+						alt=""
+						class="slide1"
+						/>
+						</div>
+						<div>
+						<Image 
+						src={dummy1} 
+						alt=""
+						class="slide2"
+						/>
+						</div>
+						<div>
+						<Image 
+						src={dummy1} 
+						alt=""
+						class="slide3"
+						/>
+						</div>
+					</div>
+						
+						<span id="prev" class="prev"></span>
+						<span id="next" class="next"></span>
+						
+						<ul class="indicator" id="indicator">
+							<li class="list"></li>
+							<li class="list"></li>
+							<li class="list"></li>
+						</ul>
+				  </div>
+				</div>
+
+			  </li>
+			</ul> -->
+		  </div>
+		</section>
+	</main>
+</Layout>

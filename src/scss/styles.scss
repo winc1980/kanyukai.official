@@ -101,11 +101,9 @@ header {
   align-items: center;
   padding: 15px 7%;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
-  // position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  // background-color: white;
 
   @media (min-width: 1980px) {
     padding: 2vw 7%;
@@ -265,6 +263,7 @@ header {
   }
 }
 
+
 .label {
   @media (max-width: $breakpoint-md) {
     margin-bottom: 5%;
@@ -282,14 +281,11 @@ header {
 
   .label_bottom {
     display: flex;
+
     .en {
       font-size: 3.3vw;
       letter-spacing: 8px;
       border-bottom: 1px solid #000;
-      @media (max-width: $breakpoint-md) {
-        font-size: 1.5rem;
-        letter-spacing: 4px;
-      }
     }
 
     .dots {
@@ -303,10 +299,23 @@ header {
         margin-right: 6px;
       }
     }
+
+    @media (max-width: $breakpoint-md) {
+      .en {
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+      }
+    }
+
+    @media (max-width: $breakpointMobile) {
+      .en {
+        font-size: 3.47vw;
+      }
+    }
   }
 }
 
-.activity {
+.p-activity {
   padding: 0 8%;
   display: flex;
   flex-direction: column;
@@ -362,9 +371,6 @@ header {
           font-weight: 400;
           font-style: normal;
           align-self: flex-end;
-          @media (max-width: $breakpoint-lg) {
-            font-size: 1.125rem;
-          }
         }
 
         &__date {
@@ -374,10 +380,17 @@ header {
           font-weight: 200;
           font-style: normal;
           align-self: flex-end;
-          @media (max-width: $breakpoint-lg) {
+        }
+        @media (max-width: $breakpoint-lg) {
+          &__title{
+            font-size: 1.125rem;
+          }
+
+          &__date {
             font-size: 1rem;
           }
         }
+
         @media (max-width: $breakpointMobile) {
           &__title,
           &__date {
@@ -569,6 +582,8 @@ header {
   transition: all 0.3s ease;
 }
 
+/* award 大会実績ここから */
+
 .p-award {
   padding: 0 8%;
   display: flex;
@@ -683,15 +698,9 @@ header {
   }
 }
 
-// .award__element:hover {
-//   transform: scale(1.05);
-//   transition: all 0.3s ease;
-//   z-index: 10;
+/* award 大会実績ここまで */
 
-//   &__content::before{
-//     z-index: -1;
-//   }
-// }
+/* invitation ここから */
 
 .p-invitation {
   padding: 5% 8% 0 8%;
@@ -852,20 +861,6 @@ header {
     opacity: 1;
     filter: blur(1.5rem);
     z-index: -1;
-
-
-    // &__element:hover {
-    //   transition: all 0.3s ease;
-    //   transform: scale(1.1);
-    //   cursor: pointer;
-    // }
-
-// 
-  // &__element:hover {
-  //   transition: all 0.3s ease;
-  //   transform: scale(1.1);
-  //   cursor: pointer;
-  // }
   }
 }
 
@@ -896,28 +891,35 @@ header {
     height: auto;
     margin: 0 1%;
     border: 1px solid #000;
-    @media (max-width: $breakpointMobile) {
-      width: 24vw;
-      margin: 0 3vw;
-    }
   }
 
   .odd {
     margin-top: 5%;
     box-shadow: 0 50px 5px rgba(0, 0, 0, 0.3);
-    @media (max-width: $breakpointMobile) {
-      margin-top: 0;
-    }
   }
 
   .even {
     margin-bottom: 5%;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-    @media (max-width: $breakpointMobile) {
+  }
+
+  @media (max-width: $breakpointMobile){
+    &___img__box {
+      width: 24vw;
+      margin: 0 3vw;
+    }
+
+    .odd {
+      margin-top: 0;
+    }
+
+    .even {
       margin-bottom: 0;
     }
   }
 }
+
+/* invitationここまで　*/
 
 .informations {
   padding: 0 8%;
