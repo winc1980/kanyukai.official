@@ -99,7 +99,7 @@ const awards: Award[] = [
     images: [optimized_demo],
   },
 ];
-const years = [... new Set(awards.map((award) => award.date.slice(0, 4)))];
+const years = [... new Set(awards.map((award) => award.date.slice(0, 4)))]
 ---
 <script>
 	const footerHeight = document.getElementById('footer')!.offsetHeight;

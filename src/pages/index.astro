@@ -26,7 +26,7 @@ const count = signal(0);
 import { getAwards } from "../lib/microcms";
 const response = await getAwards({ fields: ["id", "title","date","description"] });
 import { getInvitation } from "../lib/microcms";
-const response3= await getInvitation({ fields: ["id", "title","date","description","og_image"] });
+const response3= await getInvitation({ fields: ["id", "title","date","contents","og_image"] });
 
 
 ---
@@ -97,7 +97,7 @@ const response3= await getInvitation({ fields: ["id", "title","date","descriptio
 				{
 				  response3.contents.map((invitation: any) => (
 				  <Invitation title={invitation.title}  date={invitation.date}
-				  content={invitation.description} />
+				  content={invitation.contents} />
 				  ))
 				}      
 			</ul>

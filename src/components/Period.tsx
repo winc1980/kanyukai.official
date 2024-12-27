@@ -3,14 +3,14 @@ import { useEffect, useRef, useState } from "preact/hooks";
 interface periodProps {
   title: string;
   year: string;
-  paragraph: string;
+  contents: string;
   periodClick: () => void;
 }
 
 export default function Period({
   title,
   year,
-  paragraph,
+  contents,
   periodClick,
 }: periodProps) {
   const periodRef = useRef<HTMLDivElement>(null);
@@ -85,7 +85,7 @@ export default function Period({
         <div class="p-period__detail">
           <h3 class="p-period__detail__year">{year}</h3>
           <h4 class="p-period__detail__title">{title}</h4>
-          <p>{paragraph}</p>
+          <p>{contents}</p>
         </div>
       ) : (
         <div class="p-period__shrink" onClick={onShrinkClick}>
