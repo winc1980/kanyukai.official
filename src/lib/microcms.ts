@@ -17,7 +17,7 @@ export type Awards = {
     id: string;
     date: string;
     title: string;
-    
+    og_image?:{url: string};
     // if文でRGBAに分岐
     // medalcolor:;
     
@@ -83,7 +83,7 @@ export const getActivitiesDetail = async (
   id: string;
   date: string;
   title: string;
-  description:string;
+  contents:string;
 };
 export type InvitationResponse = {
   totalCount: number;
@@ -108,12 +108,14 @@ export const getInvitationDetail = async (
 };
 
 
- // history型定義
+ //history型定義
  export type History= {
   id: string;
   year: string;
   title: string;
-  description:string;
+  contents:string;
+  og_image?:{url:string};
+
 };
 export type HistoryResponse = {
   totalCount: number;
@@ -124,13 +126,13 @@ export type HistoryResponse = {
 
 //APIの呼び出し
 export const getHistory = async (queries?: MicroCMSQueries) => {
-  return await client2.get<HistoryResponse>({ endpoint: "invitation", queries });
+  return await client1.get<HistoryResponse>({ endpoint: "history", queries });
 };
 export const getHistoryDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
-  return await client2.getListDetail<History>({
+  return await client1.getListDetail<History>({
     endpoint: "history",
     contentId,
     queries,
