@@ -17,6 +17,7 @@ import Fishbg from "@/assets/images/fish_bg.webp";
 import dummy1 from "@/assets/images/dummy1.webp";
 import Activity from "../../components/Activity.astro";
 import { string } from "astro/zod";
+import Label from "../../components/Label.astro";
 
 // import { getActivities } from "../../lib/microcms";
 // const response2 = await getActivities({ fields: ["id", "title","date","description","og_image"] });
@@ -99,11 +100,7 @@ const activitiesProps: ActivityProp[] = [
 		  <div class="activities_l_container">
 			<div class="p-activities__wrapper">
 			<div class="p-activities__titlewrapper">
-				<p>普段の活動</p>
-				<div class="p-activities__titlewrapper__flexbox">
-					<h1 class="p-activities__titlewrapper__flexbox__title">Activity</h1>
-					<pre class="p-activities__titlewrapper__flexbox__margin">　　　</pre>
-				</div>
+				<Label jp="普段の活動" en="Activities"/>
 			</div>
 			<Image
 				src={Fishbg}

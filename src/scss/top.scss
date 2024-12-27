@@ -26,7 +26,6 @@
     }
     .fish_big {
       display: none;
-      
     }
   }
   .fish {
@@ -61,12 +60,17 @@
         a {
           font-size: 1rem;
         }
-        @media (max-width: $breakpointMobile){
+        @media (max-width: $breakpointMobile) {
           svg {
             display: none;
           }
         }
-        
+      }
+    }
+
+    @media (max-width: $breakpointMobile) {
+      &__headline {
+        font-size: 6.4vw;
       }
     }
 
@@ -81,12 +85,12 @@
         display: flex;
         padding-bottom: 3px;
         padding-right: 3px;
-        a{
+        a {
           font-size: 1.67vw;
-          @media (max-width: $breakpoint-xl){
+          @media (max-width: $breakpoint-xl) {
             font-size: 1.5rem;
           }
-          @media (max-width: $breakpoint-md){
+          @media (max-width: $breakpoint-md) {
             font-size: 1rem;
           }
         }
@@ -95,12 +99,12 @@
           margin-left: 0.41vw;
           align-self: flex-end;
           min-width: 36px;
-          @media (max-width: $breakpoint-md){
+          @media (max-width: $breakpoint-md) {
             width: 2.25vw;
             height: auto;
             margin-left: 6px;
           }
-          @media (max-width: $breakpointMobile){
+          @media (max-width: $breakpointMobile) {
             display: none;
             width: 0;
             height: 0;

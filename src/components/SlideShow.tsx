@@ -5,7 +5,7 @@ import "../scss/top.scss";
 import "../scss/slide.scss";
 import type { RefObject } from "preact";
 
-//props 
+//props
 interface Props {
   imgProps: ImageMetadata[];
   //●○のやつを表示するかどうかのフラグ,デフォルトでtrue
@@ -61,7 +61,7 @@ export default function SlideComponent({
   useEffect(() => {
     const interval = 10;
     const step = (100 / duration) * interval;
-  
+
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -71,10 +71,9 @@ export default function SlideComponent({
         return prev + step;
       });
     }, interval);
-  
-    return () => clearInterval(timer); 
-  }, [slidePos]); 
-  
+
+    return () => clearInterval(timer);
+  }, [slidePos]);
 
   const prevRef = useRef<HTMLSpanElement>(null);
   const nextRef = useRef<HTMLSpanElement>(null);
@@ -101,15 +100,20 @@ export default function SlideComponent({
   }
 
   const slideRef = useRef<HTMLDivElement>(null);
-  if(prevRef.current && nextRef.current && !showProgressBar && slideRef.current){
-    prevRef.current.style.top = `${slideRef.current.offsetHeight/2 - prevRef.current.offsetHeight/2}px`;
-    nextRef.current.style.top = `${slideRef.current.offsetHeight/2 - nextRef.current.offsetHeight/2}px`;
-    prevRef.current.style.left = `-${prevRef.current.offsetWidth/2}px`;
-    nextRef.current.style.right = `-${nextRef.current.offsetWidth/2}px`;
+  if (
+    prevRef.current &&
+    nextRef.current &&
+    !showProgressBar &&
+    slideRef.current
+  ) {
+    prevRef.current.style.top = `${slideRef.current.offsetHeight / 2 - prevRef.current.offsetHeight / 2}px`;
+    nextRef.current.style.top = `${slideRef.current.offsetHeight / 2 - nextRef.current.offsetHeight / 2}px`;
+    prevRef.current.style.left = `-${prevRef.current.offsetWidth / 2}px`;
+    nextRef.current.style.right = `-${nextRef.current.offsetWidth / 2}px`;
   }
 
   return (
-    <div class="slide_component" ref={(el) => slideRef.current = el}>
+    <div class="slide_component" ref={(el) => (slideRef.current = el)}>
       {showProgressBar ? (
         <>
           <div class="slide_component__navigation">
@@ -120,7 +124,9 @@ export default function SlideComponent({
                 style={{ width: `${progress}%` }}
               ></span>
             </div>
-            <h6 class="right">{imgProps.length < 10 ? '0'+imgProps.length : imgProps.length}</h6>
+            <h6 class="right">
+              {imgProps.length < 10 ? "0" + imgProps.length : imgProps.length}
+            </h6>
             <div
               style={{ display: `${showNextPrevButton ? "flex" : "none"}` }}
               class="slide_component__navigation__skip z-50"
@@ -139,7 +145,7 @@ export default function SlideComponent({
                 onClick={nextButtonClick}
                 ref={(el) => (nextRef.current = el)}
               >
-                <NextIcon/>
+                <NextIcon />
               </div>
             </div>
           </div>
@@ -164,7 +170,7 @@ export default function SlideComponent({
               onClick={nextButtonClick}
               ref={(el) => (nextRef.current = el)}
             >
-              <NextIcon/>
+              <NextIcon />
             </div>
           </div>
         </>
@@ -198,8 +204,8 @@ export default function SlideComponent({
             <div>
               <img
                 src={img.src}
-                width={'100%'}
-                height={'auto'}
+                width={"100%"}
+                height={"auto"}
                 loading="eager"
                 alt={img.src}
               />
