@@ -42,7 +42,7 @@ const response3= await getInvitation({ fields: ["id", "title","date","contents",
 		<Top/>
 
 		
-		<div class="activity">
+		<section id="activity" class="p-activity">
 			<div class="logo right">
 				<Logo/>
 			</div>
@@ -54,9 +54,9 @@ const response3= await getInvitation({ fields: ["id", "title","date","contents",
 			<Activity title="タイトル" date="YYYY/MM/DD" imgSrcs={[img2, img3, img4, img5]} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" />
 			<Activity title="タイトル" date="YYYY/MM/DD" imgSrcs={[img2, img3, img4]} content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・"/> 
 			<div class="button_margin">
-				<ViewButton link="/Activities"/>
+				<ViewButton link="/activities"/>
 			</div>
-		</div>
+		</section>
 
 		<section id="award" class="p-award">
 			<div class="logo p-award__right">
@@ -107,24 +107,24 @@ const response3= await getInvitation({ fields: ["id", "title","date","contents",
 			<Invitation title="代々木公園新歓BBQ開催！！！" content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容・・・" date="YYYY/MM/DD"/> -->
 		</section>
 		<Photo/>
-		<div class="calender-l-container">
+		<section class="calender-l-container">
 			<iframe class="justify-center flex items-center h-full" src="https://calendar.google.com/calendar/embed?src=gu.kanyukai.since1953%40gmail.com&ctz=Asia%2FTokyo" style="border: 0" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
-		</div>
+		</section>
 		<Headline title="Information"/>
-		<div id="informations" class="p-informations">
+		<section id="informations" class="p-informations">
 			<Status/>
 			<Events/>
 			<div class="button_margin">
-				<ViewButton link="/Information"/>
+				<ViewButton link="/information"/>
 			</div>
-		</div>
+		</section>
 		<Headline title="History"/>
-		<div class="history">
+		<section class="history">
 			<HistoryComponent count={count} client:only="preact"/>
 			<div class="button_margin">
-				<ViewButton link="/History"/>
+				<ViewButton link="/history"/>
 			</div>
-		</div>
+		</section>
 	</main>
 </Layout>
 

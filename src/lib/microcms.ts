@@ -106,17 +106,16 @@ export const getInvitationDetail = async (
     queries,
   });
 };
-
-
- //history型定義
+//history型定義
  export type History= {
   id: string;
   year: string;
+
   title: string;
   contents:string;
   og_image?:{url:string};
+ }
 
-};
 export type HistoryResponse = {
   totalCount: number;
   offset: number;
