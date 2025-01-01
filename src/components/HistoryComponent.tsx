@@ -57,8 +57,9 @@ export default function HistoryComponent({ count }: Props) {
     };
 
     window.addEventListener("resize", handleResize);
-
+  
     return () => window.removeEventListener("resize", handleResize);
+
   }, []);
 
   //scrollボタンを押下した際に移動するpx数
@@ -87,14 +88,14 @@ export default function HistoryComponent({ count }: Props) {
 
   function onShrinkClick(index: number) {
     setDetailPos(index);
-    historyRef.current?.scrollBy({
-      top: windowWidth <= 767 ? (index - detailPos) * windowWidth * 0.367 : 0,
-      left: windowWidth > 768 ? (index - detailPos) * windowWidth * 0.667 : 0,
+    historyRef.current?.scrollTo({
+      top: windowWidth <= 767 ?  index * historyRef.current.offsetHeight / periods.length *1.4 : 0,
+      left: windowWidth > 768 ? (index == periods.length ? index + 1: index) * historyRef.current.offsetWidth / periods.length*1.5 : 0,
       behavior: "smooth",
     });
   }
 
-  console.log(detailPos);
+  
 
   return (
     <div class="relative">

@@ -68,7 +68,6 @@ export default function Period({
   }, [windowWidth]);
 
   function onShrinkClick() {
-    window.scrollX += 256;
     periodClick();
   }
 
@@ -78,7 +77,7 @@ export default function Period({
         periodRef.current = el;
       }}
       id="period"
-      class="p-period"
+      class="p-period cursor-pointer"
     >
       {(windowWidth > 767 && xCoord < windowWidth * 0.367 && xCoord >= 0) ||
       (windowWidth <= 767 && yCoord < windowWidth * 0.667 && yCoord >= 0) ? (
