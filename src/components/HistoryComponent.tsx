@@ -3,10 +3,6 @@ import Period from "./Period.tsx";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ScrollIcon } from "../utils/svgs.tsx";
 
-type Props = {
-  count: Signal<number>;
-};
-
 export interface PeriodType {
   year: string;
   title: string;
@@ -46,9 +42,9 @@ const periods: PeriodType[] = [
   },
 ];
 
-export default function HistoryComponent({ count }: Props) {
+export default function HistoryComponent() {
+  //windowSizeが変わった時にhistoryComponentの縦横の向きを変えるためのstate
   const [windowWidth, setWindowWidth] = useState(0);
-  const [detailPos, setDetailPos] = useState(0);
   useEffect(() => {
     setWindowWidth(window.innerWidth);
 
@@ -57,16 +53,13 @@ export default function HistoryComponent({ count }: Props) {
     };
 
     window.addEventListener("resize", handleResize);
-  
-    return () => window.removeEventListener("resize", handleResize);
 
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  //scrollボタンを押下した際に移動するpx数
-  const xScroll = 200;
-  const yScroll = 200;
-
+  //historyComponent全体のref
   const historyRef = useRef<HTMLDivElement>(null);
+  //scrollのiconのref
   const iconRef = useRef<HTMLDivElement>(null);
 
   function elementClick() {
@@ -79,30 +72,41 @@ export default function HistoryComponent({ count }: Props) {
         }, 200);
       }
       historyRef.current.scrollBy({
-        top: windowWidth <= 767 ? -xScroll : 0,
-        left: windowWidth > 767 ? -yScroll : 0,
+        top:
+          windowWidth <= 767
+            ? (-historyRef.current.offsetHeight / periods.length) * 1.4
+            : 0,
+        left:
+          windowWidth > 767
+            ? (-historyRef.current.offsetWidth / periods.length) * 1.5
+            : 0,
         behavior: "smooth",
       });
     }
   }
 
   function onShrinkClick(index: number) {
-    setDetailPos(index);
     historyRef.current?.scrollTo({
-      top: windowWidth <= 767 ?  index * historyRef.current.offsetHeight / periods.length *1.4 : 0,
-      left: windowWidth > 768 ? (index == periods.length ? index + 1: index) * historyRef.current.offsetWidth / periods.length*1.5 : 0,
+      top:
+        windowWidth <= 767
+          ? ((index * historyRef.current.offsetHeight) / periods.length) * 1.4
+          : 0,
+      left:
+        windowWidth > 768
+          ? (((index == periods.length ? index + 1 : index) *
+              historyRef.current.offsetWidth) /
+              periods.length) *
+            1.5
+          : 0,
       behavior: "smooth",
     });
   }
 
-  
-
   return (
     <div class="relative">
-      <div class="history__wrapper__guide">
+      <div class="history__wrapper__guide" onClick={elementClick}>
         <div
           class="history__wrapper__guide__icon"
-          onClick={elementClick}
           ref={(el) => (iconRef.current = el)}
         >
           <ScrollIcon />
