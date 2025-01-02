@@ -1,4 +1,9 @@
-import type { Signal } from "@preact/signals";
+interface PeriodType {
+  year: string;
+  title: string;
+  paragraph: string;
+}
+
 import Period from "./Period.tsx";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ScrollIcon } from "../utils/svgs.tsx";
@@ -116,7 +121,7 @@ export default function HistoryComponent() {
           class="history__wrapper__border"
           style={{
             width: `${windowWidth <= 767 ? 4 : periods.length * windowWidth * 0.4}px`,
-            height: `${windowWidth <= 767 ? `${0.667 * periods.length * windowWidth}px` : `${0.139}vw`}`,
+            height: `${windowWidth <= 767 ? `${0.75 * periods.length * windowWidth}px` : `${0.139}vw`}`,
           }}
         ></span>
         {periods.map((period, index) => (

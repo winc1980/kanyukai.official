@@ -116,7 +116,7 @@
     &__join__link::before {
       position: absolute;
       background-color: $strongBlue;
-      inset: 3px -3px -3px 3px;
+      inset: 0.21vw -0.21vw -0.21vw 0.21vw;
       content: "";
       z-index: -1;
       @media (max-width: $breakpoint-md) {
