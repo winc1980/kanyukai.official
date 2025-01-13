@@ -5,6 +5,9 @@ import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://kanyukai.github.io',
+  base: '/kanyukai.official',
+
   vite: {
     resolve: {
       alias: {
