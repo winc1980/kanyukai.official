@@ -1,5 +1,5 @@
 ---
-let {title, date, content,imgSrc} = Astro.props;
+let {title, date, content} = Astro.props;
 import Layout from '../../layouts/Layout.astro';
 import { Image } from "astro:assets";
 import '@/scss/info.scss';
@@ -16,11 +16,6 @@ import Instagram from "@/assets/images/Instagram.webp";
 import X from "@/assets/images/X.webp";
 import Top from "../../components/Top.astro";
 import SlideShow2 from '../../components/Slideshow2.astro';
-
-
-
-
-
 // 画像リスト
 const slides = [
   { src: "/assets/images/dummy1.webp", alt: "スライド1" },
@@ -43,6 +38,13 @@ const slides = [
 		
 
     <section id="Info-top" class="p-Info-top sp-none">
+      <a class="to_top" href="#top">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect opacity="0.5" x="3" y="3" width="54" height="54" fill="#74C1F5"/>
+          <path opacity="0.5" d="M7.54606 39.0757C6.48176 40.3903 7.42842 42.3504 9.11976 42.3341L13.5063 42.2918C14.1031 42.2861 14.6662 42.0141 15.0417 41.5501L28.8017 24.5471C29.6021 23.5581 31.1104 23.558 31.9109 24.5469L45.6749 41.5503C46.0504 42.0141 46.6134 42.2861 47.2102 42.2918L51.6309 42.3342C53.3221 42.3505 54.2687 40.3906 53.2046 39.076L31.9315 12.7953C31.1311 11.8065 29.623 11.8064 28.8225 12.7952L7.54606 39.0757Z" fill="#F0F5FD"/>
+          <rect x="0.5" y="0.5" width="59" height="59" stroke="#51B7F2"/>
+        </svg> 
+      </a>
       
             <h1 class="p-Info-top__ttl">Information</h1>
             <Image
@@ -175,18 +177,20 @@ const slides = [
               />
             </div>
           </div>
-          
+          <!-- <SlideShow2 class="sp-none" />-->
           <div class="p-Events__cardswrapper">
             <div class="p-Events__cardswrapper__card">
               <div class="p-Events__cardswrapper__card__flexbox">
-                <div class="leftimgwrapper sp-none">
-                  <SlideShow2 class="left sp-none" client:load/>
-                </div>
+                
                 <div class="p-Events__cardswrapper__card__flexbox__txtbox">
                   <h3>月例釣行</h3>
-                  <div class="pc-none">
-                    <SlideShow2 class="left pc-none" client:load/>
-                  </div>
+                  <div>
+                  <Image 
+                src={dummy1} 
+                alt=""
+                class="slide1 pc-none"
+                />
+              </div>
                   <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
                      容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                      内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
@@ -212,9 +216,13 @@ const slides = [
               <div class="p-Events__cardswrapper__card__flexbox">
                 <div class="p-Events__cardswrapper__card__flexbox__txtbox">
                   <h3>合宿</h3>
-                  <div class="leftimgwrapper pc-none">
-                    <SlideShow2 class="pc-none" client:load/>
-                  </div>
+                  <div class="img-wrapper">
+                    <Image
+                        src={dummy1}
+                        alt={""}
+                        class="pc-none"    
+                      />
+                    </div>
                   <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
                     容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                     内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
@@ -225,9 +233,11 @@ const slides = [
                     容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                   </p>
                 </div>
-                <div class="rightimg sp-none">
-                <SlideShow2 class="right sp-none" client:load/>
-                </div>
+                <Image 
+                src={dummy1} 
+                alt=""
+                class="slide1 sp-none"
+                />
               </div>
             </div>
             
@@ -241,14 +251,14 @@ const slides = [
 
             <div class="p-Events__cardswrapper__card">
               <div class="p-Events__cardswrapper__card__flexbox">
-                <div class="sp-none">
-                  <SlideShow2 class="left sp-none" client:load/>
-                </div>
+                <Image 
+                src={dummy1} 
+                alt=""
+                class="slide1"
+                />
                 <div class="p-Events__cardswrapper__card__flexbox__txtbox">
                   <h3>文化祭</h3>
-                  <div class="pc-none">
-                    <SlideShow2 class="left pc-none" client:load/>
-                  </div>
+                  
                   <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
                     容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                     内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
@@ -264,8 +274,14 @@ const slides = [
           </div>
 
         </div>
+
+        
+      
+        
       
     </section>
+
+    <SlideShow2 images={slides} client:only="preact" />
   </main>
 </Layout>
 
