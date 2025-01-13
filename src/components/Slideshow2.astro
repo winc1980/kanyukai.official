@@ -4,8 +4,9 @@ import { Image } from "astro:assets";
 import dummy1 from "@/assets/images/dummy1.webp";
 import dummy2 from "@/assets/images/dummy2.webp";
 ---
-
-<script>const slide = document.getElementById('slide0');
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" ></script>
+<script>
+  const slide = document.getElementById('slide0');
   const prev = document.getElementById('prev0');
   const next = document.getElementById('next0');
   const indicator = document.getElementById('indicator0');
