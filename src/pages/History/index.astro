@@ -1,5 +1,5 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 import { Image } from "astro:assets";
 import '@/scss/history.scss';
 import '@fontsource/zen-kaku-gothic-new';
@@ -11,8 +11,8 @@ const og_image = "";
 
 import Fishbg from "@/assets/images/fish_bg.webp";
 import dummy1 from "@/assets/images/dummy1.webp";
-import Slide from "@/components/Slide.astro";
-import SlideComponent from "@/components/SlideShow2.tsx";
+import Slide from "../../components/Slide.astro";
+import SlideComponent from "../../components/SlideShow2.tsx";
 ---
 
 <Layout title={title} , description={description} og_image={og_image}>

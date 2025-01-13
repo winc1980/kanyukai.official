@@ -1,6 +1,6 @@
 ---
 let {title, date, content} = Astro.props;
-import Layout from '@/layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 import { Image } from "astro:assets";
 import '@/scss/info.scss';
 import '@fontsource/zen-kaku-gothic-new';
@@ -8,14 +8,14 @@ import '@fontsource/zen-kaku-gothic-new';
 const description = "";
 const og_image = "";
 
-import Slide from "@/components/Slide.astro";
+import Slide from "../../components/Slide.astro";
 import Fishbg from "@/assets/images/fish_bg.webp";
 import dummy1 from "@/assets/images/dummy1.webp";
 import dummy2 from "@/assets/images/dummy2.webp";
 import Instagram from "@/assets/images/Instagram.webp";
 import X from "@/assets/images/X.webp";
-import Top from "@/components/Top.astro";
-import SlideShow2 from '@/components/SlideShow2.astro';
+import Top from "../../components/Top.astro";
+import SlideShow2 from '../../components/Slideshow2.astro';
 // 画像リスト
 const slides = [
   { src: "/assets/images/dummy1.webp", alt: "スライド1" },

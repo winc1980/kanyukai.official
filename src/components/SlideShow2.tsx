@@ -1,4 +1,3 @@
-// src/components/SlideShow.tsx
 import { h } from "preact";
 import { useState } from "preact/hooks";
 
@@ -22,7 +21,7 @@ export default function SlideShow() {
   return (
     <div
       class="slideshow-container"
-      style={{ position: "relative", maxWidth: "600px", margin: "auto" }}
+      style={{ position: "relative", "max-width": "600px", margin: "auto" }}
     >
       <button
         onClick={prevSlide}
@@ -33,13 +32,13 @@ export default function SlideShow() {
 
       {slides.map((slide, index) => (
         <div
-          key={index}
+          // key={index as any}
           style={{ display: index === currentSlide ? "block" : "none" }}
         >
           <img
             src={slide.src}
             alt={slide.alt}
-            style={{ width: "100%", borderRadius: "10px" }}
+            style={{ width: "100%", "border-radius": "10px" }}
           />
         </div>
       ))}
