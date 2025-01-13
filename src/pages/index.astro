@@ -111,7 +111,8 @@ const response3= await getInvitation({ fields: ["id", "title","date","contents",
 		</section>
 		<Headline title="History"/>
 		<section id="history" class="p-history">
-			<HistoryComponent client:only="preact"/>
+			<HistoryComponent client:only="preact" count={count} />
+
 			<div class="button_margin">
 				<ViewButton link="/history"/>
 			</div>

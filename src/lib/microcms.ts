@@ -110,31 +110,31 @@ export const getInvitationDetail = async (
   });
 };
 
-//  // history型定義
-//  export type History= {
-//   id: string;
-//   year: string;
-//   title: string;
-//   description:string;
-// };
-// export type HistoryResponse = {
-//   totalCount: number;
-//   offset: number;
-//   limit: number;
-//   contents: History[];
-// };
+ // history型定義
+ export type History= {
+  id: string;
+  year: string;
+  title: string;
+  description:string;
+};
+export type HistoryResponse = {
+  totalCount: number;
+  offset: number;
+  limit: number;
+  contents: History[];
+};
 
-// //APIの呼び出し
-// export const getHistory = async (queries?: MicroCMSQueries) => {
-//   return await client2.get<HistoryResponse>({ endpoint: "invitation", queries });
-// };
-// export const getHistoryDetail = async (
-//   contentId: string,
-//   queries?: MicroCMSQueries
-// ) => {
-//   return await client2.getListDetail<History>({
-//     endpoint: "history",
-//     contentId,
-//     queries,
-//   });
-// };
+//APIの呼び出し
+export const getHistory = async (queries?: MicroCMSQueries) => {
+  return await client2.get<HistoryResponse>({ endpoint: "invitation", queries });
+};
+export const getHistoryDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  return await client2.getListDetail<History>({
+    endpoint: "history",
+    contentId,
+    queries,
+  });
+};
