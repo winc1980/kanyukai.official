@@ -1,0 +1,47 @@
+name: Deploy to GitHub Pages
+
+on:
+  # `main` ブランチにプッシュするたびにワークフローを実行します
+  # 異なるブランチ名を使用する場合は、`main` をブランチ名に置き換えてください
+  push:
+    branches: [main]
+  # このワークフローを GitHub の Actions タブから手動で実行できるようにします。
+  # workflow_dispatch:
+  #   types: [update_post]
+  repository_dispatch:
+    types: [microcms]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      - name: Install, build, and upload your site
+        uses: withastro/action@v1
+        with:
+          node-version: 20
+        env:
+          MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+          MICROCMS_SERVICE_DOMAIN2: ${{ secrets.MICROCMS_SERVICE_DOMAIN2 }}
+          MICROCMS_API_KEY2: ${{ secrets.MICROCMS_API_KEY2 }}
+        # with:
+        # path: . # リポジトリ内のAstroプロジェクトのルートロケーション。(オプション)
+        # node-version: 18 # サイト構築に使用するNodeのバージョン。デフォルトは18です。（オプション）
+        # package-manager: pnpm@latest # 依存関係のインストールとサイトのビルドに使用する Node パッケージマネージャ。ロックファイルに基づいて自動的に検出されます。(オプション)
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    # このジョブがリポジトリをクローンし、ページデプロイメントを作成することを許可します。
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
