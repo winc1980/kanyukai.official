@@ -6,7 +6,7 @@ import react from "@astrojs/react";
 
 export default defineConfig({
   site: 'https://kanyukai.github.io',
-  base: '/kanyukai.official',
+  // base: '/kanyukai.official',
   vite: {
     resolve: {
       alias: {
