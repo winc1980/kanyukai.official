@@ -12,7 +12,8 @@ const og_image = "";
 import Fishbg from "@/assets/images/fish_bg.webp";
 import dummy1 from "@/assets/images/dummy1.webp";
 import Slide from "../../components/Slide.astro";
-// import SlideComponent from "../../components/SlideShow2.tsx";
+import SlideShow2 from "../../components/Slideshow2.astro";
+
 ---
 
 <Layout title={title} , description={description} og_image={og_image}>
@@ -34,14 +35,23 @@ import Slide from "../../components/Slide.astro";
               内容内容内容内容内容内容内容内容内容内容内容内容
             </p>
         </div>
-        </section>
-
         
+        </section>
+        <div class="p-timeline__fish-bg_wrapper">
+        <Image
+              src={Fishbg}
+                    alt={""}
+              class="p-timeline__fish-bg"
+            />
+        </div>
         <section class="p-timeline sp-none" id="timeline">
+          
           <div class="l-container">
+            
             <ul class="timeline-item_wrapper">
             <li class="timeline-item">
-              <div class="line"><span class="timeline-dot"></span><span class="rotatebar"></span>
+              <div class="line">
+                <span class="rotatebar"><span class="timeline-dot"></span></span>
                 <h2 class="timeline_ttl">2000
                   <div class="dot">●</div>
                 </h2>
@@ -60,15 +70,11 @@ import Slide from "../../components/Slide.astro";
                 </p>
               </div>
               <div class="timeline-image">
-                <Image 
-              src={dummy1} 
-              alt=""
-              class="slide1"
-              />
+                <SlideShow2 class="slide1" client:load/>
               </div>
             </li>
             <li class="timeline-item">
-              <div class="line"><span class="timeline-dot"></span><span class="rotatebar"></span>
+              <div class="line"><span class="rotatebar"><span class="timeline-dot"></span></span>
                 <h2 class="timeline_ttl">2000
                   <div class="dot">●</div>
                 </h2>
@@ -87,15 +93,11 @@ import Slide from "../../components/Slide.astro";
                 </p>
               </div>
               <div class="timeline-image">
-                <Image 
-              src={dummy1} 
-              alt=""
-              class="slide1"
-              />
+                <SlideShow2 class="slide1" client:load/>
               </div>
             </li>
             <li class="timeline-item">
-              <div class="line"><span class="timeline-dot"></span><span class="rotatebar"></span>
+              <div class="line"><span class="rotatebar"><span class="timeline-dot"></span></span>
                 <h2 class="timeline_ttl">2000
                   <div class="dot">●</div>
                 </h2>
@@ -114,11 +116,7 @@ import Slide from "../../components/Slide.astro";
                 </p>
               </div>
               <div class="timeline-image">
-                <Image 
-              src={dummy1} 
-              alt=""
-              class="slide1"
-              />
+                <SlideShow2 class="slide1" client:load/>
               </div>
             </li>
 
@@ -134,15 +132,18 @@ import Slide from "../../components/Slide.astro";
 </section>
 
 <section class="p-timeline pc-none" id="timeline">
+  <Image
+    src={Fishbg}
+    alt={""}
+    class="p-timeline__fish-bg"
+  />
   <div class="l-container">
     <ul class="timeline-item_wrapper">
       <li class="timeline-item">
         <div class="line">
-          <div class="flexbox">
-          <div class="timeline_ttl">
-            <p>1980</p>
-          </div>
-          <div>
+            <div class="timeline_ttl">
+              <p>1980</p>
+            </div>
           <div class="timeline-content">
             <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
               内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
@@ -151,25 +152,18 @@ import Slide from "../../components/Slide.astro";
               内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
               内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
             </p>
+        
+            <div class="timeline-image">
+              <SlideShow2 class="slide1" client:load/>
+            </div>
           </div>
-          <div class="timeline-image">
-            <Image 
-          src={dummy1} 
-          alt=""
-          class="slide1"
-          />
-          </div>
-        </div>
-        </div>
         </div>
       </li>
       <li class="timeline-item">
         <div class="line">
-          <div class="flexbox">
-          <div class="timeline_ttl">
-            <p>2000</p>
-          </div>
-          <div>
+            <div class="timeline_ttl">
+              <p>2000</p>
+            </div>
           <div class="timeline-content">
             <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
               内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
@@ -178,16 +172,11 @@ import Slide from "../../components/Slide.astro";
               内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
               内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
             </p>
+        
+            <div class="timeline-image">
+              <SlideShow2 class="slide1" client:load/>
+            </div>
           </div>
-          <div class="timeline-image">
-            <Image 
-          src={dummy1} 
-          alt=""
-          class="slide1"
-          />
-          </div>
-        </div>
-        </div>
         </div>
       </li>
     </ul>

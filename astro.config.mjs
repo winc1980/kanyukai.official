@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import preact from "@astrojs/preact";
 import solidJs from "@astrojs/solid-js";
-
+import react from "@astrojs/react";
 
 export default defineConfig({
   site: 'https://kanyukai.github.io',
@@ -17,7 +17,7 @@ export default defineConfig({
   build: {
     format: "preserve", // NOTE: 出力ファイルの設定
   },
-  integrations: [tailwind(), preact(), solidJs()]
+  integrations: [tailwind(), preact(), solidJs()],
 });
 
 // import { defineConfig } from "astro/config";
