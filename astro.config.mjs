@@ -33,7 +33,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "@": path.resolve(fileURLToPath(import.meta.url), "./src"), // 正しいエイリアス解決
+        "@": path.resolve(fileURLToPath(import.meta.url), "/src"), // 正しいエイリアス解決
       },
     },
   },
