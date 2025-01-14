@@ -15,7 +15,7 @@ import dummy2 from "@/assets/images/dummy2.webp";
 import Instagram from "@/assets/images/Instagram.webp";
 import X from "@/assets/images/X.webp";
 import Top from "../../components/Top.astro";
-import SlideShow2 from '../../components/Slideshow.astro';
+// import SlideShow2 from '../../components/Slideshow.astro';
 // 画像リスト
 const slides = [
   { src: "/assets/images/dummy1.webp", alt: "スライド1" },
@@ -178,7 +178,7 @@ const slides = [
               />
             </div>
           </div>
-          <SlideShow2 class="sp-none" />
+          <!-- <SlideShow2 class="sp-none" /> -->
           <div class="p-Events__cardswrapper">
             <div class="p-Events__cardswrapper__card">
               <div class="p-Events__cardswrapper__card__flexbox">
@@ -282,7 +282,7 @@ const slides = [
       
     </section>
 
-    <SlideShow2 images={slides} client:only="preact" />
+    <!-- <SlideShow2 images={slides} client:only="preact" /> -->
   </main>
 </Layout>
 
