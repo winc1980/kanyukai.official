@@ -15,7 +15,7 @@ import dummy2 from "@/assets/images/dummy2.webp";
 import Instagram from "@/assets/images/Instagram.webp";
 import X from "@/assets/images/X.webp";
 import Top from "../../components/Top.astro";
-// import SlideShow2 from '../../components/Slideshow.astro';
+import SlideShow2 from '../../components/Slideshow.astro';
 // 画像リスト
 const slides = [
   { src: "/assets/images/dummy1.webp", alt: "スライド1" },
@@ -166,7 +166,7 @@ const slides = [
               <p>年中行事</p>
               <div class="p-Events__titlewrapper__flexbox">
                 <h1 class="p-Events__titlewrapper__flexbox__title">Events</h1>
-                
+
                 <pre class="p-Events__titlewrapper__flexbox__margin">　　　</pre>
               </div>
             </div>
@@ -282,7 +282,7 @@ const slides = [
       
     </section>
 
-    <!-- <SlideShow2 images={slides} client:only="preact" /> -->
+    <SlideShow2 images={slides} client:only="preact" />
   </main>
 </Layout>
 
