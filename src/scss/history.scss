@@ -154,16 +154,16 @@ body {
 }
 
 /* ドット */
-.timeline-dot {
-  position: absolute;
+// .timeline-dot {
+//   position: absolute;
 
-  left: -20vw;
-  width: 3vw;
-  height: 3vw;
-  background-color: #b0dfe7;
-  border-radius: 50%;
-  z-index: 1;
-}
+//   left: -20vw;
+//   width: 3vw;
+//   height: 3vw;
+//   background-color: #b0dfe7;
+//   border-radius: 50%;
+//   z-index: 1;
+// }
 
 /* コンテンツスタイル */
 .timeline-content {
@@ -214,6 +214,10 @@ body {
   left: 7vw;
   top: 15vh;
   font-size: 3vw;
+  text-decoration: underline;
+  text-decoration-color: #b0dfe7;
+  text-underline-offset: 6px; /* 下線と文字の間隔を調整 */
+  text-decoration-thickness: 5px; /* 下線の太さを調整 */
 }
 
 @media (max-width: $breakpoint-md) {
@@ -233,29 +237,29 @@ body {
   }
 }
 
-.dot {
-  position: absolute;
-  top: 7vh;
-  left: 9vw;
-  font-size: 1.5vw;
-  color: #b0dfe7;
-}
+// .dot {
+//   position: absolute;
+//   top: 7vh;
+//   left: 9vw;
+//   font-size: 1.5vw;
+//   color: #b0dfe7;
+// }
 
-.timeline_ttl::after {
-  position: absolute;
-  content: "";
-  left: -2vw;
-  top: 9vh;
-  width: 12vw;
-  height: 5px;
-  z-index: 1;
-  background-color: #b0dfe7;
-}
+// .timeline_ttl::after {
+//   position: absolute;
+//   content: "";
+//   left: -2vw;
+//   top: 9vh;
+//   width: 12vw;
+//   height: 5px;
+//   z-index: 1;
+//   background-color: #b0dfe7;
+// }
 
 @media (max-width: $breakpoint-md) {
-  .timeline_ttl::after {
-    display: none;
-  }
+  // .timeline_ttl::after {
+  //   display: none;
+  // }
 }
 
 .rotatebar {
@@ -273,9 +277,10 @@ body {
 }
 
 .timeline-content h3 {
-  margin: 5px 0;
+  margin: 30px 0 10px 0;
   font-size: 1.7vw;
-  color: #666;
+  color: #378290;
+  font-size: 32px;
 }
 
 .timeline-content p {

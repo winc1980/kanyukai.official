@@ -115,6 +115,10 @@ export const getInvitationDetail = async (
   id: string;
   year: string;
   title: string;
+  contents:string;
+  ogimage?:{
+    url:string;
+  }
   description:string;
 };
 export type HistoryResponse = {
@@ -126,13 +130,13 @@ export type HistoryResponse = {
 
 //APIの呼び出し
 export const getHistory = async (queries?: MicroCMSQueries) => {
-  return await client2.get<HistoryResponse>({ endpoint: "invitation", queries });
+  return await client1.get<HistoryResponse>({ endpoint: "history", queries });
 };
 export const getHistoryDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
-  return await client2.getListDetail<History>({
+  return await client1.getListDetail<History>({
     endpoint: "history",
     contentId,
     queries,
