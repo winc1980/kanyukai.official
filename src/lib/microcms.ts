@@ -17,7 +17,12 @@ export type Awards = {
   id: string;
   date: string;
   title: string;
-
+  year:string;
+  medalcolor:string;
+  contents:string;
+  ogimage?:{
+    url:string;
+  }
   // if文でRGBAに分岐
   // medalcolor:;
 };

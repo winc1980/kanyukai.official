@@ -2,12 +2,20 @@ import "../scss/chAward.scss";
 import type { Award } from "../pages/awards.astro";
 import SlideComponent from "./SlideShow";
 
-export default function ChAward({ date, tags, title, content, images }: Award) {
+const medalColorClass = {
+  金: 'bg-yellow-500',  // 金メダル
+  銀: 'bg-gray-400',    // 銀メダル
+  銅: 'bg-orange-600',  // 銅メダル
+  その他: 'bg-gray-300', // それ以外
+};
+const getMedalColor = (medalcolor: string) => medalColorClass[medalcolor] || medalColorClass["その他"];
+export default function ChAward({ date, tags, title, content, images, medalcolor }: Award & { medalcolor: string }) {
+
   return (
     <div class="ch__award">
       <div class="ch__award__top">
         <div class="ch__award__top__left">
-          <span></span>
+          <span class={`medalspan ${getMedalColor(medalcolor)}`}></span>
           <div>
             <h5 class="ch__award__top__left__date zenkaku_light">{date}</h5>
             <h4 class="ch__award__top__left__title zenkaku_normal">{title}</h4>
