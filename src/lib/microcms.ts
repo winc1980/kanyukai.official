@@ -26,6 +26,23 @@ export type Awards = {
   // if文でRGBAに分岐
   // medalcolor:;
 };
+// medalcolor を RGBA に変換する関数
+const medalColorToRGBA = (color: string | string[]): string => {
+  const colorName = Array.isArray(color) ? color[0] : color; // 配列なら最初の要素を取得
+
+  switch (colorName) {
+    case "金":
+      return "rgba(255, 223, 0, 1)"; // 金のRGBA
+    case "銀":
+      return "rgba(192, 192, 192, 1)"; // 銀のRGBA
+    case "銅":
+      return "rgba(205, 127, 50, 1)"; // 銅のRGBA
+    case "その他":
+      return "rgba(0, 0, 255, 0.5)"; // その他のRGBA
+    default:
+      return "rgba(0, 0, 255, 0.5)"; // デフォルトのRGBA
+  }
+};
 export type AwardsResponse = {
   totalCount: number;
   offset: number;
