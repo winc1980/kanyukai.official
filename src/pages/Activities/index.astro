@@ -12,20 +12,19 @@ import img2 from '../../assets/image 2.png';
 import img3 from '../../assets/image 3.png';
 import img4 from '../../assets/image 4.png';
 import img5 from '../../assets/image 5.png';
-
 import Fishbg from "@/assets/images/fish_bg.webp";
 import dummy1 from "@/assets/images/dummy1.webp";
 import Activity from "../../components/Activity.astro";
 import { string } from "astro/zod";
 import Label from "../../components/Label.astro";
 
-// import { getActivities } from "../../lib/microcms";
-// const response2 = await getActivities({ fields: ["id", "title","date","description","og_image"] });
+import { getActivities } from "../../lib/microcms";
+const response = await getActivities({ fields: ["id", "title","date","description","og_image"] });
 
 // <ul>
 
 // 	{
-// 		response2.contents.map((activities: any) => (
+// 		response.contents.map((activities: any) => (
 // 		<Activity title={activities.title} date={activities.date}  imgSrcs={activities.og_image} 
 // 		content={activities.description} />
 // 		))
@@ -70,13 +69,22 @@ const activitiesProps: ActivityProp[] = [
 		<section id="blog" class="p-blog">
 		  <div class="l-container">
 			<ul class="p-blog__component__wrapper">
-				{activitiesProps.map(prop => {
+				   <ul>
+
+						{
+							response.contents.map((activities: any) => (
+							<Activity title={activities.title} date={activities.date}  imgSrcs={activities.og_image} 
+					 		content={activities.description} />
+							))
+					 	}     
+					 </ul>
+				<!-- {activitiesProps.map(prop => {
 					return (
 						<li class="p-blog__component__wrapper__component">
 							<Activity title={prop.title} date={prop.date} imgSrcs={prop.imgSrcs} content={prop.content} />
 						</li>
 					)
-				})}
+				})} -->
 			</ul>
 			
 			<!-- <ul class="p-blog__wrapper">
