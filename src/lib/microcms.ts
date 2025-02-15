@@ -17,8 +17,8 @@ export type Awards = {
   id: string;
   date: string;
   title: string;
-  year:string;
-  medalcolor:string;
+  year: string;
+  medalcolor: string | string[];
   contents:string;
   ogimage?:{
     url:string;
